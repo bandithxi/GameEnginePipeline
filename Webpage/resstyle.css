@@ -1,0 +1,257 @@
+/*
+Makes Dynamic Fonts Available (IMPORTANT TO HAVE AT THE BEGINNING!)
+*/
+@font-face
+{
+	font-family: 'Amble';
+	src: url("fonts/Amble-Regular.otf");
+}
+
+div
+{
+	border-radius: 0px;
+}
+
+body
+{
+display: table-cell;	
+width: 100%;
+height: 100%;
+
+/*
+Gradients!
+*/
+background-color: #000000;
+color: #ffffff;
+}
+
+#header
+{
+	/*
+	Static Row (Contact Information) Positioning
+	*/
+	z-index: 1;
+	position: fixed;
+	/*
+	Note: Margin-Top controls where the topbar starts. Putting it negative brings the text higher compared to it.
+	*/
+	margin-top: -20px;
+    float: top;
+	left: 0px;
+	top: 0px;
+	/*
+	This controls the height. You'll want to set this to a pixel value rather than a percentage value as percentage values sometimes are smaller than the text, causing very ugly renderings.
+	*/
+    height: 45px;
+    width: 100%;
+	
+	/*
+	This allows a gradient, which is pretty neat and gives the page a much more interesting look.
+	*/
+background: rgb(43,52,73); /* Old browsers */
+/* IE9 SVG, needs conditional override of 'filter' to 'none' */
+background: url(data:image/svg+xml;base64,PD94bWwgdmVyc2lvbj0iMS4wIiA/Pgo8c3ZnIHhtbG5zPSJodHRwOi8vd3d3LnczLm9yZy8yMDAwL3N2ZyIgd2lkdGg9IjEwMCUiIGhlaWdodD0iMTAwJSIgdmlld0JveD0iMCAwIDEgMSIgcHJlc2VydmVBc3BlY3RSYXRpbz0ibm9uZSI+CiAgPGxpbmVhckdyYWRpZW50IGlkPSJncmFkLXVjZ2ctZ2VuZXJhdGVkIiBncmFkaWVudFVuaXRzPSJ1c2VyU3BhY2VPblVzZSIgeDE9IjAlIiB5MT0iMCUiIHgyPSIwJSIgeTI9IjEwMCUiPgogICAgPHN0b3Agb2Zmc2V0PSIwJSIgc3RvcC1jb2xvcj0iIzJiMzQ0OSIgc3RvcC1vcGFjaXR5PSIxIi8+CiAgICA8c3RvcCBvZmZzZXQ9IjEwMCUiIHN0b3AtY29sb3I9IiMyYjM0NDkiIHN0b3Atb3BhY2l0eT0iMSIvPgogIDwvbGluZWFyR3JhZGllbnQ+CiAgPHJlY3QgeD0iMCIgeT0iMCIgd2lkdGg9IjEiIGhlaWdodD0iMSIgZmlsbD0idXJsKCNncmFkLXVjZ2ctZ2VuZXJhdGVkKSIgLz4KPC9zdmc+);
+background: -moz-linear-gradient(top,  rgba(43,52,73,1) 0%, rgba(43,52,73,1) 100%); /* FF3.6+ */
+background: -webkit-gradient(linear, left top, left bottom, color-stop(0%,rgba(43,52,73,1)), color-stop(100%,rgba(43,52,73,1))); /* Chrome,Safari4+ */
+background: -webkit-linear-gradient(top,  rgba(43,52,73,1) 0%,rgba(43,52,73,1) 100%); /* Chrome10+,Safari5.1+ */
+background: -o-linear-gradient(top,  rgba(43,52,73,1) 0%,rgba(43,52,73,1) 100%); /* Opera 11.10+ */
+background: -ms-linear-gradient(top,  rgba(43,52,73,1) 0%,rgba(43,52,73,1) 100%); /* IE10+ */
+background: linear-gradient(to bottom,  rgba(43,52,73,1) 0%,rgba(43,52,73,1) 100%); /* W3C */
+filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#2b3449', endColorstr='#2b3449',GradientType=0 ); /* IE6-8 */
+
+
+
+	/*
+    background-color: #a1abbb;
+    border-color: #000000;
+    border-top-color: #888888;
+	*/
+}
+
+#name
+{
+	z-index: 1;
+	float:left;
+	margin-left: 5px;
+	padding-top: 5px;
+	font-size: 1.1em;
+	font-family: Verdana, sans-serif;
+	color: #ffffff;
+}
+
+#email
+{
+	z-index: 1;
+	float:right;
+	margin-right: 5px;
+	padding-top: 5px;
+	font-size: 1.1em;
+	font-family: Verdana, sans-serif;
+	color: #ffffff;
+}
+
+.navbar
+{
+/*
+This controls where the menu bar shows up. Ideally, I want it to keep on page along with the blue bar no matter what. Instead, currently, the inverse is happening where both disappear after scrolling. This is okay, but not optimal.
+*/
+top: 100px;
+width: 100px;
+height: 100%;
+display: table-row;
+position: fixed;
+float: left;
+left: 0px;
+}
+
+.navnames
+{
+/*
+List-Style-Type is set to none to remove the bullets.
+Margins and padding to zero removes default browser settings.
+*/
+list-style-type: none;
+margin: 0;
+padding: 0;	
+/*
+Alignment
+*/
+	z-index: 1;
+}
+
+.navnames a:link, .navnames a:visited
+{
+
+	
+	/*
+	Nicities
+	#b7d1c4
+	*/
+	z-index: 1;
+	display: block;
+	color: #FFFFFF;
+	font-family: Trebuchet MS, Sans-Serif;
+	text-align: center;
+	padding: 4px;
+	text-decoration: none;
+	text-transform: uppercase;
+	
+}
+
+.navnames a:hover, .navnames a:active
+{
+	background-color: #8BA1B6;
+}
+
+
+.left
+{
+	float: left;
+	Left Column (Decorative Body) Positioning
+	z-index: 0;
+	left: 0;
+	top: 0;
+	bottom: 0;
+	right: 0;
+	float: left;
+    position: fixed;
+    height: 100%;
+	width: 100px;
+	display: table;
+	
+	/*
+	Gradients! (Replacing background-color).
+	*/
+background: rgb(38,38,38); /* Old browsers */
+/* IE9 SVG, needs conditional override of 'filter' to 'none' */
+background: url(data:image/svg+xml;base64,PD94bWwgdmVyc2lvbj0iMS4wIiA/Pgo8c3ZnIHhtbG5zPSJodHRwOi8vd3d3LnczLm9yZy8yMDAwL3N2ZyIgd2lkdGg9IjEwMCUiIGhlaWdodD0iMTAwJSIgdmlld0JveD0iMCAwIDEgMSIgcHJlc2VydmVBc3BlY3RSYXRpbz0ibm9uZSI+CiAgPGxpbmVhckdyYWRpZW50IGlkPSJncmFkLXVjZ2ctZ2VuZXJhdGVkIiBncmFkaWVudFVuaXRzPSJ1c2VyU3BhY2VPblVzZSIgeDE9IjAlIiB5MT0iMCUiIHgyPSIwJSIgeTI9IjEwMCUiPgogICAgPHN0b3Agb2Zmc2V0PSIwJSIgc3RvcC1jb2xvcj0iIzI2MjYyNiIgc3RvcC1vcGFjaXR5PSIxIi8+CiAgICA8c3RvcCBvZmZzZXQ9IjEwMCUiIHN0b3AtY29sb3I9IiMyMjIyMjIiIHN0b3Atb3BhY2l0eT0iMSIvPgogIDwvbGluZWFyR3JhZGllbnQ+CiAgPHJlY3QgeD0iMCIgeT0iMCIgd2lkdGg9IjEiIGhlaWdodD0iMSIgZmlsbD0idXJsKCNncmFkLXVjZ2ctZ2VuZXJhdGVkKSIgLz4KPC9zdmc+);
+background: -moz-linear-gradient(top,  rgba(38,38,38,1) 0%, rgba(34,34,34,1) 100%); /* FF3.6+ */
+background: -webkit-gradient(linear, left top, left bottom, color-stop(0%,rgba(38,38,38,1)), color-stop(100%,rgba(34,34,34,1))); /* Chrome,Safari4+ */
+background: -webkit-linear-gradient(top,  rgba(38,38,38,1) 0%,rgba(34,34,34,1) 100%); /* Chrome10+,Safari5.1+ */
+background: -o-linear-gradient(top,  rgba(38,38,38,1) 0%,rgba(34,34,34,1) 100%); /* Opera 11.10+ */
+background: -ms-linear-gradient(top,  rgba(38,38,38,1) 0%,rgba(34,34,34,1) 100%); /* IE10+ */
+background: linear-gradient(to bottom,  rgba(38,38,38,1) 0%,rgba(34,34,34,1) 100%); /* W3C */
+filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#262626', endColorstr='#222222',GradientType=0 ); /* IE6-8 */
+
+
+}
+
+
+.middle
+{
+	/*
+	Middle Column (Main Body) Positioning
+	*/
+	float: left;
+	position: relative;
+	z-index: 0;
+	/*
+	These controls the margins to the other borders.
+	Margin-Top is set to 15px to prevent intersection with the main header bar.
+	Margin-Left is set to 100px to avoid intersection with the navigation bar.
+	*/
+	margin-top: 15px;
+	margin-left: 100px;
+	/*
+	These 0 settings for top, right, bottom and left allow the page to be filled with the container, preventing awkward rendering.
+	*/	
+	top: 0;
+	bottom: 0;
+	left: 0;
+	right: 0;
+	/*
+	Height is set to 100% to fill the webpage.
+	Width is also set at 100% to fill the webpage, assuming no content on page.
+	Left is offset by 100px as to not interfere with the navbar (might be causing glitch.)
+	Background color is obvious.
+	And the display is table cell as to let the text "grow" the page.
+	*/
+    height: 100%;
+	width: 60%;
+
+	/* Older background color, setting it to a gradient for now.
+    background-color: #c7d1c4;
+	*/
+	display: table;
+
+	/*
+	Fonts!
+	*/
+	font-family: Trebuchet MS, Sans-Serif;
+	font-size: 1.05em;
+	
+	/*
+	Gradients!
+	*/
+	background-color: #000000;
+}
+
+
+
+#footer
+{
+    height: 12%;
+	width: 100%;
+    position: relative;
+    float: none;
+    clear: both;
+    background-color: #556f88;
+    border-color: #000000;
+}
+
+.gamelist
+{
+	/*
+List-Style-Type is set to none to remove the bullets.
+Margins and padding to zero removes default browser settings.
+*/
+list-style-type: none;
+margin: 0;
+padding: 0;	
+/*	
+}
+
+.phototiny
+{
+	
+}
