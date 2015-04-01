@@ -1,0 +1,12 @@
+import math
+
+class MyVector():
+    def __init__(self, xcom = 0, ycom = 0, zcom = 0):
+        self.x = xcom
+        self.y = ycom
+        self.z = zcom
+
+    def length(self):
+        return Math.sqrt(self.x * self.x + self.y * self.y + self.z * self.z)
+
+ 
