@@ -26,7 +26,7 @@ class A3FrameListener(sf.FrameListener):
             return False
     
         self.Keyboard.capture()
-	print "hello"
+	#print "hello"
     
         camTransVector = ogre.Vector3(0, 0, 0)
 
@@ -69,7 +69,7 @@ class A3FrameListener(sf.FrameListener):
         if self.Keyboard.isKeyDown(OIS.KC_SPACE):
             self.entVelo = ogre.Vector3(0, 0, 0)
 
-        self.camNode.translate(self.camNode.orientation * transVector* frameEvent.timeSinceLastFrame)
+        self.camNode.translate(self.camNode.orientation * camTransVector* frameEvent.timeSinceLastFrame)
  
         self.curEntNode.translate(self.curEntNode.orientation * self.entVelo * frameEvent.timeSinceLastFrame)
 
