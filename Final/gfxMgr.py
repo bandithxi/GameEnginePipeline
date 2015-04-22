@@ -2,8 +2,6 @@ import os
 
 import ogre.renderer.OGRE as ogre
 
-#import ogre.sound.OgreAL as OgreAL
-
 class GfxMgr:
 
     def __init__(self, engine):

@@ -2,7 +2,6 @@ import Tkinter as tk
 import time
 import math
 import ogre.renderer.OGRE as ogre
-#import ogre.sound.OgreAL as OgreAL replace with pygame
 import os
 
 class GuiMgr:

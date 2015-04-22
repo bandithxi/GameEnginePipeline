@@ -6,6 +6,10 @@ class Engine(object):
         self.paused = False
 
     def init(self):
+        import soundMgr
+        self.soundMgr = soundMgr.SoundMgr(self)
+        self.soundMgr.init()
+
         import guiMgr
         self.guiMgr = guiMgr.GuiMgr(self)
         self.guiMgr.init()
