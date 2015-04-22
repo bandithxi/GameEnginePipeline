@@ -1,0 +1,1034 @@
+__init__ EntityMgr
+__init__ GfxMgr
+setupRenderSystem
+__init__ NetMgr
+__init__ InputMgr
+__init__ ControlMgr
+starting Game mgr
+*********************GameMgr Creating*********************
+GameMgr Created:  CVN68 0
+*********************GameMgr Creating*********************
+sleek init
+GameMgr Created:  SLEEK 1
+*********************GameMgr Creating*********************
+ddg51 init
+GameMgr Created:  DDG51 2
+*********************GameMgr Creating*********************
+Watercr init
+GameMgr Created:  JETSKI 3
+*********************GameMgr Creating*********************
+MONTEREY INIT
+GameMgr Created:  MONTEREY 4
+*********************GameMgr Creating*********************
+Boat5086 init
+GameMgr Created:  BOAT2 5
+*********************GameMgr Creating*********************
+cigarette init
+GameMgr Created:  CIGARETTE 6
+*********************GameMgr Creating*********************
+alienship init
+GameMgr Created:  ALIEN 7
+*********************GameMgr Creating*********************
+boat init
+GameMgr Created:  BOAT 8
+*********************GameMgr Creating*********************
+sailboat init
+GameMgr Created:  SAILBOAT 9
+in keypressed funtion
+selected:  9
+in keypressed funtion
+selected:  9
+in keypressed funtion
+selected:  9
+in keypressed funtion
+selected:  9
+in keypressed funtion
+selected:  9
+in keypressed funtion
+selected:  9
+in keypressed funtion
+selected:  9
+in keypressed funtion
+selected:  9
+in keypressed funtion
+selected:  9
+in keypressed funtion
+selected:  9
+in keypressed funtion
+selected:  9
+in keypressed funtion
+selected:  9
+in keypressed funtion
+selected:  9
+in keypressed funtion
+selected:  9
+in keypressed funtion
+selected:  9
+in keypressed funtion
+selected:  9
+in keypressed funtion
+selected:  9
+in keypressed funtion
+selected:  9
+in keypressed funtion
+selected:  9
+in keypressed funtion
+selected:  9
+in keypressed funtion
+selected:  9
+in keypressed funtion
+selected:  9
+in keypressed funtion
+selected:  9
+in keypressed funtion
+selected:  9
+in keypressed funtion
+selected:  9
+in keypressed funtion
+selected:  9
+in keypressed funtion
+selected:  9
+in keypressed funtion
+selected:  9
+in keypressed funtion
+selected:  9
+in keypressed funtion
+selected:  9
+in keypressed funtion
+selected:  9
+in keypressed funtion
+selected:  9
+in keypressed funtion
+selected:  9
+in keypressed funtion
+selected:  9
+in keypressed funtion
+selected:  9
+in keypressed funtion
+selected:  9
+in keypressed funtion
+selected:  9
+in keypressed funtion
+selected:  9
+in keypressed funtion
+selected:  9
+in keypressed funtion
+selected:  9
+in keypressed funtion
+in keypressed funtion
+selected:  9
+in keypressed funtion
+selected:  9
+in keypressed funtion
+selected:  9
+in keypressed funtion
+selected:  9
+in keypressed funtion
+selected:  9
+in keypressed funtion
+selected:  9
+in keypressed funtion
+selected:  9
+in keypressed funtion
+selected:  9
+in keypressed funtion
+selected:  9
+in keypressed funtion
+selected:  9
+in keypressed funtion
+selected:  9
+in keypressed funtion
+selected:  9
+in keypressed funtion
+selected:  9
+in keypressed funtion
+selected:  9
+in keypressed funtion
+selected:  9
+in keypressed funtion
+selected:  9
+in keypressed funtion
+selected:  9
+in keypressed funtion
+selected:  9
+in keypressed funtion
+selected:  9
+in keypressed funtion
+selected:  9
+in keypressed funtion
+selected:  9
+in keypressed funtion
+selected:  9
+in keypressed funtion
+selected:  9
+in keypressed funtion
+selected:  9
+in keypressed funtion
+selected:  9
+in keypressed funtion
+selected:  9
+in keypressed funtion
+selected:  9
+in keypressed funtion
+selected:  9
+in keypressed funtion
+selected:  9
+in keypressed funtion
+selected:  9
+in keypressed funtion
+selected:  9
+in keypressed funtion
+in keypressed funtion
+selected:  9
+in keypressed funtion
+selected:  9
+in keypressed funtion
+selected:  9
+in keypressed funtion
+selected:  9
+in keypressed funtion
+selected:  9
+in keypressed funtion
+selected:  9
+in keypressed funtion
+selected:  9
+in keypressed funtion
+selected:  9
+in keypressed funtion
+selected:  9
+in keypressed funtion
+selected:  9
+in keypressed funtion
+in keypressed funtion
+selected:  9
+in keypressed funtion
+selected:  9
+in keypressed funtion
+selected:  9
+in keypressed funtion
+selected:  9
+in keypressed funtion
+selected:  9
+in keypressed funtion
+selected:  9
+in keypressed funtion
+selected:  9
+in keypressed funtion
+selected:  9
+in keypressed funtion
+selected:  9
+in keypressed funtion
+in keypressed funtion
+selected:  9
+in keypressed funtion
+selected:  9
+in keypressed funtion
+selected:  9
+in keypressed funtion
+selected:  9
+in keypressed funtion
+selected:  9
+in keypressed funtion
+selected:  9
+in keypressed funtion
+selected:  9
+in keypressed funtion
+selected:  9
+in keypressed funtion
+selected:  9
+in keypressed funtion
+selected:  9
+in keypressed funtion
+selected:  9
+in keypressed funtion
+selected:  9
+in keypressed funtion
+selected:  9
+in keypressed funtion
+selected:  9
+in keypressed funtion
+selected:  9
+in keypressed funtion
+selected:  9
+in keypressed funtion
+selected:  9
+in keypressed funtion
+selected:  9
+in keypressed funtion
+selected:  9
+in keypressed funtion
+selected:  9
+in keypressed funtion
+selected:  9
+in keypressed funtion
+selected:  9
+in keypressed funtion
+selected:  9
+in keypressed funtion
+selected:  9
+in keypressed funtion
+selected:  9
+in keypressed funtion
+selected:  9
+in keypressed funtion
+selected:  9
+in keypressed funtion
+selected:  9
+in keypressed funtion
+selected:  9
+in keypressed funtion
+selected:  9
+in keypressed funtion
+selected:  9
+in keypressed funtion
+selected:  9
+in keypressed funtion
+selected:  9
+in keypressed funtion
+selected:  9
+in keypressed funtion
+selected:  9
+in keypressed funtion
+selected:  9
+in keypressed funtion
+selected:  9
+in keypressed funtion
+selected:  9
+in keypressed funtion
+selected:  9
+in keypressed funtion
+selected:  9
+in keypressed funtion
+selected:  9
+in keypressed funtion
+selected:  9
+in keypressed funtion
+selected:  9
+in keypressed funtion
+selected:  9
+in keypressed funtion
+selected:  9
+in keypressed funtion
+selected:  9
+in keypressed funtion
+selected:  9
+in keypressed funtion
+selected:  9
+in keypressed funtion
+selected:  9
+in keypressed funtion
+selected:  9
+in keypressed funtion
+selected:  9
+in keypressed funtion
+selected:  9
+in keypressed funtion
+selected:  9
+in keypressed funtion
+selected:  9
+in keypressed funtion
+selected:  9
+in keypressed funtion
+selected:  9
+in keypressed funtion
+selected:  9
+in keypressed funtion
+selected:  9
+in keypressed funtion
+selected:  9
+in keypressed funtion
+selected:  9
+in keypressed funtion
+selected:  9
+in keypressed funtion
+selected:  9
+in keypressed funtion
+selected:  9
+in keypressed funtion
+selected:  9
+in keypressed funtion
+selected:  9
+in keypressed funtion
+selected:  9
+in keypressed funtion
+selected:  9
+in keypressed funtion
+selected:  9
+in keypressed funtion
+selected:  9
+in keypressed funtion
+selected:  9
+in keypressed funtion
+selected:  9
+in keypressed funtion
+selected:  9
+in keypressed funtion
+selected:  9
+in keypressed funtion
+selected:  9
+in keypressed funtion
+selected:  9
+in keypressed funtion
+selected:  9
+in keypressed funtion
+selected:  9
+in keypressed funtion
+selected:  9
+in keypressed funtion
+selected:  9
+in keypressed funtion
+selected:  9
+in keypressed funtion
+selected:  9
+in keypressed funtion
+selected:  9
+in keypressed funtion
+selected:  9
+in keypressed funtion
+selected:  9
+in keypressed funtion
+selected:  9
+in keypressed funtion
+selected:  9
+in keypressed funtion
+selected:  9
+in keypressed funtion
+selected:  9
+in keypressed funtion
+selected:  9
+in keypressed funtion
+selected:  9
+in keypressed funtion
+selected:  9
+in keypressed funtion
+selected:  9
+in keypressed funtion
+selected:  9
+in keypressed funtion
+selected:  9
+in keypressed funtion
+selected:  9
+in keypressed funtion
+selected:  9
+in keypressed funtion
+selected:  9
+in keypressed funtion
+selected:  9
+in keypressed funtion
+selected:  9
+in keypressed funtion
+selected:  9
+in keypressed funtion
+selected:  9
+in keypressed funtion
+selected:  9
+in keypressed funtion
+selected:  9
+in keypressed funtion
+selected:  9
+in keypressed funtion
+selected:  9
+in keypressed funtion
+selected:  9
+in keypressed funtion
+selected:  9
+in keypressed funtion
+selected:  9
+in keypressed funtion
+selected:  9
+in keypressed funtion
+selected:  9
+in keypressed funtion
+selected:  9
+in keypressed funtion
+selected:  9
+in keypressed funtion
+in keypressed funtion
+selected:  9
+in keypressed funtion
+selected:  9
+in keypressed funtion
+selected:  9
+in keypressed funtion
+selected:  9
+in keypressed funtion
+selected:  9
+in keypressed funtion
+selected:  9
+in keypressed funtion
+selected:  9
+in keypressed funtion
+selected:  9
+in keypressed funtion
+selected:  9
+in keypressed funtion
+selected:  9
+in keypressed funtion
+selected:  9
+in keypressed funtion
+selected:  9
+in keypressed funtion
+selected:  9
+in keypressed funtion
+selected:  9
+in keypressed funtion
+selected:  9
+in keypressed funtion
+selected:  9
+in keypressed funtion
+selected:  9
+in keypressed funtion
+selected:  9
+in keypressed funtion
+selected:  9
+in keypressed funtion
+selected:  9
+in keypressed funtion
+selected:  9
+in keypressed funtion
+selected:  9
+in keypressed funtion
+selected:  9
+in keypressed funtion
+selected:  9
+in keypressed funtion
+selected:  9
+in keypressed funtion
+selected:  9
+in keypressed funtion
+selected:  9
+in keypressed funtion
+selected:  9
+in keypressed funtion
+selected:  9
+in keypressed funtion
+in keypressed funtion
+selected:  9
+in keypressed funtion
+selected:  9
+in keypressed funtion
+selected:  9
+in keypressed funtion
+selected:  9
+in keypressed funtion
+selected:  9
+in keypressed funtion
+selected:  9
+in keypressed funtion
+selected:  9
+in keypressed funtion
+selected:  9
+in keypressed funtion
+selected:  9
+in keypressed funtion
+selected:  9
+in keypressed funtion
+selected:  9
+in keypressed funtion
+selected:  9
+in keypressed funtion
+selected:  9
+in keypressed funtion
+selected:  9
+in keypressed funtion
+selected:  9
+in keypressed funtion
+selected:  9
+in keypressed funtion
+in keypressed funtion
+selected:  9
+in keypressed funtion
+selected:  9
+in keypressed funtion
+selected:  9
+in keypressed funtion
+selected:  9
+in keypressed funtion
+selected:  9
+in keypressed funtion
+selected:  9
+in keypressed funtion
+selected:  9
+in keypressed funtion
+selected:  9
+in keypressed funtion
+selected:  9
+in keypressed funtion
+selected:  9
+in keypressed funtion
+selected:  9
+in keypressed funtion
+selected:  9
+in keypressed funtion
+selected:  9
+in keypressed funtion
+selected:  9
+in keypressed funtion
+in keypressed funtion
+selected:  9
+in keypressed funtion
+selected:  9
+in keypressed funtion
+selected:  9
+in keypressed funtion
+selected:  9
+in keypressed funtion
+selected:  9
+in keypressed funtion
+selected:  9
+in keypressed funtion
+selected:  9
+in keypressed funtion
+selected:  9
+in keypressed funtion
+selected:  9
+in keypressed funtion
+selected:  9
+in keypressed funtion
+selected:  9
+in keypressed funtion
+selected:  9
+in keypressed funtion
+selected:  9
+in keypressed funtion
+selected:  9
+in keypressed funtion
+selected:  9
+in keypressed funtion
+selected:  9
+in keypressed funtion
+selected:  9
+in keypressed funtion
+selected:  9
+in keypressed funtion
+selected:  9
+in keypressed funtion
+selected:  9
+in keypressed funtion
+selected:  9
+in keypressed funtion
+in keypressed funtion
+selected:  9
+in keypressed funtion
+selected:  9
+in keypressed funtion
+selected:  9
+in keypressed funtion
+selected:  9
+in keypressed funtion
+selected:  9
+in keypressed funtion
+selected:  9
+in keypressed funtion
+selected:  9
+in keypressed funtion
+selected:  9
+in keypressed funtion
+selected:  9
+in keypressed funtion
+selected:  9
+in keypressed funtion
+selected:  9
+in keypressed funtion
+selected:  9
+in keypressed funtion
+selected:  9
+in keypressed funtion
+selected:  9
+in keypressed funtion
+selected:  9
+in keypressed funtion
+selected:  9
+in keypressed funtion
+in keypressed funtion
+selected:  9
+in keypressed funtion
+selected:  9
+in keypressed funtion
+selected:  9
+in keypressed funtion
+selected:  9
+in keypressed funtion
+selected:  9
+in keypressed funtion
+selected:  9
+in keypressed funtion
+selected:  9
+in keypressed funtion
+selected:  9
+in keypressed funtion
+selected:  9
+in keypressed funtion
+selected:  9
+in keypressed funtion
+selected:  9
+in keypressed funtion
+selected:  9
+in keypressed funtion
+in keypressed funtion
+selected:  9
+in keypressed funtion
+selected:  9
+in keypressed funtion
+selected:  9
+in keypressed funtion
+selected:  9
+in keypressed funtion
+selected:  9
+in keypressed funtion
+selected:  9
+in keypressed funtion
+selected:  9
+in keypressed funtion
+selected:  9
+in keypressed funtion
+selected:  9
+in keypressed funtion
+selected:  9
+in keypressed funtion
+selected:  9
+in keypressed funtion
+selected:  9
+in keypressed funtion
+selected:  9
+in keypressed funtion
+selected:  9
+in keypressed funtion
+selected:  9
+in keypressed funtion
+selected:  9
+in keypressed funtion
+selected:  9
+in keypressed funtion
+selected:  9
+in keypressed funtion
+selected:  9
+in keypressed funtion
+selected:  9
+in keypressed funtion
+selected:  9
+in keypressed funtion
+selected:  9
+in keypressed funtion
+in keypressed funtion
+selected:  9
+in keypressed funtion
+selected:  9
+in keypressed funtion
+selected:  9
+in keypressed funtion
+selected:  9
+in keypressed funtion
+selected:  9
+in keypressed funtion
+selected:  9
+in keypressed funtion
+selected:  9
+in keypressed funtion
+selected:  9
+in keypressed funtion
+selected:  9
+in keypressed funtion
+selected:  9
+in keypressed funtion
+selected:  9
+in keypressed funtion
+selected:  9
+in keypressed funtion
+selected:  9
+in keypressed funtion
+selected:  9
+in keypressed funtion
+selected:  9
+in keypressed funtion
+selected:  9
+in keypressed funtion
+selected:  9
+in keypressed funtion
+selected:  9
+in keypressed funtion
+selected:  9
+in keypressed funtion
+selected:  9
+in keypressed funtion
+selected:  9
+in keypressed funtion
+selected:  9
+in keypressed funtion
+selected:  9
+in keypressed funtion
+selected:  9
+in keypressed funtion
+selected:  9
+in keypressed funtion
+selected:  9
+in keypressed funtion
+selected:  9
+in keypressed funtion
+selected:  9
+in keypressed funtion
+selected:  9
+in keypressed funtion
+selected:  9
+in keypressed funtion
+selected:  9
+in keypressed funtion
+in keypressed funtion
+selected:  9
+in keypressed funtion
+selected:  9
+in keypressed funtion
+selected:  9
+in keypressed funtion
+selected:  9
+in keypressed funtion
+selected:  9
+in keypressed funtion
+selected:  9
+in keypressed funtion
+selected:  9
+in keypressed funtion
+selected:  9
+in keypressed funtion
+selected:  9
+in keypressed funtion
+selected:  9
+in keypressed funtion
+selected:  9
+in keypressed funtion
+selected:  9
+in keypressed funtion
+selected:  9
+in keypressed funtion
+selected:  9
+in keypressed funtion
+selected:  9
+in keypressed funtion
+selected:  9
+in keypressed funtion
+selected:  9
+in keypressed funtion
+selected:  9
+in keypressed funtion
+selected:  9
+in keypressed funtion
+selected:  9
+in keypressed funtion
+selected:  9
+in keypressed funtion
+selected:  9
+in keypressed funtion
+selected:  9
+in keypressed funtion
+selected:  9
+in keypressed funtion
+selected:  9
+in keypressed funtion
+selected:  9
+in keypressed funtion
+selected:  9
+in keypressed funtion
+selected:  9
+in keypressed funtion
+selected:  9
+in keypressed funtion
+selected:  9
+in keypressed funtion
+selected:  9
+in keypressed funtion
+selected:  9
+in keypressed funtion
+selected:  9
+in keypressed funtion
+selected:  9
+in keypressed funtion
+selected:  9
+in keypressed funtion
+selected:  9
+in keypressed funtion
+selected:  9
+in keypressed funtion
+selected:  9
+in keypressed funtion
+selected:  9
+in keypressed funtion
+selected:  9
+in keypressed funtion
+selected:  9
+in keypressed funtion
+selected:  9
+in keypressed funtion
+selected:  9
+in keypressed funtion
+selected:  9
+in keypressed funtion
+selected:  9
+in keypressed funtion
+selected:  9
+in keypressed funtion
+selected:  9
+in keypressed funtion
+selected:  9
+in keypressed funtion
+selected:  9
+in keypressed funtion
+selected:  9
+in keypressed funtion
+selected:  9
+in keypressed funtion
+in keypressed funtion
+selected:  9
+in keypressed funtion
+selected:  9
+in keypressed funtion
+selected:  9
+in keypressed funtion
+selected:  9
+in keypressed funtion
+selected:  9
+in keypressed funtion
+selected:  9
+in keypressed funtion
+selected:  9
+in keypressed funtion
+selected:  9
+in keypressed funtion
+selected:  9
+in keypressed funtion
+selected:  9
+in keypressed funtion
+selected:  9
+in keypressed funtion
+selected:  9
+in keypressed funtion
+selected:  9
+in keypressed funtion
+selected:  9
+in keypressed funtion
+selected:  9
+in keypressed funtion
+selected:  9
+in keypressed funtion
+selected:  9
+in keypressed funtion
+selected:  9
+in keypressed funtion
+selected:  9
+in keypressed funtion
+selected:  9
+in keypressed funtion
+selected:  9
+in keypressed funtion
+selected:  9
+in keypressed funtion
+selected:  9
+in keypressed funtion
+selected:  9
+in keypressed funtion
+selected:  9
+in keypressed funtion
+selected:  9
+in keypressed funtion
+selected:  9
+in keypressed funtion
+selected:  9
+in keypressed funtion
+selected:  9
+in keypressed funtion
+selected:  9
+in keypressed funtion
+selected:  9
+in keypressed funtion
+selected:  9
+in keypressed funtion
+selected:  9
+in keypressed funtion
+selected:  9
+in keypressed funtion
+selected:  9
+in keypressed funtion
+selected:  9
+in keypressed funtion
+selected:  9
+in keypressed funtion
+selected:  9
+in keypressed funtion
+selected:  9
+in keypressed funtion
+selected:  9
+in keypressed funtion
+selected:  9
+in keypressed funtion
+selected:  9
+in keypressed funtion
+selected:  9
+in keypressed funtion
+selected:  9
+in keypressed funtion
+selected:  9
+in keypressed funtion
+selected:  9
+in keypressed funtion
+selected:  9
+in keypressed funtion
+selected:  9
+in keypressed funtion
+selected:  9
+in keypressed funtion
+selected:  9
+in keypressed funtion
+selected:  9
+in keypressed funtion
+selected:  9
+in keypressed funtion
+selected:  9
+in keypressed funtion
+selected:  9
+in keypressed funtion
+selected:  9
+in keypressed funtion
+selected:  9
+in keypressed funtion
+selected:  9
+in keypressed funtion
+selected:  9
+in keypressed funtion
+selected:  9
+in keypressed funtion
+selected:  9
+in keypressed funtion
+selected:  9
+in keypressed funtion
+selected:  9
+in keypressed funtion
+selected:  9
+in keypressed funtion
+selected:  9
+in keypressed funtion
+selected:  9
+in keypressed funtion
+selected:  9
+in keypressed funtion
+selected:  9
+in keypressed funtion
+selected:  9
+in keypressed funtion
+selected:  9
+in keypressed funtion
+selected:  9
+in keypressed funtion
+selected:  9
+in keypressed funtion
+selected:  9
+in keypressed funtion
+selected:  9
+in keypressed funtion
+selected:  9
+in keypressed funtion
+escape key pressed
+sushil
+in keypressed funtion
+escape key pressed
+sushil
+selected:  9
+381 Engine exiting...
