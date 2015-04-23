@@ -19,7 +19,7 @@ class EntityMgr:
         self.soundManager = None
         #-----------------------------------------------------------------------------------------
         
-        self.entTypes = [ent.Ddg51, ent.Cvn, ent.Ball]
+        self.entTypes = [ent.PlayerA, ent.PlayerB, ent.Ball]
         #self.entTypes = [ent.Cvn, ]
 
     def createEnt(self, entType, pos = MyVector(0,0,0), yaw = 0):

@@ -21,7 +21,7 @@ class GameMgr:
         ## Code to load sound here
 
     def game(self):
-        x = 0
+        x = -300
         
         for entType in self.engine.entityMgr.entTypes:
             print "*********************GameMgr Creating*********************" # , str(entType)
@@ -29,8 +29,7 @@ class GameMgr:
             print "GameMgr Created: ", ent.uiname, ent.id
             x += 300
 
-        self.engine.entityMgr.selectedEntities.append(ent)
-
+        
     def tick(self, dt):
         pass
 

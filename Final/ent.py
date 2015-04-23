@@ -69,15 +69,17 @@ class Ball(Entity):
         
         self.mesh = 'sphere.mesh'
         self.uiname = 'Ball'
-        self.acceleration = 7
-        self.turningRate = 15
-        self.maxSpeed = 150
+        self.acceleration = 200
+        self.turningRate = 200
+        self.maxSpeed = 480
         self.desiredSpeed = 0
         self.desiredHeading = 90
         self.speed = 0
         self.heading = 90    
         self.wakeSize = 'Large'
         self.scale = ogre.Vector3(.3, .3, .3)
+        self.wakeSize = 'Large'
+
 
 
 
@@ -227,4 +229,41 @@ class Sailboat(Entity):
         self.desiredHeading = 0
         self.speed = 0
         self.heading = 0
+
+class PlayerA(Entity):
+    id = 0
+    def __init__(self, engine, id, pos = MyVector(0, 0 ,0), vel = MyVector(0, 0, 0), yaw = 0):
+        Entity.__init__(self, engine, id, pos = pos, vel = vel, yaw = yaw)
+        print "player init"
+        self.mesh = 'ninja.mesh'
+        self.uiname = 'playerA' + str(PlayerA.id)
+        PlayerA.id += 1
+        self.acceleration = 90
+        self.turningRate = 120
+        self.maxSpeed = 100
+        self.desiredSpeed = 0
+        self.desiredHeading = 0
+        self.speed = 0
+        self.heading = 0
+        self.wakeSize = 'Large'
+        self.offset = ogre.Degree(-90)
+   
+class PlayerB(Entity):
+    id = 0
+    def __init__(self, engine, id, pos = MyVector(0, 0 ,0), vel = MyVector(0, 0, 0), yaw = 0):
+        Entity.__init__(self, engine, id, pos = pos, vel = vel, yaw = yaw)
+        print "player init"
+        self.mesh = 'ninja.mesh'
+        self.uiname = 'playerB' + str(PlayerB.id)
+        PlayerB.id += 1
+        self.acceleration = 90
+        self.turningRate = 120
+        self.maxSpeed = 100
+        self.desiredSpeed = 0
+        self.desiredHeading = 0
+        self.speed = 0
+        self.heading = 0
+        self.wakeSize = 'Large'
+        self.offset = ogre.Degree(90)
+
 

@@ -1,6 +1,7 @@
 import ogre.renderer.OGRE as ogre
 import ogre.io.OIS as OIS
 
+
 class ControlMgr:
 
     def __init__(self, engine):
@@ -19,18 +20,33 @@ class ControlMgr:
         selectedEnt = self.entityMgr.selectedEntities
     	if self.Keyboard.isKeyDown(OIS.KC_NUMPAD8) or self.Keyboard.isKeyDown(OIS.KC_I):
             for ent in selectedEnt:
-                ent.pos.z -= 100 * dt
-
+                ent.desiredSpeed += 100 * dt
+	        
         if self.Keyboard.isKeyDown(OIS.KC_NUMPAD2) or self.Keyboard.isKeyDown(OIS.KC_K):
             for ent in selectedEnt: 
-                ent.pos.z += 100 * dt
+                ent.desiredSpeed -= 100 * dt
+
         if self.Keyboard.isKeyDown(OIS.KC_NUMPAD4) or self.Keyboard.isKeyDown(OIS.KC_J):
             for ent in selectedEnt: 
-                ent.pos.x -= 100 * dt
+                ent.desiredHeading += 100 * dt
+                # Ensure we work with angles 0 to 360
+                if ent.desiredHeading > 360:
+                    # Heading is also decrease by 360 for simpler physics logic 
+                   
+                    ent.desiredHeading -= 360  
+                    ent.heading -= 360      
+                     
 
         if self.Keyboard.isKeyDown(OIS.KC_NUMPAD6) or self.Keyboard.isKeyDown(OIS.KC_L):
             for ent in selectedEnt: 
-                ent.pos.x += 100 * dt
+                ent.desiredHeading -= 100 * dt
+                
+                # Ensure we work with angles 0 to 360
+                if ent.desiredHeading < 0:
+                    ent.desiredHeading += 360  
+                    ent.heading += 360 
+                  #  if ent.heading < 0:
+                   #     ent.heading += 360
                     
        
 

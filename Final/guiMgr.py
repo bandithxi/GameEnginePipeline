@@ -14,7 +14,6 @@ class GuiMgr:
         self.levelSelect = False
 		
     def displaySplash( self ):	
-        #self.soundMgr = OgreAL.SoundManager() //set pygame sound mgr
         self.gfxMgr = self.engine.gfxMgr
 
         root = tk.Tk()
