@@ -17,6 +17,7 @@ class GameMgr:
     
     def mainMenu(self):
         self.guiMgr.displayMainMenu()
+        self.guiMgr.displayHud()
          
         ## Code to load sound here
 

@@ -1,5 +1,6 @@
 import Tkinter as tk
 import time
+import sys
 import math
 import ogre.renderer.OGRE as ogre
 import os
@@ -12,6 +13,7 @@ class GuiMgr:
     def init( self ):
         self.overlayMgr = False
         self.levelSelect = False
+        self.hudMgr = False
 		
     def displaySplash( self ):	
         self.gfxMgr = self.engine.gfxMgr
@@ -169,7 +171,86 @@ class GuiMgr:
         credits = self.overlayMgr.getOverlayElement( "CreditScreen" )
         credits.hide()        
     
-        
+    def displayHud (self):
+
+
+        self.hudMgr = ogre.OverlayManager.getSingleton()
+        self.hud = self.hudMgr.getByName( "HUD/HUD_Info" )
+        self.hud.hide()
+        # Create the HUD
+
+        self.hud2 = self.hudMgr.create( "HUD" )
+
+        # Populate the HUD 
+        self.hudPanel = self.overlayMgr.createOverlayElement( "Panel", "PanelName" )
+        self.hudPanel.setPosition( 0, 0 )
+        self.hudPanel.setDimensions( 1, 1)
+        self.hudPanel.setMaterialName( "Examples/Hud" )
+
+
+        # Team One
+        self.text = self.hudMgr.createOverlayElement( "TextArea", "Team Name One" )
+        self.text.setPosition( .025, .055 )
+        self.text.setDimensions( 1, 1 )
+        self.text.setCaption( "Team Name One" )    
+        self.text.setCharHeight(.025)
+        self.text.setFontName("Fifa15Font")
+        self.text.setColourTop((1.0, 1.0, 1.0))
+        self.text.setColourBottom((1.0, 1.0, 1.0))
+        self.hudPanel.addChild( self.text )
+
+ 
+        # Team Two
+        self.text = self.hudMgr.createOverlayElement( "TextArea", "Team Name Two" )
+        self.text.setPosition( .025, .1225 )
+        self.text.setDimensions( 1, 1 )
+        self.text.setCaption( "Team Name Two" )    
+        self.text.setCharHeight(.025)
+        self.text.setFontName("Fifa15Font")
+        self.text.setColourTop((1.0, 1.0, 1.0))
+        self.text.setColourBottom((1.0, 1.0, 1.0))
+        self.hudPanel.addChild( self.text )
+
+        # Score 1 
+        self.text = self.hudMgr.createOverlayElement( "TextArea", "Score - Team One" )
+        self.text.setPosition( .2575, .055 )
+        self.text.setDimensions( 1, 1 )
+        scoreOne = "0"
+        self.text.setCaption( scoreOne )    
+        self.text.setCharHeight(.025)
+        self.text.setFontName("Fifa15Font")
+        self.text.setColourTop((1.0, 1.0, 1.0))
+        self.text.setColourBottom((1.0, 1.0, 1.0))
+        self.hudPanel.addChild( self.text )
+
+        # Score 2 
+        self.text = self.hudMgr.createOverlayElement( "TextArea", "Score - Team Two" )
+        self.text.setPosition( .2575, .1225 )
+        self.text.setDimensions( 1, 1 )
+        scoreTwo = "0"
+        self.text.setCaption( scoreTwo )    
+        self.text.setCharHeight(.025)
+        self.text.setFontName("Fifa15Font")
+        self.text.setColourTop((1.0, 1.0, 1.0))
+        self.text.setColourBottom((1.0, 1.0, 1.0))
+        self.hudPanel.addChild( self.text )
+
+
+        # Time 
+        self.text = self.hudMgr.createOverlayElement( "TextArea", "Time" )
+        self.text.setPosition( .885, .055 )
+        self.text.setDimensions( 1, 1 )
+        Time = "5:00"
+        self.text.setCaption( Time )    
+        self.text.setCharHeight(.03)
+        self.text.setFontName("Fifa15Font")
+        self.text.setColourTop((1.0, 1.0, 1.0))
+        self.text.setColourBottom((1.0, 1.0, 1.0))
+        self.hudPanel.addChild( self.text )
+        self.hud2.add2D( self.hudPanel )
+        self.hud2.show()
+        #self.hud.hide()
+
     def tick(self, dt): 
         pass
 
