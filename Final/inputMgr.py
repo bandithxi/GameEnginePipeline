@@ -145,7 +145,14 @@ class InputMgr(OIS.KeyListener, OIS.MouseListener):
  
     def mousePressed(self, frameEvent, id):
         if id == OIS.MB_Left:
-            self.mouseSelectEntity()
+            self.mouse.capture()
+            currMouse = self.mouse.getMouseState()
+   
+            self.engine.selectionMgr.checkPointAt(currMouse.X.abs, currMouse.Y.abs)
+            
+            #print str(currMouse.X.abs) + "," + str(currMouse.Y.abs)
+            
+            
         return True
  
     def mouseReleased(self, frameEvent, id):
@@ -154,40 +161,4 @@ class InputMgr(OIS.KeyListener, OIS.MouseListener):
     def stop(self):
         pass
 
-    def mouseSelectEntity(self):
-        self.mouse.capture()
-        self.currMouse = self.mouse.getMouseState()
-
-        if not self.shiftKeyDown:
-            for ent in self.engine.entityMgr.selectedEntities:
-                ent.node.showBoundingBox(False)
-                self.engine.entityMgr.selectedEntities = []
-        
-        pos, ents = self.castRay(self.currMouse)
-
-        for ent in ents:
-            self.engine.entityMgr.selectedEntities.append(ent)
-            ent.node.showBoundingBox(True)
-
-
-    def castRay(self, currMouse):
-        currMouse.width = self.engine.gfxMgr.renderWindow.getWidth()
-        currMouse.height = self.engine.gfxMgr.renderWindow.getHeight()
-        mouseRay = self.engine.gfxMgr.camera.getCameraToViewportRay(currMouse.X.abs/float(currMouse.width), 
-                                                                    currMouse.Y.abs/float(currMouse.height))
-        result  =  mouseRay.intersects(self.engine.gfxMgr.waterPlane)        
-
-        if result.first:
-            pos =  mouseRay.getPoint(result.second)
-            return self.checkForEntsInRadius(pos, 23000)
-
-
-    def checkForEntsInRadius(self, pos, radiusSquared):
-        entities = []
-        #for name, ent in self.engine.entityMgr.entities.iteritems():
-        for ent in self.engine.entityMgr.entities.values():
-            dist = ent.pos.squaredDistance(pos)
-            if dist < radiusSquared:
-                entities.append(ent)
-        return (pos, entities)
-            
+  

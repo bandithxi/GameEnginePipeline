@@ -15,42 +15,6 @@ class GuiMgr:
         self.levelSelect = False
         self.hudMgr = False
 		
-    def displaySplash( self ):	
-        self.gfxMgr = self.engine.gfxMgr
-
-        root = tk.Tk()
-        imageList = ["media/overlay/SplashStart.jpeg"]
-        introMusic = "sound.ogg"
-        
-        root.overrideredirect(True)
-        width = root.winfo_screenwidth()
-        height = root.winfo_screenheight()
-        root.geometry('%dx%d+%d+%d' % (width, height, 0, 0))
-        root.config(cursor='none')
-        canvas = tk.Canvas(root, height=height, width=width, bg="white")
-        canvas.pack()
-
-        displayList = []
-
-        for imgPath in imageList:
-            img = tk.PhotoImage( file = imgPath )
-            displayList.append( img )
-        
-        for guiElement in displayList:
-            canvas.delete(tk.ALL)
-            canvas.create_image(width/2, height/2, image=guiElement)
-            canvas.update()
-            sound = self.soundMgr.createSound("introMusic", introMusic)
-            sound.setGain(1)
-            self.soundMgr.destroySound("introMusic")
-            sound.play()
-            time.sleep(.30)
-        
-        # show the splash screen for 5000 milliseconds then destroy
-        root.after(0, self.gfxMgr.createRenderWindow)
-        root.after(0, root.destroy)
-        root.mainloop()
-
     def displayMainMenu( self ):
         self.entityMgr = self.engine.entityMgr
     
@@ -159,8 +123,8 @@ class GuiMgr:
         self.overlay.add2D( self.panel5 )
         
         # Show the overlay
-        #self.overlay.show()
-        self.overlay.hide()
+        self.overlay.show()
+        #self.overlay.hide()
 
         level = self.overlayMgr.getOverlayElement( "LevelButtons" )
         level.hide()
@@ -252,11 +216,12 @@ class GuiMgr:
         #self.hud.hide()
 
     def tick(self, dt): 
+        self.updateTime()
+        self.updateScore()
         
-        time = str(self.engine.gameMgr.gameTime / 60) + ":" +str(self.engine.gameMgr.gameTime % 60) 
-        self.text = self.hudMgr.getOverlayElement("Time")
-        self.text.setCaption(time)
+        pass
         
+    def updateScore(self):
         score = str(self.engine.gameMgr.scoreOne)
         self.text = self.hudMgr.getOverlayElement("Score - Team Two")
         self.text.setCaption(score)
@@ -265,6 +230,8 @@ class GuiMgr:
         score = str(self.engine.gameMgr.scoreTwo)
         self.text = self.hudMgr.getOverlayElement("Score - Team One")
         self.text.setCaption(score)
-
-        pass
-
+   
+    def updateTime(self):
+        time = str(self.engine.gameMgr.gameTime / 60) + ":" +str(self.engine.gameMgr.gameTime % 60) 
+        self.text = self.hudMgr.getOverlayElement("Time")
+        self.text.setCaption(time)

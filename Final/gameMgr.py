@@ -9,6 +9,10 @@ class GameMgr:
         self.half = 1
         self.scoreOne = 0
         self.scoreTwo = 0
+        self.startCheck = False
+        self.instruction = False
+        self.credit = False
+
         print "starting Game mgr"
         pass
 
