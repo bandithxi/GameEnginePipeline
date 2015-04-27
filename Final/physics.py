@@ -15,7 +15,7 @@ class Physics:
         if (self.ent.mesh == "sphere.mesh"):
             for eid, entity in self.entities.iteritems():
                 if (entity.mesh != "sphere.mesh"):
-                    dist = self.distance(self.ent.pos.x, entity.pos.x, self.ent.pos.y, entity.pos.y)
+                    dist = self.distance(self.ent.pos.x, entity.pos.x, self.ent.pos.z, entity.pos.z)
                     
                     print "sphereX: ", self.ent.pos.x, "sphereZ: ", self.ent.pos.z
                     print "ninja    X : ", entity.pos.x, "ninjaX : ", entity.pos.z
@@ -33,9 +33,23 @@ class Physics:
             self.ent.pos.x += (self.var * 2)
 
             if self.ent.pos.x > self.fieldDimenX:
+                if self.ent.engine.gameMgr.half == 1:
+                    self.ent.engine.gameMgr.scoreOne+= 1
+                else:
+                    self.ent.engine.gameMgr.scoreTwo+= 1
                 self.ent.pos.x = 0
-                score+=1
-                # print "score", self.score 
+                
+   
+               # print "score", self.score 
+            if self.ent.pos.x < -self.fieldDimenX:
+                if self.ent.engine.gameMgr.half == 1:
+                    self.ent.engine.gameMgr.scoreTwo+= 1
+                else:
+                    self.ent.engine.gameMgr.scoreOne+= 1
+                self.ent.pos.x = 0
+                
+                
+   
 
         if (self.ent.pos.x > self.fieldDimenX):
             self.ent.pos.x = self.ent.pos.x - 10

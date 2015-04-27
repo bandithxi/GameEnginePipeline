@@ -6,6 +6,9 @@ class GameMgr:
     def __init__(self, engine):
         self.engine = engine
         self.guiMgr = self.engine.guiMgr
+        self.half = 1
+        self.scoreOne = 0
+        self.scoreTwo = 0
         print "starting Game mgr"
         pass
 
@@ -25,6 +28,7 @@ class GameMgr:
     def game(self):
         self.gameTime = 300
         self.start = time.time()
+
         x = -300
         
         for entType in self.engine.entityMgr.entTypes:
@@ -36,7 +40,7 @@ class GameMgr:
         
     def tick(self, dt):
         self.updateTime()
-
+        
         pass
 
     def stop(self):
@@ -52,4 +56,7 @@ class GameMgr:
             self.gameTime-=1
 
             #print self.gameTime
+
+    
+     
 

@@ -192,7 +192,7 @@ class GuiMgr:
         self.text = self.hudMgr.createOverlayElement( "TextArea", "Team Name One" )
         self.text.setPosition( .025, .055 )
         self.text.setDimensions( 1, 1 )
-        self.text.setCaption( "Team Name One" )    
+        self.text.setCaption( "USA" )    
         self.text.setCharHeight(.025)
         self.text.setFontName("Fifa15Font")
         self.text.setColourTop((1.0, 1.0, 1.0))
@@ -204,7 +204,7 @@ class GuiMgr:
         self.text = self.hudMgr.createOverlayElement( "TextArea", "Team Name Two" )
         self.text.setPosition( .025, .1225 )
         self.text.setDimensions( 1, 1 )
-        self.text.setCaption( "Team Name Two" )    
+        self.text.setCaption( "Mexico" )    
         self.text.setCharHeight(.025)
         self.text.setFontName("Fifa15Font")
         self.text.setColourTop((1.0, 1.0, 1.0))
@@ -253,10 +253,18 @@ class GuiMgr:
 
     def tick(self, dt): 
         
-        time = str(self.engine.gameMgr.gameTime / 60) + ":" +str(self.engine.gameMgr.gameTime % 60)  
+        time = str(self.engine.gameMgr.gameTime / 60) + ":" +str(self.engine.gameMgr.gameTime % 60) 
         self.text = self.hudMgr.getOverlayElement("Time")
         self.text.setCaption(time)
+        
+        score = str(self.engine.gameMgr.scoreOne)
+        self.text = self.hudMgr.getOverlayElement("Score - Team Two")
+        self.text.setCaption(score)
 
+        
+        score = str(self.engine.gameMgr.scoreTwo)
+        self.text = self.hudMgr.getOverlayElement("Score - Team One")
+        self.text.setCaption(score)
 
         pass
 
