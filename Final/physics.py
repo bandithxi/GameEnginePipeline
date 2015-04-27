@@ -12,20 +12,27 @@ class Physics:
 
     def tick(self, dtime):
         #defined local var for fewer keystrokes
-        # print "X: ", self.fieldDimenX, "Z: ", self.fieldDimenZ, "pos: ", self.ent.pos
-
         if (self.ent.mesh == "sphere.mesh"):
             for eid, entity in self.entities.iteritems():
-                if (entity != self):
+                if (entity.mesh != "sphere.mesh"):
                     dist = self.distance(self.ent.pos.x, entity.pos.x, self.ent.pos.y, entity.pos.y)
-                #print "x2: ", x2, "z2: ", z2
-                #print dist
-                    if dist < 50:
-                        print "dist: ", dist
-                        #self.var *= -1
+                    
+                    print "sphereX: ", self.ent.pos.x, "sphereZ: ", self.ent.pos.z
+                    print "ninja    X : ", entity.pos.x, "ninjaX : ", entity.pos.z
+                    print "dist:    ", dist
+                    if dist < 30:
+                        print "SUCCESS: ", dist
+                        self.var *= -1
+                        #issue is here, sphere cant get away in time before next tick, 
+                        #updates var causing back and forth
+                        if self.var > 0:
+                            self.ent.pos.x += 30
+                        else:
+                            self.ent.pos.x -= 30
             
-            self.ent.pos.x += (self.var * 10)
-            print "here"
+            self.ent.pos.x += (self.var * 2)
+
+
             if self.ent.pos.x > self.fieldDimenX:
                 self.ent.pos.x = 0
 

@@ -45,7 +45,9 @@ class ControlMgr:
             #print 'max speed: ', ent.maxSpeed
             #print 'desired speed: ', ent.desiredSpeed
             #print 'speed: ', ent.speed
-            print str(ent.pos)
+            pass
+            # changed
+            # print str(ent.pos)
         
     def tick(self, dt):
         self.handleEntitiesController(dt)
