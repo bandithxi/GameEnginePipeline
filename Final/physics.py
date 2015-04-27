@@ -32,11 +32,10 @@ class Physics:
             
             self.ent.pos.x += (self.var * 2)
 
-
             if self.ent.pos.x > self.fieldDimenX:
                 self.ent.pos.x = 0
-
-
+                score+=1
+                # print "score", self.score 
 
         if (self.ent.pos.x > self.fieldDimenX):
             self.ent.pos.x = self.ent.pos.x - 10
