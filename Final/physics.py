@@ -4,55 +4,25 @@ class Physics:
 
     def __init__(self, ent):
         self.ent = ent
+        self.fieldDimenX = (self.ent.engine.gfxMgr.groundEnt.getBoundingBox().getSize().x) / 2
+        self.fieldDimenZ = self.ent.engine.gfxMgr.groundEnt.getBoundingBox().getSize().z / 2
+
         
     def tick(self, dtime):
-        #print "Physics tick", dtime
-        
         #defined local var for fewer keystrokes
-        
-        speed = self.ent.speed
-        acc = self.ent.acceleration 
-        maxSpeed = self.ent.maxSpeed
-        desiredHeading = self.ent.desiredHeading
+        # print "X: ", self.fieldDimenX, "Z: ", self.fieldDimenZ, "pos: ", self.ent.pos
 
-        heading = self.ent.heading
-        tRate = self.ent.turningRate 
-        
-        if maxSpeed < self.ent.desiredSpeed:
-            self.ent.desiredSpeed = maxSpeed
-        elif 0 > self.ent.desiredSpeed:
-            self.ent.desiredSpeed = 0      
-        
-        desiredSpeed = self.ent.desiredSpeed
-        #print 'desired speed: ', desiredSpeed
-        if abs(desiredSpeed - speed) > self.epsilon: 
-            if desiredSpeed > speed:
-                speed += (acc * dtime)
-            elif desiredSpeed < speed:
-                speed -= (acc * dtime)
-        elif desiredSpeed == 0:
-            speed = 0
+        if (self.ent.mesh == "sphere.mesh"):
+            self.ent.pos.x += 5
 
-        self.ent.speed = speed
-        #print 'speed: ', self.ent.speed
+        if (self.ent.pos.x > self.fieldDimenX):
+            self.ent.pos.x = self.ent.pos.x - 10
 
-        if abs(desiredHeading - heading) > self.epsilon:
-            dHead = (tRate * dtime)
-            
-            if desiredHeading > heading:
-                heading += dHead
-            elif desiredHeading < heading:
-                heading -= dHead
-                dHead = dHead * -1
-        else:
-            dHead = 0
-        
-        self.ent.heading = heading
-        self.ent.deltaHeading = dHead
+        if (self.ent.pos.x < -self.fieldDimenX): 
+            self.ent.pos.x = self.ent.pos.x + 10            
 
-        self.ent.vel.x = speed * math.cos(heading/180*3.14)
-        self.ent.vel.z = -speed * math.sin(heading/180*3.14)
-        
-        self.ent.pos = self.ent.pos + (self.ent.vel * dtime)
-        #print "ent.pos", self.ent.pos
+        if (self.ent.pos.z > self.fieldDimenZ):
+            self.ent.pos.z = self.ent.pos.z - 10
 
+        if (self.ent.pos.z < -self.fieldDimenZ):
+            self.ent.pos.z = self.ent.pos.z + 10

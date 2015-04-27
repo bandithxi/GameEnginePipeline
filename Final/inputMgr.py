@@ -12,7 +12,7 @@ class InputMgr(OIS.KeyListener, OIS.MouseListener):
         self.rotate = 0.01
         self.yaw = 0.0
         self.pitch = 0.0
-        self.move = 500
+        self.move = 1000
 
 
     def init(self):

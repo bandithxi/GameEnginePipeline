@@ -84,10 +84,12 @@ class GfxMgr:
         meshManager = ogre.MeshManager.getSingleton ()
         meshManager.createPlane ('Ground', 'General', plane,
                                      3600, 1650, 20, 20, True, 1, 1, 1, (0, 0, 1))
-        groundEnt = self.sceneManager.createEntity('GroundEntity', 'Ground')
-        self.sceneManager.getRootSceneNode().createChildSceneNode().attachObject(groundEnt)
-        groundEnt.setMaterialName ('Examples/EPLPitch')
-        groundEnt.castShadows = False
+        self.groundEnt = self.sceneManager.createEntity('GroundEntity', 'Ground')
+        self.sceneManager.getRootSceneNode().createChildSceneNode().attachObject(self.groundEnt)
+        self.groundEnt.setMaterialName ('Examples/EPLPitch')
+        self.groundEnt.castShadows = False
+
+        # self.scene = self.sceneManager.getRootSceneNode().getChild('GroundEntity')
 
         self.sceneManager.setSkyDome(True, "Examples/CloudySky", 5, 8)
         self.waterPlane = plane
