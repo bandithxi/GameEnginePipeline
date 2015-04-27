@@ -252,5 +252,11 @@ class GuiMgr:
         #self.hud.hide()
 
     def tick(self, dt): 
+        
+        time = str(self.engine.gameMgr.gameTime / 60) + ":" +str(self.engine.gameMgr.gameTime % 60)  
+        self.text = self.hudMgr.getOverlayElement("Time")
+        self.text.setCaption(time)
+
+
         pass
 

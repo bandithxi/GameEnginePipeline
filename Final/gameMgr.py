@@ -1,4 +1,5 @@
 from vector import MyVector
+import time
 # Dont Change
 
 class GameMgr:
@@ -22,6 +23,8 @@ class GameMgr:
         ## Code to load sound here
 
     def game(self):
+        self.gameTime = 300
+        self.start = time.time()
         x = -300
         
         for entType in self.engine.entityMgr.entTypes:
@@ -32,8 +35,21 @@ class GameMgr:
 
         
     def tick(self, dt):
+        self.updateTime()
+
         pass
 
     def stop(self):
         pass
-        
+ 
+
+    def updateTime(self):
+        self.end = time.time()
+
+        if (self.end - self.start) > 1 :
+            #print (self.end - self.start) 
+            self.start = self.end
+            self.gameTime-=1
+
+            #print self.gameTime
+
