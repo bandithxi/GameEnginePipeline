@@ -13,9 +13,10 @@ class GuiMgr:
     def init( self ):
         self.overlayMgr = False
         self.levelSelect = False
-        self.hudMgr = False
-		
-    def displayMainMenu( self ):
+        self.hudMgr = False 
+        self.teamSelect = False
+
+    def createMainMenu( self ):
         self.entityMgr = self.engine.entityMgr
     
         # Load the font
@@ -41,11 +42,11 @@ class GuiMgr:
         self.panel2.setDimensions( .25, .35 )
         self.panel2.setMaterialName( "clearPanel" )
         
-        # Create level panel
+        # Create team panel
         self.panel3 = self.overlayMgr.createOverlayElement( "Panel", "LevelButtons" )
-        self.panel3.setPosition( .363, .5 )
-        self.panel3.setDimensions( .25, .35 )
-        self.panel3.setMaterialName( "clearPanel" )
+        self.panel3.setPosition( 0, 0 )
+        self.panel3.setDimensions( 1, 1 )
+        self.panel3.setMaterialName( "TeamSelect" )
 
             # Create Instructions Panel
         self.panel4 = self.overlayMgr.createOverlayElement( "Panel", "InstructionScreen" )
@@ -115,6 +116,18 @@ class GuiMgr:
         self.text.setSpaceWidth( .01 )
         self.panel2.addChild( self.text )
 
+        
+        # Credits Button
+        self.text = self.overlayMgr.createOverlayElement( "TextArea", "TeamSelect" )
+        self.text.setPosition( 0.05, 0.20)
+        self.text.setDimensions( 1, 1 )
+        self.text.setCaption( "Team Selection" )    
+        self.text.setCharHeight(.025)
+        self.text.setFontName("Fifa15Font")
+        self.text.setColour( ( 1, 1, 1 ) )
+        self.text.setSpaceWidth( .01 )
+        self.panel2.addChild( self.text )
+
         # Add the panel to the overlay
         self.overlay.add2D( self.panel )
         self.overlay.add2D( self.panel2 )
@@ -133,14 +146,12 @@ class GuiMgr:
         instructions.hide()
 
         credits = self.overlayMgr.getOverlayElement( "CreditScreen" )
-        credits.hide()        
+        credits.hide()   
     
-    def displayHud (self):
-
-
+    def createHud (self):
         self.hudMgr = ogre.OverlayManager.getSingleton()
-        self.hud = self.hudMgr.getByName( "HUD/HUD_Info" )
-        self.hud.hide()
+        #self.hud = self.hudMgr.getByName( "HUD/HUD_Info" )
+        #self.hud.hide()
         # Create the HUD
 
         self.hud2 = self.hudMgr.create( "HUD" )
@@ -212,13 +223,61 @@ class GuiMgr:
         self.text.setColourBottom((1.0, 1.0, 1.0))
         self.hudPanel.addChild( self.text )
         self.hud2.add2D( self.hudPanel )
-        self.hud2.show()
+        #self.hud2.show()
         #self.hud.hide()
 
     def tick(self, dt): 
         self.updateTime()
         self.updateScore()
+
+        if self.engine.gameMgr.teamCheck == True and self.teamSelect == False:
+            self.teamSelect = True
+            buttons = self.overlayMgr.getOverlayElement( "Buttons" )
+            buttons.hide()
+            teams = self.overlayMgr.getOverlayElement( "LevelButtons" )
+            teams.show()
+            self.engine.gameMgr.teamCheck = False
         
+        
+        if self.engine.gameMgr.instructionsCheck == True and self.teamSelect == False:
+            instructions = self.overlayMgr.getOverlayElement( "InstructionScreen" )
+            instructions.show()
+            buttons = self.engine.guiMgr.overlayMgr.getOverlayElement( "Buttons" )
+            buttons.hide()       
+            self.engine.gameMgr.instructionsCheck = False     
+        
+        if self.engine.gameMgr.creditsCheck == True and self.teamSelect == False:
+            credits = self.overlayMgr.getOverlayElement( "CreditScreen" )
+            credits.show()
+            buttons = self.engine.guiMgr.overlayMgr.getOverlayElement( "Buttons" )
+            buttons.hide()
+            self.engine.gameMgr.creditsCheck = False   
+
+        #invisible button, please make visible and move 
+        if self.engine.gameMgr.backCheck == True:
+            menu = self.overlayMgr.getOverlayElement( "Menu" )
+            instructions = self.overlayMgr.getOverlayElement( "InstructionScreen" )
+            credits = self.overlayMgr.getOverlayElement( "CreditScreen" )
+            buttons = self.engine.guiMgr.overlayMgr.getOverlayElement( "Buttons" )
+            teams = self.overlayMgr.getOverlayElement( "LevelButtons" )
+            
+            teams.hide()
+            credits.hide()
+            instructions.hide()
+            menu.show()          
+            buttons.show()
+            self.engine.gameMgr.creditsCheck = False  
+            self.engine.gameMgr.instructionsCheck = False 
+            self.engine.gameMgr.teamCheck = False
+
+         
+        if self.engine.gameMgr.startCheck == True: #and self.teamSelect == True:
+            self.teamSelect = True
+            buttons = self.overlayMgr.getOverlayElement( "Buttons" )
+            buttons.hide()
+            
+            #self.engine.gameMgr.teamCheck = False
+
         pass
         
     def updateScore(self):

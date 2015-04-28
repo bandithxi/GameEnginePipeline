@@ -10,28 +10,28 @@ class GameMgr:
         self.scoreOne = 0
         self.scoreTwo = 0
         self.startCheck = False
-        self.instruction = False
-        self.credit = False
+        self.instructionsCheck = False
+        self.creditsCheck = False
+        self.backCheck = False
+        self.teamCheck = False
 
+        self.gameTime = 300
+        self.start = time.time()
         print "starting Game mgr"
         pass
 
     def init(self):
-        self.loadLevel()
-        self.mainMenu()
+        self.guiMgr.createMainMenu()
+        self.guiMgr.createHud()
 
     def loadLevel(self):
-        self.game()
+        pass
     
     def mainMenu(self):
-        self.guiMgr.displayMainMenu()
-        self.guiMgr.displayHud()
-         
+        pass
         ## Code to load sound here
 
-    def game(self):
-        self.gameTime = 300
-        self.start = time.time()
+    def loadGameAsset(self):
 
         x = -300
         
@@ -43,8 +43,12 @@ class GameMgr:
 
         
     def tick(self, dt):
-        self.updateTime()
+        self.updateTime() 
         
+        if (self.startCheck):
+            self.startCheck = False
+            self.loadSetup()
+            self.startGame()
         pass
 
     def stop(self):
@@ -62,5 +66,13 @@ class GameMgr:
             #print self.gameTime
 
     
-     
+    def startGame(self):
+        self.gameTime = 300
+        self.loadGameAsset()
+        self.start = time.time()
+        self.engine.guiMgr.overlay.hide()
+        self.engine.guiMgr.hud2.show()
 
+    
+    def loadSetup(self):
+        pass

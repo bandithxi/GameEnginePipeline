@@ -150,7 +150,7 @@ class InputMgr(OIS.KeyListener, OIS.MouseListener):
    
             self.engine.selectionMgr.checkPointAt(currMouse.X.abs, currMouse.Y.abs)
             
-            #print str(currMouse.X.abs) + "," + str(currMouse.Y.abs)
+            print str(currMouse.X.abs) + "," + str(currMouse.Y.abs)
             
             
         return True

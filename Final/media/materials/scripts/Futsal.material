@@ -52,26 +52,6 @@ material Credits
 	}
 }
 
-material spacePlane
-{
-	technique
-	{
-		pass
-		{
-			lighting off
-			depth_write off
-			fog_override false
-
-			texture_unit
-			{
-				texture starfield.jpg
-				scroll_anim 0 -0.2
-			}
-		}
-	}
-}
-
-
 material Splash
 {
 	technique
@@ -86,148 +66,20 @@ material Splash
 	}
 }
 
-material Graybear 
+material TeamSelect
 {
-    receive_shadows on 
-
-    technique
-    {
-        pass Graybear
-        {
-            ambient 0.500000 0.500000 0.500000 0.500000
-            diffuse 1 1 1 1.0
-            specular 0.2 0.2 0.2 1.0 12.5
-            emissive 0.5 0.5 0.5 1.0
-			
-			alpha_to_coverage off
-            colour_write on
-            cull_hardware clockwise
-            depth_check on
-            depth_func less_equal
-            depth_write on
-            illumination_stage 
-            light_clip_planes off
-            light_scissor off
-            lighting on
-            normalise_normals off
-            polygon_mode solid
-            scene_blend one zero
-            scene_blend_op add
-            shading gouraud
-            transparent_sorting on
-
-            texture_unit 
-            {
-                texture graybear.jpg
-                tex_address_mode wrap
-                scale 1.0 1.0
-                tex_coord_set 0
-                colour_op modulate
-            }
-        }
-    }
+	technique
+	{
+		pass
+		{
+			texture_unit
+			{
+				texture TeamSelect.png
+			}
+		}
+	}
 }
 
-material ballSurface 
-{
-    receive_shadows on 
 
-    technique
-    {
-        pass ballSurface
-        {
-            ambient 1 1 1 1.0
-            diffuse 0.6400000190734865 0.6400000190734865 0.6400000190734865 1.0
-            specular 0.5 0.5 0.5 1.0 12.5
-            emissive 1.0 1.0 1.0 1.0
-
-            alpha_to_coverage off
-            colour_write on
-            cull_hardware clockwise
-            depth_check on
-            depth_func less_equal
-            depth_write on
-            illumination_stage 
-            light_clip_planes off
-            light_scissor off
-            lighting on
-            normalise_normals off
-            polygon_mode solid
-            scene_blend one zero
-            scene_blend_op add
-            shading gouraud
-            transparent_sorting on
-
-        }
-    }
-}
-
-material redBall
-{
-    receive_shadows on 
-
-    technique
-    {
-        pass redBall
-        {
-            ambient 1 .5 .5 1.0
-            diffuse 0.6400000190734865 0.6400000190734865 0.6400000190734865 1.0
-            specular 0.5 0.5 0.5 1.0 12.5
-            emissive 1.0 1.0 1.0 1.0
-
-            alpha_to_coverage off
-            colour_write on
-            cull_hardware clockwise
-            depth_check on
-            depth_func less_equal
-            depth_write on
-            illumination_stage 
-            light_clip_planes off
-            light_scissor off
-            lighting on
-            normalise_normals off
-            polygon_mode solid
-            scene_blend one zero
-            scene_blend_op add
-            shading gouraud
-            transparent_sorting on
-
-        }
-    }
-}
-
-material ballGlow
-{
-    receive_shadows on 
-
-    technique
-    {
-        pass ballGlow
-        {
-            ambient 1 1 1 1.0
-            diffuse 0.6400000190734865 0.6400000190734865 0.6400000190734865 1.0
-            specular 0.5 0.5 0.5 1.0 12.5
-            emissive 1.0 1.0 1.0 1.0
-
-            alpha_to_coverage off
-            colour_write on
-            cull_hardware clockwise
-            depth_check on
-            depth_func less_equal
-            depth_write on
-            illumination_stage 
-            light_clip_planes off
-            light_scissor off
-            lighting on
-            normalise_normals off
-            polygon_mode solid
-            scene_blend one zero
-            scene_blend_op add
-            shading gouraud
-            transparent_sorting on
-
-        }
-    }
-}
 
 
