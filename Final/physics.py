@@ -17,9 +17,9 @@ class Physics:
                 if (entity.mesh != "sphere.mesh"):
                     dist = self.distance(self.ent.pos.x, entity.pos.x, self.ent.pos.z, entity.pos.z)
                     
-                    print "sphereX: ", self.ent.pos.x, "sphereZ: ", self.ent.pos.z
-                    print "ninja    X : ", entity.pos.x, "ninjaX : ", entity.pos.z
-                    print "dist:    ", dist
+                   # print "sphereX: ", self.ent.pos.x, "sphereZ: ", self.ent.pos.z
+                    #print "ninja    X : ", entity.pos.x, "ninjaX : ", entity.pos.z
+                    #print "dist:    ", dist
                     if dist < 30:
                         print "SUCCESS: ", dist
                         self.var *= -1

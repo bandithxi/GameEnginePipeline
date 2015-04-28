@@ -66,9 +66,51 @@ class SelectionMgr:
     
         
         elif (self.p1LCheck(x, y)):
+            cursor = self.engine.gameMgr.p1Team
+            cursor -= 1
+
+            if (cursor < 0):
+   
+            #change to number of teams
+                cursor = 1
+
+            self.engine.gameMgr.p1Team = cursor  
             #scroll between available teams
             print "Left"
-        elif (self.p1RCheck(x, y)):
+        elif (self.p2RCheck(x, y)):
+            cursor = self.engine.gameMgr.p2Team
+            cursor += 1
+
+            #change to number of teams
+            if (cursor > 1):
+                cursor = 0
+
+            self.engine.gameMgr.p1Team = cursor  
+            
+            print "Right"
+        
+        elif (self.p1LCheck(x, y)):
+            cursor = self.engine.gameMgr.p2Team
+            cursor -= 1
+
+            if (cursor < 0):
+   
+            #change to number of teams
+                cursor = 1
+
+            self.engine.gameMgr.p1Team = cursor  
+            #scroll between available teams
+            print "Left"
+        elif (self.p2RCheck(x, y)):
+            cursor = self.engine.gameMgr.p2Team
+            cursor += 1
+
+            #change to number of teams
+            if (cursor > 1):
+                cursor = 0
+
+            self.engine.gameMgr.p2Team = cursor  
+            
             print "Right"
    
         elif (self.startCheck(x,y)):
@@ -100,7 +142,7 @@ class SelectionMgr:
     def p2LCheck(self, x, y):
         return x > 100 and x < 250  and y > 530 and y < 560
 
-    def p2RCheckCheck(self, x, y):
+    def p2RCheck(self, x, y):
         return x > 100 and x < 250  and y > 530 and y < 560
 
 

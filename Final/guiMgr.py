@@ -269,6 +269,8 @@ class GuiMgr:
             self.engine.gameMgr.creditsCheck = False  
             self.engine.gameMgr.instructionsCheck = False 
             self.engine.gameMgr.teamCheck = False
+            self.teamSelect = False
+            
 
          
         if self.engine.gameMgr.startCheck == True: #and self.teamSelect == True:

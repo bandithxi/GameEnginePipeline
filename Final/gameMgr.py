@@ -17,6 +17,13 @@ class GameMgr:
 
         self.gameTime = 300
         self.start = time.time()
+       
+        self.teamList = self.engine.entityMgr.entTypes
+        self.p1Team = 0
+        self.p2Team = 0
+        
+        self.teamSize = 1
+
         print "starting Game mgr"
         pass
 
@@ -32,16 +39,22 @@ class GameMgr:
         ## Code to load sound here
 
     def loadGameAsset(self):
-
-        x = -300
+        self.loadTeam1()
+        self.loadTeam2()
         
-        for entType in self.engine.entityMgr.entTypes:
-            print "*********************GameMgr Creating*********************" # , str(entType)
-            ent = self.engine.entityMgr.createEnt(entType, pos = MyVector(x, 0, 0))
-            print "GameMgr Created: ", ent.uiname, ent.id
+        
+    def loadTeam1(self):
+        x = 300
+        for i in range(self.teamSize):
+            ent = self.engine.entityMgr.createEnt(self.teamList[self.p1Team], pos = MyVector(x, 0, 0))
             x += 300
+    
+    def loadTeam2(self):
+        x = -300
+        for i in range(self.teamSize):
+            ent = self.engine.entityMgr.createEnt(self.teamList[self.p2Team], pos = MyVector(x, 0, 0))
+            x -= 300
 
-        
     def tick(self, dt):
         self.updateTime() 
         
@@ -49,6 +62,7 @@ class GameMgr:
             self.startCheck = False
             self.loadSetup()
             self.startGame()
+            #print self.teamList[self.p1Team] , self.teamList[self.p2Team]
         pass
 
     def stop(self):
@@ -76,3 +90,4 @@ class GameMgr:
     
     def loadSetup(self):
         pass
+
