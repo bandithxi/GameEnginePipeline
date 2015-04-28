@@ -47,8 +47,11 @@ class GameMgr:
     def loadGameAsset(self):
         self.loadTeam1()
         self.loadTeam2()
+        self.loadBall()
         
-        
+    def loadBall(self):
+        self.engine.entityMgr.createEnt(self.engine.entityMgr.ball, pos = MyVector(0, 0, 0))  
+
     def loadTeam1(self):
         x = 300
         for i in range(self.teamSize):
@@ -77,12 +80,11 @@ class GameMgr:
 
     def updateTime(self):
         self.end = time.time()
-
+        print self.backCheck
         if (self.end - self.start) > 1 :
             #print (self.end - self.start) 
             self.start = self.end
             self.gameTime-=1
-
             #print self.gameTime
 
     
@@ -98,4 +100,7 @@ class GameMgr:
     
     def loadSetup(self):
         pass
-
+    
+    def gameOver(self):
+        #self.backCheck = True
+        pass

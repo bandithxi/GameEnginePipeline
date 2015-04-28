@@ -21,7 +21,7 @@ class Physics:
                     #print "ninja    X : ", entity.pos.x, "ninjaX : ", entity.pos.z
                     #print "dist:    ", dist
                     if dist < 30:
-                        print "SUCCESS: ", dist
+                        #print "SUCCESS: ", dist
                         self.var *= -1
                         #issue is here, sphere cant get away in time before next tick, 
                         #updates var causing back and forth

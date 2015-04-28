@@ -83,7 +83,7 @@ class GfxMgr:
         plane = ogre.Plane ((0, 1, 0), -5)
         meshManager = ogre.MeshManager.getSingleton ()
         meshManager.createPlane ('Ground', 'General', plane,
-                                     3600, 1650, 20, 20, True, 1, 1, 1, (0, 0, 1))
+                                     7200, 3300, 20, 20, True, 1, 1, 1, (0, 0, 1))
         self.groundEnt = self.sceneManager.createEntity('GroundEntity', 'Ground')
         self.sceneManager.getRootSceneNode().createChildSceneNode().attachObject(self.groundEnt)
         self.groundEnt.setMaterialName ('Examples/EPLPitch')

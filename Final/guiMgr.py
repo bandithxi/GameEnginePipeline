@@ -230,23 +230,23 @@ class GuiMgr:
         self.updateTime()
         self.updateScore()
 
-        if self.engine.gameMgr.teamCheck == True and self.teamSelect == False:
-            self.teamSelect = True
+        if self.engine.gameMgr.teamCheck == True and self.engine.gameMgr.startCheck == False:
+            #self.teamSelect = True
             buttons = self.overlayMgr.getOverlayElement( "Buttons" )
             buttons.hide()
             teams = self.overlayMgr.getOverlayElement( "LevelButtons" )
             teams.show()
-            self.engine.gameMgr.teamCheck = False
+            self.teamSelect = False
         
         
-        if self.engine.gameMgr.instructionsCheck == True and self.teamSelect == False:
+        if self.engine.gameMgr.instructionsCheck == True and self.engine.gameMgr.startCheck == False:
             instructions = self.overlayMgr.getOverlayElement( "InstructionScreen" )
             instructions.show()
             buttons = self.engine.guiMgr.overlayMgr.getOverlayElement( "Buttons" )
             buttons.hide()       
             self.engine.gameMgr.instructionsCheck = False     
         
-        if self.engine.gameMgr.creditsCheck == True and self.teamSelect == False:
+        if self.engine.gameMgr.creditsCheck == True and self.engine.gameMgr.startCheck == False:
             credits = self.overlayMgr.getOverlayElement( "CreditScreen" )
             credits.show()
             buttons = self.engine.guiMgr.overlayMgr.getOverlayElement( "Buttons" )
@@ -254,7 +254,7 @@ class GuiMgr:
             self.engine.gameMgr.creditsCheck = False   
 
         #invisible button, please make visible and move 
-        if self.engine.gameMgr.backCheck == True:
+        if self.engine.gameMgr.backCheck == True and self.engine.gameMgr.startCheck == False:
             menu = self.overlayMgr.getOverlayElement( "Menu" )
             instructions = self.overlayMgr.getOverlayElement( "InstructionScreen" )
             credits = self.overlayMgr.getOverlayElement( "CreditScreen" )
@@ -270,11 +270,11 @@ class GuiMgr:
             self.engine.gameMgr.instructionsCheck = False 
             self.engine.gameMgr.teamCheck = False
             self.teamSelect = False
-            
-
+            self.engine.gameMgr.backCheck == False
+            self.engine.gameMgr.startCheck == False
          
         if self.engine.gameMgr.startCheck == True: #and self.teamSelect == True:
-            self.teamSelect = True
+            #self.teamSelect = True
             buttons = self.overlayMgr.getOverlayElement( "Buttons" )
             buttons.hide()
             
