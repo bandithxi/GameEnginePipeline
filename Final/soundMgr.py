@@ -6,7 +6,7 @@ class SoundMgr:
     path = "media/sounds/"
     musExt = ".mp3"
     sfxExt = ".ogg"
-    debug = True
+    debug = False
     
     def __init__(self, engine):
         self.engine = engine
@@ -17,8 +17,8 @@ class SoundMgr:
         pygame.mixer.init()
         self.musicVolume = 15
    
-        musicList = ["Champions_League_theme", "liverpool", "bvb", "arsenal"]
-        sfxList = ["break", "bounce"]
+        self.musicList = ["liverpool", "bvb", "arsenal"]
+        self.sfxList = ["break", "bounce"]
         
         if SoundMgr.debug:
             self.playMusic("Champions_League_theme")

@@ -6,6 +6,7 @@ class GameMgr:
     def __init__(self, engine):
         self.engine = engine
         self.guiMgr = self.engine.guiMgr
+        self.sfxMgr = self.engine.soundMgr
         self.half = 1
         self.scoreOne = 0
         self.scoreTwo = 0
@@ -19,6 +20,7 @@ class GameMgr:
         self.start = time.time()
        
         self.teamList = self.engine.entityMgr.entTypes
+        self.chantList = self.engine.soundMgr.musicList
         self.p1Team = 0
         self.p2Team = 0
         
@@ -30,6 +32,10 @@ class GameMgr:
     def init(self):
         self.guiMgr.createMainMenu()
         self.guiMgr.createHud()
+        self.sfxMgr.playMusic("Champions_League_theme")
+        #self.sfxMgr.playMusic("bvb")
+        #self.sfxMgr.playMusic("liverpool")
+        #self.sfxMgr.playMusic("arsenal")
 
     def loadLevel(self):
         pass
@@ -81,6 +87,8 @@ class GameMgr:
 
     
     def startGame(self):
+        self.sfxMgr.stopMusic("Champions_League_theme")
+        self.sfxMgr.playMusic(self.chantList[self.p1Team])
         self.gameTime = 300
         self.loadGameAsset()
         self.start = time.time()
