@@ -69,9 +69,9 @@ class Ball(Entity):
         
         self.mesh = 'sphere.mesh'
         self.uiname = 'Ball'
-        self.acceleration = 200
-        self.turningRate = 200
-        self.maxSpeed = 480
+        self.acceleration = 250
+        self.turningRate = 30
+        self.maxSpeed = 1000
         self.desiredSpeed = 0
         self.desiredHeading = 90
         self.speed = 0
@@ -79,7 +79,7 @@ class Ball(Entity):
         self.wakeSize = 'Large'
         self.scale = ogre.Vector3(.3, .3, .3)
         self.wakeSize = 'Large'
-
+        self.pitch = 0.0
 
 
 
@@ -238,9 +238,9 @@ class PlayerA(Entity):
         self.mesh = 'ninja.mesh'
         self.uiname = 'playerA' + str(PlayerA.id)
         PlayerA.id += 1
-        self.acceleration = 90
+        self.acceleration = 360
         self.turningRate = 120
-        self.maxSpeed = 100
+        self.maxSpeed = 400
         self.desiredSpeed = 0
         self.desiredHeading = 0
         self.speed = 0
@@ -256,9 +256,9 @@ class PlayerB(Entity):
         self.mesh = 'robot.mesh'
         self.uiname = 'playerB' + str(PlayerB.id)
         PlayerB.id += 1
-        self.acceleration = 90
+        self.acceleration = 360
         self.turningRate = 120
-        self.maxSpeed = 100
+        self.maxSpeed = 400
         self.desiredSpeed = 0
         self.desiredHeading = 0
         self.speed = 0

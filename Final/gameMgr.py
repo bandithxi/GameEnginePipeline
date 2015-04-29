@@ -80,7 +80,7 @@ class GameMgr:
 
     def updateTime(self):
         self.end = time.time()
-        print self.backCheck
+        #print self.backCheck
         if (self.end - self.start) > 1 :
             #print (self.end - self.start) 
             self.start = self.end

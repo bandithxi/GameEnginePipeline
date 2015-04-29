@@ -69,21 +69,23 @@ class GfxMgr:
     def createCamera(self):
         self.camera = self.sceneManager.createCamera("Camera")
         self.camera.nearClipDistance = 10
-        yawNode = self.sceneManager.getRootSceneNode().createChildSceneNode("RTSCamNode", (0, 250, 1200))
+        yawNode = self.sceneManager.getRootSceneNode().createChildSceneNode("RTSCamNode", (0, 1000, 3300))
         yawNode.yaw(ogre.Degree(0))
+        #yawNode.pitch(ogre.Degree(90))
         yawNode.createChildSceneNode("RTSPitchNode").attachObject(self.camera)
         self.camera.lookAt = (0, 0, 0)
         
          
     def createViewport(self):
         viewPort = self.root.getAutoCreatedWindow().addViewport(self.camera)
+        self.camera.aspectRatio = float (viewPort.actualWidth) / float (viewPort.actualHeight)
 
     def createWorld(self):
         # surfaceHeight = -15
         plane = ogre.Plane ((0, 1, 0), -5)
         meshManager = ogre.MeshManager.getSingleton ()
         meshManager.createPlane ('Ground', 'General', plane,
-                                     7200, 3300, 20, 20, True, 1, 1, 1, (0, 0, 1))
+                                     7200, 4800, 20, 20, True, 1, 1, 1, (0, 0, 1))
         self.groundEnt = self.sceneManager.createEntity('GroundEntity', 'Ground')
         self.sceneManager.getRootSceneNode().createChildSceneNode().attachObject(self.groundEnt)
         self.groundEnt.setMaterialName ('Examples/EPLPitch')

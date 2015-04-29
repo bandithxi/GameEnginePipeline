@@ -34,14 +34,14 @@ class Engine(object):
         import selectionMgr
         self.selectionMgr = selectionMgr.SelectionMgr(self)
         self.selectionMgr.init()
-        
-        import controlMgr
-        self.controlMgr = controlMgr.ControlMgr(self)
-        self.controlMgr.init()
-        
+                
         import gameMgr
         self.gameMgr = gameMgr.GameMgr(self)
         self.gameMgr.init()
+
+        import controlMgr
+        self.controlMgr = controlMgr.ControlMgr(self)
+        self.controlMgr.init()
 
     def stop(self):
         self.gfxMgr.stop()

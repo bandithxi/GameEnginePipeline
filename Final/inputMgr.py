@@ -13,6 +13,7 @@ class InputMgr(OIS.KeyListener, OIS.MouseListener):
         self.yaw = 0.0
         self.pitch = 0.0
         self.move = 1000
+        self.heldTime = 0.0
 
 
     def init(self):
@@ -43,9 +44,11 @@ class InputMgr(OIS.KeyListener, OIS.MouseListener):
         self.usingRTSCam = True
 
     def tick(self, dt):
+        self.dt = dt
         self.keyboard.capture()
         self.mouse.capture()
         self.keyPressed(dt)
+        self.keyReleased(dt)
 
         self.currMouse = self.mouse.getMouseState()
 
@@ -63,10 +66,13 @@ class InputMgr(OIS.KeyListener, OIS.MouseListener):
 
     def keyPressed(self, frameEvent):
         #print "in keypressed funtion"
-
+        #print dt
         # Move the camera using keyboard input.
         self.transVector = ogre.Vector3(0, 0, 0)
-        
+
+        if self.keyboard.isKeyDown(OIS.KC_SPACE):
+            self.heldTime += self.dt
+
         # Move Forward.
         if self.keyboard.isKeyDown(OIS.KC_W):
             self.transVector.z -= self.move
@@ -138,6 +144,9 @@ class InputMgr(OIS.KeyListener, OIS.MouseListener):
         return not self.keyboard.isKeyDown(OIS.KC_ESCAPE)
 
     def keyReleased(self, frameEvent):
+        if not self.keyboard.isKeyDown(OIS.KC_SPACE):
+            #print self.heldTime
+            self.heldTime = 0.0
         return True
 
     def mouseMoved(self, frameEvent):
