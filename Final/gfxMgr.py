@@ -78,7 +78,7 @@ class GfxMgr:
          
     def createViewport(self):
         viewPort = self.root.getAutoCreatedWindow().addViewport(self.camera)
-        self.camera.aspectRatio = float (viewPort.actualWidth) / float (viewPort.actualHeight)
+        self.camera.aspectRatio = 16.0/9.0
 
     def createWorld(self):
         # surfaceHeight = -15
@@ -88,7 +88,7 @@ class GfxMgr:
                                      7200, 4800, 20, 20, True, 1, 1, 1, (0, 0, 1))
         self.groundEnt = self.sceneManager.createEntity('GroundEntity', 'Ground')
         self.sceneManager.getRootSceneNode().createChildSceneNode().attachObject(self.groundEnt)
-        self.groundEnt.setMaterialName ('Examples/EPLPitch')
+        self.groundEnt.setMaterialName ('StripPitch')
         self.groundEnt.castShadows = False
 
         # self.scene = self.sceneManager.getRootSceneNode().getChild('GroundEntity')

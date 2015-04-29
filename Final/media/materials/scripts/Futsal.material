@@ -81,5 +81,18 @@ material TeamSelect
 }
 
 
+material StripPitch
+{
+	technique
+	{
+		pass
+		{
+			texture_unit
+			{
+				texture pitch.png
+			}
+		}
+	}
+}
 
 

@@ -77,7 +77,7 @@ class Physics:
         if (self.ent.pos.x > self.fieldDimenX):
             self.ent.pos.x = -3200
         
-        print "ent.pos", self.ent.pos
+        #print "ent.pos", self.ent.pos
         #print "ent.velo", self.ent.vel
 
     def distance(self, xi,xii,yi,yii):

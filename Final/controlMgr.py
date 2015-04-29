@@ -68,11 +68,14 @@ class ControlMgr:
                     if (ent.uiname == "Ball"):  
                          
                             self.pressed = False
-                
-                            ent.speed = ent.maxSpeed * self.heldTime  
-                            if (ent.speed > 1.1 * ent.maxSpeed):
+                  
+                            if self.heldTime > 1.1:
+                                ent.speed = ent.maxSpeed * self.heldTime
+                                
                                 ent.vel.y = 1000.0 * self.heldTime / 2.0
-                         
+                            else:
+                                
+                                ent.speed = ent.maxSpeed * 2.0 * self.heldTime
                                 
                                 #print ent.speed
                             ent.desiredSpeed = 0

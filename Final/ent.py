@@ -77,7 +77,7 @@ class Ball(Entity):
         self.speed = 0
         self.heading = 90    
         self.wakeSize = 'Large'
-        self.scale = ogre.Vector3(.3, .3, .3)
+        self.scale = ogre.Vector3(.15, .15, .15)
         self.wakeSize = 'Large'
         self.pitch = 0.0
 
@@ -247,6 +247,8 @@ class PlayerA(Entity):
         self.heading = 0
         self.wakeSize = 'Large'
         self.offset = ogre.Degree(-90)
+        
+        self.scale = ogre.Vector3(.5, .5, .5)
    
 class PlayerB(Entity):
     id = 0

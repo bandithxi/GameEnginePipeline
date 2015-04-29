@@ -63,6 +63,7 @@ class InputMgr(OIS.KeyListener, OIS.MouseListener):
             self.RTSCamNode.translate(self.RTSCamNode.orientation
                               * self.transVector
                               * dt)
+            #print self.RTSCamNode.orientation
 
     def keyPressed(self, frameEvent):
         #print "in keypressed funtion"
@@ -76,19 +77,20 @@ class InputMgr(OIS.KeyListener, OIS.MouseListener):
         # Move Forward.
         if self.keyboard.isKeyDown(OIS.KC_W):
             self.transVector.z -= self.move
+            #print self.transVector.z
         
         # Move Backward.
         if self.keyboard.isKeyDown(OIS.KC_S):
             self.transVector.z += self.move
-        
+            #print self.transVector.z
         # Strafe Left.
         if self.keyboard.isKeyDown(OIS.KC_A):
             self.transVector.x -= self.move
-        
+            #print self.transVector.x
         # Strafe Right.
         if self.keyboard.isKeyDown(OIS.KC_D):
             self.transVector.x += self.move
-
+            #print self.transVector.x
         if self.keyboard.isKeyDown(OIS.KC_Q):
             self.yaw += self.rotate
             
@@ -97,10 +99,10 @@ class InputMgr(OIS.KeyListener, OIS.MouseListener):
         
         if self.keyboard.isKeyDown(OIS.KC_Z):
             self.pitch += self.rotate
-        
+            #print self.pitch
         if self.keyboard.isKeyDown(OIS.KC_X):
             self.pitch -= self.rotate    
-
+            #print self.pitch
         # Move Up.        
         if self.keyboard.isKeyDown(OIS.KC_PGUP):
             self.transVector.y += self.move
