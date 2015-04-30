@@ -6,8 +6,13 @@ class Renderer:
         self.entOgre = self.ent.engine.gfxMgr.sceneManager.createEntity(self.ent.uiname + str(self.ent.engine.entityMgr.nEnts), self.ent.mesh)
         
         self.node = self.ent.engine.gfxMgr.sceneManager.getRootSceneNode().createChildSceneNode(self.ent.uiname +'node', self.ent.pos)
-        
+
         self.node.attachObject(self.entOgre)
+        
+        #yuck spagetti code :(
+        if (self.ent.uiname == "Ball"):
+            self.entOgre.setMaterialName ("Ball")
+        
         self.ent.node = self.node
         
         self.node.scale(self.ent.scale)   
@@ -40,10 +45,25 @@ class Renderer:
         #for jetski
         self.wakeNode.yaw(self.ent.offset);
         self.ent.node.yaw(self.ent.offset);
-        self.ent.node.yaw(ogre.Degree(self.ent.heading))   
-        
-        if self.ent.speed > 0:
-            self.wakeNode.setVisible(True)
-        else: 
-            self.wakeNode.setVisible(False)
-          
+        self.ent.node.yaw(ogre.Degree(self.ent.heading))  
+ 
+        if (self.ent.uiname != "Ball" and self.ent.uiname != "Stands" and self.ent.uiname != "Top"):
+            if self.ent.speed > 0:
+                self.wakeNode.setVisible(True)
+                self.animationState = self.entOgre.getAnimationState('Walk')
+                self.animationState.setLoop(True)
+                self.animationState.setEnabled(True)
+                self.animationState.addTime(2 *dtime)
+            
+            else: 
+                self.wakeNode.setVisible(False)
+                self.animationState = self.entOgre.getAnimationState('Kick')
+                self.animationState.setLoop(True)
+                self.animationState.setEnabled(True)
+                self.animationState.addTime(dtime)
+        else:
+            if self.ent.speed > 0: 
+                ent = self.ent
+                self.ent.node.pitch(ent.vel.x)
+                #self.ent.node.roll(ent.vel.z)
+                

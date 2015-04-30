@@ -57,7 +57,7 @@ class ControlMgr:
         
         if self.Keyboard.isKeyDown(OIS.KC_SPACE):
             self.pressed = True
-            print dt
+            #print dt
             self.heldTime += 2.0 * dt
             if self.heldTime > 2.0:  
                 self.heldTime = 2.0
@@ -88,11 +88,12 @@ class ControlMgr:
           
         for ent in selectedEnt:
             #Metrics
-            print 'heading:', ent.heading
-            print 'desired heading:', ent.desiredHeading
-            print 'max speed: ', ent.maxSpeed
-            print 'desired speed: ', ent.desiredSpeed
-            print 'speed: ', ent.speed
+            pass
+           # print 'heading:', ent.heading
+           # print 'desired heading:', ent.desiredHeading
+            #print 'max speed: ', ent.maxSpeed
+            #print 'desired speed: ', ent.desiredSpeed
+            #print 'speed: ', ent.speed
             #print str(ent.pos)
         
     def tick(self, dt):

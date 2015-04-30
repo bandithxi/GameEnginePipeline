@@ -269,7 +269,7 @@ class GuiMgr:
             teams.show()
             self.teamSelect = False
         
-        
+       
         if self.engine.gameMgr.instructionsCheck == True and self.engine.gameMgr.startCheck == False:
             instructions = self.overlayMgr.getOverlayElement( "InstructionScreen" )
             instructions.show()

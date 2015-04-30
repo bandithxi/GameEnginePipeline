@@ -48,6 +48,7 @@ class GameMgr:
         self.loadTeam1()
         self.loadTeam2()
         self.loadBall()
+        self.loadStad()
         
     def loadBall(self):
         self.engine.entityMgr.createEnt(self.engine.entityMgr.ball, pos = MyVector(0, 0, 0))  
@@ -57,12 +58,15 @@ class GameMgr:
         for i in range(self.teamSize):
             ent = self.engine.entityMgr.createEnt(self.teamList[self.p1Team], pos = MyVector(x, 0, 0))
             x += 300
-    
     def loadTeam2(self):
         x = -300
         for i in range(self.teamSize):
             ent = self.engine.entityMgr.createEnt(self.teamList[self.p2Team], pos = MyVector(x, 0, 0))
             x -= 300
+    
+    def loadStad(self):
+        ent = self.engine.entityMgr.createEnt(self.engine.entityMgr.top, pos = MyVector(0, 0, 0))
+        ent = self.engine.entityMgr.createEnt(self.engine.entityMgr.stands, pos = MyVector(0, 0, 0))
 
     def tick(self, dt):
         self.updateTime() 

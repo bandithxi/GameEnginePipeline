@@ -77,9 +77,10 @@ class Ball(Entity):
         self.speed = 0
         self.heading = 90    
         self.wakeSize = 'Large'
-        self.scale = ogre.Vector3(.15, .15, .15)
+        self.scale = ogre.Vector3(.5, .5, .5)
         self.wakeSize = 'Large'
         self.pitch = 0.0
+        self.spin = 0.0
 
 
 
@@ -269,5 +270,50 @@ class PlayerB(Entity):
         self.offset = ogre.Degree(180)
         
         self.scale = ogre.Vector3(2, 2, 2)
+
+
+class TopStad(Entity):
+    id = 0
+    def __init__(self, engine, id, pos = MyVector(0, 0 ,0), vel = MyVector(0, 0, 0), yaw = 0):
+        Entity.__init__(self, engine, id, pos = pos, vel = vel, yaw = yaw)
+        print "player init"
+        self.mesh = 'WireFrameTopStad.mesh'
+        self.uiname = 'Top'
+        PlayerB.id += 1
+        self.acceleration = 360
+        self.turningRate = 120
+        self.maxSpeed = 400
+        self.desiredSpeed = 0
+        self.desiredHeading = 0
+        self.speed = 0
+        self.heading = 0
+        self.wakeSize = 'Large'
+        self.offset = ogre.Degree(90)
+        
+        #self.scale = ogre.Vector3(1, 1, 1)
+
+        self.scale = ogre.Vector3(50, 50, 50)
+
+class Stands(Entity):
+    id = 0
+    def __init__(self, engine, id, pos = MyVector(0, 0 ,0), vel = MyVector(0, 0, 0), yaw = 0):
+        Entity.__init__(self, engine, id, pos = pos, vel = vel, yaw = yaw)
+        print "player init"
+        self.mesh = "Stands.mesh"
+        self.uiname = 'Stands'
+        PlayerB.id += 1
+        self.acceleration = 360
+        self.turningRate = 120
+        self.maxSpeed = 400
+        self.desiredSpeed = 0
+        self.desiredHeading = 0
+        self.speed = 0
+        self.heading = 0
+        self.wakeSize = 'Large'
+        self.offset = ogre.Degree(90)
+        
+        #self.scale = ogre.Vector3(1, 1, 1)
+
+        self.scale = ogre.Vector3(50, 50, 50)
 
 

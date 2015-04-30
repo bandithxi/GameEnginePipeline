@@ -21,6 +21,10 @@ class EntityMgr:
         
         self.entTypes = [ent.PlayerA, ent.PlayerB]
         self.ball = ent.Ball
+        self.stands = ent.Stands
+        self.top = ent.TopStad
+  
+        self.stadiumParts = [ent.Stands, ent.TopStad]#,  ent.Trusse, ent.lowWall]
         #self.entTypes = [ent.Cvn, ]
 
     def createEnt(self, entType, pos = MyVector(0,0,0), yaw = 0):
