@@ -59,7 +59,7 @@ class GuiMgr:
         self.panel3.setDimensions( 1, 1 )
         self.panel3.setMaterialName( "TeamSelect" )
 
-            # Create Instructions Panel
+        # Create Instructions Panel
         self.panel4 = self.overlayMgr.createOverlayElement( "Panel", "InstructionScreen" )
         self.panel4.setPosition( .118, .12 )
         self.panel4.setDimensions( .75, .75 )
@@ -301,8 +301,8 @@ class GuiMgr:
             self.engine.gameMgr.instructionsCheck = False 
             self.engine.gameMgr.teamCheck = False
             self.teamSelect = False
-            self.engine.gameMgr.backCheck == False
-            self.engine.gameMgr.startCheck == False
+            self.engine.gameMgr.backCheck = False
+            self.engine.gameMgr.startCheck = False
          
         if self.engine.gameMgr.startCheck == True: #and self.teamSelect == True:
             #self.teamSelect = True
