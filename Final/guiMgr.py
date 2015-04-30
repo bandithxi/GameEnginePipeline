@@ -16,6 +16,17 @@ class GuiMgr:
         self.hudMgr = False 
         self.teamSelect = False
 
+        #button positions
+        self.buttonBoxX = 0.0
+        self.buttonBoxY = 0.0
+        self.buttonStartX = 0.0
+        self.buttonStartY = 0.0
+        self.buttonInstructY = 0.0
+        self.buttonCreditsY = 0.0
+        self.buttonTeamSelY = 0.0
+        self.windowWidth = 0.0
+        self.windowHeight = 0.0
+
     def createMainMenu( self ):
         self.entityMgr = self.engine.entityMgr
     
@@ -134,7 +145,27 @@ class GuiMgr:
         self.overlay.add2D( self.panel3 )
         self.overlay.add2D( self.panel4 )
         self.overlay.add2D( self.panel5 )
+
+        # grabbed window height and width
+        self.windowWidth  = self.engine.gfxMgr.renderWindow.getWidth()
+        self.windowHeight = self.engine.gfxMgr.renderWindow.getHeight()
+        #print "renderwindow x: ", self.windowWidth, "y: ", self.windowHeight
+
+        # grabbed top left x and y axis of button panel
+        self.buttonBoxX = self.panel2.getLeft() * self.windowWidth
+        self.buttonBoxY = self.panel2.getTop() * self.windowHeight
+        #print "buttonBox x: ", self.buttonBoxX, "y: ", self.buttonBoxY
+
+        # calculate start button position
+        self.buttonStartX = self.buttonBoxX + (self.windowWidth  * 0.025)
+        self.buttonStartY = self.buttonBoxY + (self.windowHeight * 0.025)
+        #print "start: ", self.buttonStartX, self.buttonStartY
         
+        # calculate instruction, credits, team selection button position
+        self.buttonInstructY = self.buttonBoxY + (self.windowHeight * 0.075)
+        self.buttonCreditsY = self.buttonBoxY + (self.windowHeight * 0.125)
+        self.buttonTeamSelectionY = self.buttonBoxY + (self.windowHeight * 0.175)
+
         # Show the overlay
         self.overlay.show()
         #self.overlay.hide()

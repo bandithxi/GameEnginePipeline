@@ -10,7 +10,7 @@ class GfxMgr:
         self.configPath = ""
         self.pluginsPath =  os.path.join(self.configPath, "plugins.cfg")
         self.resourcesPath = os.path.join(self.configPath, "resources.cfg")
-        print "__init__ GfxMgr"
+        #print "__init__ GfxMgr"
 
     def init(self):
         self.createRoot()

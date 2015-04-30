@@ -3,7 +3,7 @@ import ogre.io.OIS as OIS
 
 class InputMgr(OIS.KeyListener, OIS.MouseListener):
     def __init__(self, engine):
-        print "__init__ InputMgr"
+        #print "__init__ InputMgr"
         self.engine = engine
         OIS.KeyListener.__init__(self)
         OIS.MouseListener.__init__(self)
@@ -161,7 +161,7 @@ class InputMgr(OIS.KeyListener, OIS.MouseListener):
    
             self.engine.selectionMgr.checkPointAt(currMouse.X.abs, currMouse.Y.abs)
             
-            #print str(currMouse.X.abs) + "," + str(currMouse.Y.abs)
+            print str(currMouse.X.abs) + "," + str(currMouse.Y.abs)
             
             
         return True

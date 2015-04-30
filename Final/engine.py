@@ -31,13 +31,13 @@ class Engine(object):
         self.inputMgr = inputMgr.InputMgr(self)
         self.inputMgr.init()
 
-        import selectionMgr
-        self.selectionMgr = selectionMgr.SelectionMgr(self)
-        self.selectionMgr.init()
-                
         import gameMgr
         self.gameMgr = gameMgr.GameMgr(self)
         self.gameMgr.init()
+
+        import selectionMgr
+        self.selectionMgr = selectionMgr.SelectionMgr(self)
+        self.selectionMgr.init()
 
         import controlMgr
         self.controlMgr = controlMgr.ControlMgr(self)

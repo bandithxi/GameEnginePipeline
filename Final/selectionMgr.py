@@ -9,6 +9,13 @@ class SelectionMgr:
         self.keyboard = self.engine.inputMgr.keyboard
         self.toggle = 0.1
 
+        # buttonPositions
+        self.buttonStartX = self.engine.guiMgr.buttonStartX
+        self.buttonStartY = self.engine.guiMgr.buttonStartY
+        self.buttonInstructY = self.engine.guiMgr.buttonInstructY
+        self.buttonCreditsY = self.engine.guiMgr.buttonCreditsY
+        self.buttonTeamSelectionY = self.engine.guiMgr.buttonTeamSelectionY
+
     def tick(self, dt):
         if self.toggle >=0:
             self.toggle -= dt
@@ -76,7 +83,7 @@ class SelectionMgr:
 
             self.engine.gameMgr.p1Team = cursor  
             #scroll between available teams
-            print "Left"
+            print "1Left"
         elif (self.p2RCheck(x, y)):
             cursor = self.engine.gameMgr.p2Team
             cursor += 1
@@ -87,7 +94,7 @@ class SelectionMgr:
 
             self.engine.gameMgr.p1Team = cursor  
             
-            print "Right"
+            print "2Right"
         
         elif (self.p1LCheck(x, y)):
             cursor = self.engine.gameMgr.p2Team
@@ -100,7 +107,7 @@ class SelectionMgr:
 
             self.engine.gameMgr.p1Team = cursor  
             #scroll between available teams
-            print "Left"
+            print "1Left"
         elif (self.p2RCheck(x, y)):
             cursor = self.engine.gameMgr.p2Team
             cursor += 1
@@ -111,25 +118,29 @@ class SelectionMgr:
 
             self.engine.gameMgr.p2Team = cursor  
             
-            print "Right"
+            print "2Right"
    
         elif (self.startCheck(x,y)):
             self.engine.gameMgr.startCheck = True
 
     def backCheck(self, x, y):
-        return x > 100 and x < 250  and y > 350 and y < 400 
+        return x > 0 and x < 100  and y > 0 and y < 100 
 
     def startCheck(self, x, y):
-        return x > 100 and x < 250  and y > 400 and y < 450
+        return x > self.buttonStartX and x < self.buttonStartX+300  and \
+               y > self.buttonStartY and y < self.buttonStartY+40 
 
     def instructionCheck(self, x, y):
-        return x > 100 and x < 250  and y > 455 and y < 480
+        return x > self.buttonStartX and x < self.buttonStartX+300  and \
+               y > self.buttonInstructY and y < self.buttonInstructY+40 
 
     def creditCheck(self, x, y):
-        return x > 100 and x < 250  and y > 490 and y < 520
+        return x > self.buttonStartX and x < self.buttonStartX+300  and \
+               y > self.buttonCreditsY and y < self.buttonCreditsY+40 
 
     def teamCheck(self, x, y):
-        return x > 100 and x < 250  and y > 530 and y < 560
+        return x > self.buttonStartX and x < self.buttonStartX+300  and \
+               y > self.buttonTeamSelectionY and y < self.buttonTeamSelectionY+40 
    
 # Tweak this so that we have team selection working
 

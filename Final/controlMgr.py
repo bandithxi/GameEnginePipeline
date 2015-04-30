@@ -5,7 +5,7 @@ import ogre.io.OIS as OIS
 class ControlMgr:
 
     def __init__(self, engine):
-    	print "__init__ ControlMgr"
+    	#print "__init__ ControlMgr"
         self.engine = engine
         self.entityMgr = engine.entityMgr
         self.Keyboard = engine.inputMgr.keyboard

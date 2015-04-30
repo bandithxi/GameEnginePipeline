@@ -3,7 +3,7 @@ from vector import MyVector
 
 class EntityMgr:
     def __init__(self, engine):
-        print "__init__ EntityMgr"
+        #print "__init__ EntityMgr"
         self.engine = engine
 
     def init(self):
