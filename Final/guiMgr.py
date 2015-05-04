@@ -41,7 +41,7 @@ class GuiMgr:
         # Create Main Menu BGD
         self.overlay = self.overlayMgr.create( "MainMenuBGD" )
 
-        # Create a panel
+        # Create main panel
         self.panel = self.overlayMgr.createOverlayElement( "Panel", "Menu" )
         self.panel.setPosition( 0, 0 )
         self.panel.setDimensions( 1, 1)
@@ -52,7 +52,7 @@ class GuiMgr:
         self.panel2.setPosition( .05, .5 )
         self.panel2.setDimensions( .25, .35 )
         self.panel2.setMaterialName( "clearPanel" )
-        
+
         # Create team panel
         self.panel3 = self.overlayMgr.createOverlayElement( "Panel", "LevelButtons" )
         self.panel3.setPosition( 0, 0 )
@@ -70,6 +70,12 @@ class GuiMgr:
         self.panel5.setPosition( .118, .12 )
         self.panel5.setDimensions( .75, .75 )
         self.panel5.setMaterialName( "Credits" )
+
+        # Create a button panel
+        self.panel6 = self.overlayMgr.createOverlayElement( "Panel", "BackButton" )
+        self.panel6.setPosition( 0.0, 0.925 )
+        self.panel6.setDimensions( .1, .075 )
+        self.panel6.setMaterialName( "clearPanel" )
         
         # Title
         self.text = self.overlayMgr.createOverlayElement( "TextArea", "Title" )
@@ -128,16 +134,27 @@ class GuiMgr:
         self.panel2.addChild( self.text )
 
         
-        # Credits Button
+        # Selection Button
         self.text = self.overlayMgr.createOverlayElement( "TextArea", "TeamSelect" )
         self.text.setPosition( 0.05, 0.20)
         self.text.setDimensions( 1, 1 )
         self.text.setCaption( "Team Selection" )    
-        self.text.setCharHeight(.025)
+        self.text.setCharHeight(.02)
         self.text.setFontName("Fifa15Font")
         self.text.setColour( ( 1, 1, 1 ) )
         self.text.setSpaceWidth( .01 )
         self.panel2.addChild( self.text )
+
+        # Back Button
+        self.text = self.overlayMgr.createOverlayElement( "TextArea", "BackSelect" )
+        self.text.setPosition( 0.01, 0.02  )
+        self.text.setDimensions( .05, .05 )
+        self.text.setCaption( "Back" )    
+        self.text.setCharHeight(.03)
+        self.text.setFontName("Fifa15Font")
+        self.text.setColourTop((1.0, 1.0, 1.0))
+        self.text.setColourBottom((0.0, 0.0, 0.0))
+        self.panel6.addChild( self.text )
 
         # Add the panel to the overlay
         self.overlay.add2D( self.panel )
@@ -145,23 +162,24 @@ class GuiMgr:
         self.overlay.add2D( self.panel3 )
         self.overlay.add2D( self.panel4 )
         self.overlay.add2D( self.panel5 )
+        self.overlay.add2D( self.panel6 )
 
         # grabbed window height and width
         self.windowWidth  = self.engine.gfxMgr.renderWindow.getWidth()
         self.windowHeight = self.engine.gfxMgr.renderWindow.getHeight()
-        #print "renderwindow x: ", self.windowWidth, "y: ", self.windowHeight
+        print "renderwindow x: ", self.windowWidth, "y: ", self.windowHeight
 
         # grabbed top left x and y axis of button panel
         self.buttonBoxX = self.panel2.getLeft() * self.windowWidth
         self.buttonBoxY = self.panel2.getTop() * self.windowHeight
         #print "buttonBox x: ", self.buttonBoxX, "y: ", self.buttonBoxY
 
-        # calculate start button position
+        # find start button position
         self.buttonStartX = self.buttonBoxX + (self.windowWidth  * 0.025)
         self.buttonStartY = self.buttonBoxY + (self.windowHeight * 0.025)
         #print "start: ", self.buttonStartX, self.buttonStartY
         
-        # calculate instruction, credits, team selection button position
+        # find instruction, credits, team selection button position
         self.buttonInstructY = self.buttonBoxY + (self.windowHeight * 0.075)
         self.buttonCreditsY = self.buttonBoxY + (self.windowHeight * 0.125)
         self.buttonTeamSelectionY = self.buttonBoxY + (self.windowHeight * 0.175)
@@ -178,6 +196,9 @@ class GuiMgr:
 
         credits = self.overlayMgr.getOverlayElement( "CreditScreen" )
         credits.hide()   
+
+        back = self.overlayMgr.getOverlayElement( "BackButton" )
+        back.hide()
     
     def createHud (self):
         self.hudMgr = ogre.OverlayManager.getSingleton()
@@ -269,34 +290,41 @@ class GuiMgr:
             teams.show()
             self.teamSelect = False
         
-       
+        # instructions screen
         if self.engine.gameMgr.instructionsCheck == True and self.engine.gameMgr.startCheck == False:
             instructions = self.overlayMgr.getOverlayElement( "InstructionScreen" )
+            backButton  = self.overlayMgr.getOverlayElement("BackButton")
             instructions.show()
+            backButton.show() 
             buttons = self.engine.guiMgr.overlayMgr.getOverlayElement( "Buttons" )
             buttons.hide()       
             self.engine.gameMgr.instructionsCheck = False     
         
+        # credit screen
         if self.engine.gameMgr.creditsCheck == True and self.engine.gameMgr.startCheck == False:
             credits = self.overlayMgr.getOverlayElement( "CreditScreen" )
+            backButton  = self.overlayMgr.getOverlayElement("BackButton")
+            backButton.show()
             credits.show()
             buttons = self.engine.guiMgr.overlayMgr.getOverlayElement( "Buttons" )
             buttons.hide()
             self.engine.gameMgr.creditsCheck = False   
 
-        #invisible button, please make visible and move 
+        # back to main 
         if self.engine.gameMgr.backCheck == True and self.engine.gameMgr.startCheck == False:
             menu = self.overlayMgr.getOverlayElement( "Menu" )
             instructions = self.overlayMgr.getOverlayElement( "InstructionScreen" )
             credits = self.overlayMgr.getOverlayElement( "CreditScreen" )
             buttons = self.engine.guiMgr.overlayMgr.getOverlayElement( "Buttons" )
             teams = self.overlayMgr.getOverlayElement( "LevelButtons" )
+            backButton  = self.overlayMgr.getOverlayElement("BackButton")
             
             teams.hide()
             credits.hide()
             instructions.hide()
             menu.show()          
             buttons.show()
+            backButton.hide()
             self.engine.gameMgr.creditsCheck = False  
             self.engine.gameMgr.instructionsCheck = False 
             self.engine.gameMgr.teamCheck = False
@@ -304,12 +332,12 @@ class GuiMgr:
             self.engine.gameMgr.backCheck = False
             self.engine.gameMgr.startCheck = False
          
-        if self.engine.gameMgr.startCheck == True: #and self.teamSelect == True:
-            #self.teamSelect = True
-            buttons = self.overlayMgr.getOverlayElement( "Buttons" )
+        if self.engine.gameMgr.teamCheck == True and self.engine.gameMgr.startCheck == False:
+            backButton  = self.overlayMgr.getOverlayElement("BackButton")
+            backButton.show()
+            buttons = self.engine.guiMgr.overlayMgr.getOverlayElement( "Buttons" )
             buttons.hide()
-            
-            #self.engine.gameMgr.teamCheck = False
+            self.engine.gameMgr.teamCheck = False 
 
         pass
         

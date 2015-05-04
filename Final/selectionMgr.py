@@ -15,6 +15,10 @@ class SelectionMgr:
         self.buttonInstructY = self.engine.guiMgr.buttonInstructY
         self.buttonCreditsY = self.engine.guiMgr.buttonCreditsY
         self.buttonTeamSelectionY = self.engine.guiMgr.buttonTeamSelectionY
+        
+        #changed 
+        self.windowWidth  = self.engine.gfxMgr.renderWindow.getWidth()
+        self.windowHeight = self.engine.gfxMgr.renderWindow.getHeight()
 
     def tick(self, dt):
         if self.toggle >=0:
@@ -124,7 +128,7 @@ class SelectionMgr:
             self.engine.gameMgr.startCheck = True
 
     def backCheck(self, x, y):
-        return x > 0 and x < 100  and y > 0 and y < 100 
+        return x > 0 and x < 100  and y >  self.windowHeight - 100 and y < self.windowHeight 
 
     def startCheck(self, x, y):
         return x > self.buttonStartX and x < self.buttonStartX+300  and \
@@ -145,15 +149,19 @@ class SelectionMgr:
 # Tweak this so that we have team selection working
 
     def p1LCheck(self, x, y):
+        print "p1LCheck"
         return x > 0 and x < 300  and y > 0 and y < 300
 
     def p1RCheck(self, x, y):
+        print "p2RCheck"
         return x > 350 and x < 600  and y > 0 and y < 300
   
     def p2LCheck(self, x, y):
+        print "p2LCheck"
         return x > 100 and x < 250  and y > 530 and y < 560
 
     def p2RCheck(self, x, y):
+        print "p2RCheck"
         return x > 100 and x < 250  and y > 530 and y < 560
 
 
