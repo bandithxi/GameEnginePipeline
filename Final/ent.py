@@ -92,13 +92,15 @@ class PlayerA(Entity):
         self.offset = ogre.Degree(-90)
         self.hasAnimation = True
         self.scale = ogre.Vector3(.5, .5, .5)
+        #changed
+        self.material = "Examples/EgbertTeam"
    
 class PlayerB(Entity):
     id = 0
     def __init__(self, engine, id, pos = MyVector(0, 0 ,0), vel = MyVector(0, 0, 0), yaw = 0):
         Entity.__init__(self, engine, id, pos = pos, vel = vel, yaw = yaw)
         print "player init"
-        self.mesh = 'robot.mesh'
+        self.mesh = 'ninja.mesh'
         self.uiname = 'playerB' + str(PlayerB.id)
         PlayerB.id += 1
         self.acceleration = 360

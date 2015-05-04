@@ -74,7 +74,6 @@ class SelectionMgr:
         
         elif (self.backCheck(x, y)):
             self.engine.gameMgr.backCheck = True
-    
         
         elif (self.p1LCheck(x, y)):
             cursor = self.engine.gameMgr.p1Team
@@ -88,7 +87,8 @@ class SelectionMgr:
             self.engine.gameMgr.p1Team = cursor  
             #scroll between available teams
             print "1Left"
-        elif (self.p2RCheck(x, y)):
+
+        elif (self.p2LCheck(x, y)):
             cursor = self.engine.gameMgr.p2Team
             cursor += 1
 
@@ -98,9 +98,9 @@ class SelectionMgr:
 
             self.engine.gameMgr.p1Team = cursor  
             
-            print "2Right"
+            print "2Left"
         
-        elif (self.p1LCheck(x, y)):
+        elif (self.p1RCheck(x, y)):
             cursor = self.engine.gameMgr.p2Team
             cursor -= 1
 
@@ -111,7 +111,8 @@ class SelectionMgr:
 
             self.engine.gameMgr.p1Team = cursor  
             #scroll between available teams
-            print "1Left"
+            print "1Right"
+
         elif (self.p2RCheck(x, y)):
             cursor = self.engine.gameMgr.p2Team
             cursor += 1
@@ -121,7 +122,6 @@ class SelectionMgr:
                 cursor = 0
 
             self.engine.gameMgr.p2Team = cursor  
-            
             print "2Right"
    
         elif (self.startCheck(x,y)):
@@ -149,19 +149,19 @@ class SelectionMgr:
 # Tweak this so that we have team selection working
 
     def p1LCheck(self, x, y):
-        print "p1LCheck"
-        return x > 0 and x < 300  and y > 0 and y < 300
+        #print "p1LCheck"
+        return x > 60 and x < 300  and y > 220 and y < 380
 
     def p1RCheck(self, x, y):
-        print "p2RCheck"
-        return x > 350 and x < 600  and y > 0 and y < 300
+        #print "p2RCheck"
+        return x > 550 and x < 750  and y > 220 and y < 380
   
     def p2LCheck(self, x, y):
-        print "p2LCheck"
-        return x > 100 and x < 250  and y > 530 and y < 560
+        #print "p2LCheck"
+        return x > 350 and x < 560  and y > 420 and y < 600
 
     def p2RCheck(self, x, y):
-        print "p2RCheck"
-        return x > 100 and x < 250  and y > 530 and y < 560
+        #print "p2RCheck"
+        return x > 750 and x < 950  and y > 420 and y < 600
 
 

@@ -681,7 +681,68 @@ material Examples/Ninja
 		
 			texture_unit
 			{
-				texture nskingr.jpg
+				texture ninja_red.jpg
+			}
+		}
+	}
+}
+
+material Examples/SushilTeam
+{
+	technique
+	{
+		pass
+		{
+		
+			texture_unit
+			{
+				texture ninja_sushil.jpg
+			}
+		}
+	}
+}
+
+material Examples/EgbertTeam
+{
+	technique
+	{
+		pass
+		{
+		
+			texture_unit
+			{
+				texture ninja_egbert.jpg
+			}
+		}
+	}
+}
+
+
+material Examples/BlueTeam
+{
+	technique
+	{
+		pass
+		{
+		
+			texture_unit
+			{
+				texture ninja_blue.jpg
+			}
+		}
+	}
+}
+
+material Examples/YellowTeam
+{
+	technique
+	{
+		pass
+		{
+		
+			texture_unit
+			{
+				texture ninja_yellow.jpg
 			}
 		}
 	}

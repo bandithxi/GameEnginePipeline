@@ -12,7 +12,9 @@ class Renderer:
         #yuck spagetti code :(
         if (self.ent.uiname == "Ball"):
             self.entOgre.setMaterialName ("Ball")
-        
+        elif (self.ent.material):
+            self.entOgre.setMaterialName (self.ent.material)
+
         self.ent.node = self.node
         
         self.node.scale(self.ent.scale)   

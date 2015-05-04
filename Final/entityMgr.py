@@ -29,6 +29,9 @@ class EntityMgr:
         self.selectedEnt = ent
         self.selectedEntIndex = self.nEnts;
 
+        #changed
+        #ent.setMaterialName(ent.material) 
+
         self.nEnts = self.nEnts+1        
         return ent
     
