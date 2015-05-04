@@ -57,7 +57,7 @@ class Renderer:
             
             else: 
                 self.wakeNode.setVisible(False)
-                self.animationState = self.entOgre.getAnimationState('Kick')
+                self.animationState = self.entOgre.getAnimationState('Idle1')
                 self.animationState.setLoop(True)
                 self.animationState.setEnabled(True)
                 self.animationState.addTime(dtime)

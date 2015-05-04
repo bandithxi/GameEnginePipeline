@@ -69,7 +69,7 @@ class Ball(Entity):
         self.pitch = 0.0
         self.spin = 0.0
         self.attachEnt = None
-        
+        self.toggle = 0.0
         
 
 

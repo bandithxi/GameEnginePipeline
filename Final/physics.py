@@ -80,9 +80,21 @@ class Physics:
         
         self.boundaryCheck()
         self.collisionCheck()
+   
+        if (self.ent.mesh == "sphere.mesh"):
+            if (self.ent.attachEnt != None): #if player has ball then move ball
+                self.ent.pos = self.ent.attachEnt.pos
+          #      pass
+            else: # if he doesn't decr time until he is allowed
+                if (self.ent.toggle <= 0.0): 
+                    self.ent.toggle = 0.0
+                    
+                 #   print "here"
 
-        if (self.ent.mesh == "sphere.mesh" and self.ent.attachEnt != None):
-            self.ent.pos = self.ent.attachEnt.pos
+                else:
+                    self.ent.toggle -= dtime
+                #    print "there"
+            
         #print "ent.pos", self.ent.pos
         #print "ent.velo", self.ent.vel
 
@@ -93,9 +105,9 @@ class Physics:
 
    
     def collisionCheck(self):
-        for eid, entity in self.entities.iteritems():
-            if (entity.mesh == "sphere.mesh" and self.ent.hasAnimation):
-                dist = self.distance(self.ent.pos.x, entity.pos.x, self.ent.pos.z, entity.pos.z)
+        for eid, ball in self.entities.iteritems():
+            if (ball.mesh == "sphere.mesh" and self.ent.hasAnimation):
+                dist = self.distance(self.ent.pos.x, ball.pos.x, self.ent.pos.z, ball.pos.z)
                     
                    # print "sphereX: ", self.ent.pos.x, "sphereZ: ", self.ent.pos.z
                     #print "ninja    X : ", entity.pos.x, "ninjaX : ", entity.pos.z
@@ -105,7 +117,10 @@ class Physics:
                     self.var *= -1
                         #issue is here, sphere cant get away in time before next tick, 
                         #updates var causing back and forth
-                    entity.attachEnt = self.ent
+                    if (ball.toggle <= 0.0): #if ball is allowed to be held then attach to a player
+                     #   print "collision"
+                        
+                        ball.attachEnt = self.ent 
                    # if self.var > 0:
                     #    self.ent.pos.y += 30
                      

@@ -64,15 +64,14 @@ class ControlMgr:
             pass
          
         if not self.Keyboard.isKeyDown(OIS.KC_SPACE) and self.pressed:
-            for ent in self.engine.entityMgr.entities:
-                    if (ent.mesh == "sphere.mesh"):
-                            ent.attachEnt = None
-                
+               
             for eid, ent in self.entityMgr.entities.iteritems():
                     if (ent.uiname == "Ball"):  
-                         
+                            ent.attachEnt = None
+                            ent.toggle = 3.0
+                        
                             self.pressed = False
-                  
+                            
                             if self.heldTime > 1.1:
                                 ent.speed = ent.maxSpeed * self.heldTime
                                 
@@ -84,6 +83,7 @@ class ControlMgr:
                                 #print ent.speed
                             ent.desiredSpeed = 0
                             self.heldTime = 0
+
                         
 
             
