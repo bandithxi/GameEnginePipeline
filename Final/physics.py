@@ -145,7 +145,8 @@ class Physics:
                     self.ent.engine.gameMgr.scoreOne+= 1
                 else:
                     self.ent.engine.gameMgr.scoreTwo+= 1
-                self.ent.pos.x = 0
+                
+                self.ent.pos.x = self.ent.pos.y = self.ent.pos.z = 0
                 self.ent.speed = 0
 
 
@@ -161,7 +162,8 @@ class Physics:
                     self.ent.engine.gameMgr.scoreTwo+= 1
                 else:
                     self.ent.engine.gameMgr.scoreOne+= 1
-                self.ent.pos.x = 0
+                self.ent.pos.x = self.ent.pos.y = self.ent.pos.z = 0
+
                 self.ent.speed = 0
                 
         #if (self.ent.mesh == "ninja.mesh"):
@@ -176,14 +178,17 @@ class Physics:
         #if (self.ent.pos.x < -self.fieldDimenX): 
          #   self.ent.pos.x = self.ent.pos.x + 10            
 
-        #if (self.ent.pos.z > self.fieldDimenZ):
-         #   self.ent.pos.z = self.ent.pos.z - 10
-          #  self.var = -1
+        if (self.ent.pos.z > self.fieldDimenZ - self.grassOffSet):
+            self.ent.pos.z = self.fieldDimenZ - self.grassOffSet
+            self.ent.vel.x = 0
+            self.ent.vel.z = 0
 
-        #if (self.ent.pos.z < -self.fieldDimenZ):
-         #   self.ent.pos.z = self.ent.pos.z + 10
-          #  self.var = 1
- 
+        if (self.ent.pos.z < -self.fieldDimenZ + self.grassOffSet):
+            self.ent.pos.z = -self.fieldDimenZ + self.grassOffSet
+            self.ent.vel.x = 0
+            self.ent.vel.z = 0
+        pass
+
     def goalCheck(self):
         #check y, z bounds
         pass        

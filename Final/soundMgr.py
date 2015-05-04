@@ -17,7 +17,7 @@ class SoundMgr:
         pygame.mixer.init()
         self.musicVolume = 15
    
-        self.musicList = ["liverpool", "bvb", "arsenal"]
+        self.musicList = ["liverpool", "bvb", "arsenal", "liverpool", "bvb"]
         self.sfxList = ["break", "bounce"]
         
         if SoundMgr.debug:

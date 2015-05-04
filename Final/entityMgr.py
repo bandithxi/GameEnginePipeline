@@ -14,7 +14,7 @@ class EntityMgr:
         self.selectedEntIndex = 0
         self.selectedEntities = []
 
-        self.entTypes = [ent.PlayerA, ent.PlayerB]
+        self.entTypes = [ent.Liverpool, ent.BVB, ent.Arsenal, ent.Chelsea, ent.EgbertTeam]
         self.ball = ent.Ball
         self.stands = ent.Stands
         self.top = ent.TopStad
@@ -30,7 +30,7 @@ class EntityMgr:
         self.selectedEntIndex = self.nEnts;
 
         #changed
-        #ent.setMaterialName(ent.material) 
+        #ent.setMaterialName(ent.material) d
 
         self.nEnts = self.nEnts+1        
         return ent

@@ -1,6 +1,6 @@
 import ogre.renderer.OGRE as ogre
 import ogre.io.OIS as OIS
-
+import random as rand
 
 class ControlMgr:
 
@@ -65,24 +65,32 @@ class ControlMgr:
          
         if not self.Keyboard.isKeyDown(OIS.KC_SPACE) and self.pressed:
                
-            for eid, ent in self.entityMgr.entities.iteritems():
-                    if (ent.uiname == "Ball"):  
-                            ent.attachEnt = None
-                            ent.toggle = 3.0
+  
+                for eid, ent in self.entityMgr.entities.iteritems():
+                        if (ent.uiname == "Ball"):
+
+                            if (ent.attachEnt != None):   
+                                ent.heading = ent.attachEnt.heading
+                                ent.desiredHeading = ent.heading + rand.uniform(-20*self.heldTime, 20*self.heldTime)
+
+                                ent.attachEnt = None
+                                ent.toggle = 3.0
                         
-                            self.pressed = False
+                                self.pressed = False
                             
-                            if self.heldTime > 1.1:
-                                ent.speed = ent.maxSpeed * self.heldTime
+                                if self.heldTime > 1.1:
+                                    ent.speed = ent.maxSpeed * self.heldTime
                                 
-                                ent.vel.y = 1000.0 * self.heldTime / 2.0
-                            else:
+                                    ent.vel.y = 1000.0 * self.heldTime / 2.0
+                                else:
                                 
-                                ent.speed = ent.maxSpeed * 2.0 * self.heldTime
+                                    ent.speed = ent.maxSpeed * 2.0 * self.heldTime
                                 
                                 #print ent.speed
-                            ent.desiredSpeed = 0
-                            self.heldTime = 0
+                                ent.desiredSpeed = 0
+                                self.heldTime = 0
+                            else:
+                                pass
 
                         
 

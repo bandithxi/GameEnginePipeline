@@ -672,7 +672,7 @@ material Examples/Fish
 		}
 	}
 }
-material Examples/Ninja
+material Examples/RedTeam
 {
 	technique
 	{

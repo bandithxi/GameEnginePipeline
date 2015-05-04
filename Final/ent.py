@@ -51,11 +51,13 @@ class Entity:
 
 
 class Ball(Entity):
+    id = 0
     def __init__(self, engine, id, pos = MyVector(0,0,0), vel = MyVector(0,0,0), yaw = 0):
         Entity.__init__(self, engine, id, pos = MyVector(0,25,0), vel = vel, yaw = yaw) 
         
         self.mesh = 'sphere.mesh'
-        self.uiname = 'Ball'
+        self.uiname = 'Ball' + str(Ball.id)
+        Ball.id += 1
         self.acceleration = 250
         self.turningRate = 30
         self.maxSpeed = 1000
@@ -73,14 +75,36 @@ class Ball(Entity):
         
 
 
-class PlayerA(Entity):
+class Arsenal(Entity):
     id = 0
     def __init__(self, engine, id, pos = MyVector(0, 0 ,0), vel = MyVector(0, 0, 0), yaw = 0):
         Entity.__init__(self, engine, id, pos = pos, vel = vel, yaw = yaw)
         print "player init"
         self.mesh = 'ninja.mesh'
-        self.uiname = 'playerA' + str(PlayerA.id)
-        PlayerA.id += 1
+        self.uiname = 'Arsenal' + str(Arsenal.id)
+        Arsenal.id += 1
+        self.acceleration = 360
+        self.turningRate = 120
+        self.maxSpeed = 400
+        self.desiredSpeed = 0
+        self.desiredHeading = 0
+        self.speed = 0
+        self.heading = 0
+        self.wakeSize = 'Large'
+        self.offset = ogre.Degree(-90)
+        self.hasAnimation = True
+        self.scale = ogre.Vector3(.5, .5, .5)
+        #changed
+        self.material = "Examples/RedTeam"
+
+class EgbertTeam(Entity):
+    id = 0
+    def __init__(self, engine, id, pos = MyVector(0, 0 ,0), vel = MyVector(0, 0, 0), yaw = 0):
+        Entity.__init__(self, engine, id, pos = pos, vel = vel, yaw = yaw)
+        print "player init"
+        self.mesh = 'ninja.mesh'
+        self.uiname = 'EgbertTeam' + str(EgbertTeam.id)
+        EgbertTeam.id += 1
         self.acceleration = 360
         self.turningRate = 120
         self.maxSpeed = 400
@@ -94,15 +118,60 @@ class PlayerA(Entity):
         self.scale = ogre.Vector3(.5, .5, .5)
         #changed
         self.material = "Examples/EgbertTeam"
-   
-class PlayerB(Entity):
+
+
+class Liverpool(Entity):
     id = 0
     def __init__(self, engine, id, pos = MyVector(0, 0 ,0), vel = MyVector(0, 0, 0), yaw = 0):
         Entity.__init__(self, engine, id, pos = pos, vel = vel, yaw = yaw)
         print "player init"
         self.mesh = 'ninja.mesh'
-        self.uiname = 'playerB' + str(PlayerB.id)
-        PlayerB.id += 1
+        self.uiname = 'Liverpool' + str(Liverpool.id)
+        Liverpool.id += 1
+        self.acceleration = 360
+        self.turningRate = 120
+        self.maxSpeed = 400
+        self.desiredSpeed = 0
+        self.desiredHeading = 0
+        self.speed = 0
+        self.heading = 0
+        self.wakeSize = 'Large'
+        self.offset = ogre.Degree(-90)
+        self.hasAnimation = True
+        self.scale = ogre.Vector3(.5, .5, .5)
+        #changed
+        self.material = "Examples/SushilTeam"
+
+class Chelsea(Entity):
+    id = 0
+    def __init__(self, engine, id, pos = MyVector(0, 0 ,0), vel = MyVector(0, 0, 0), yaw = 0):
+        Entity.__init__(self, engine, id, pos = pos, vel = vel, yaw = yaw)
+        print "player init"
+        self.mesh = 'ninja.mesh'
+        self.uiname = 'Chelsea' + str(Chelsea.id)
+        Chelsea.id += 1
+        self.acceleration = 360
+        self.turningRate = 120
+        self.maxSpeed = 400
+        self.desiredSpeed = 0
+        self.desiredHeading = 0
+        self.speed = 0
+        self.heading = 0
+        self.wakeSize = 'Large'
+        self.offset = ogre.Degree(-90)
+        self.hasAnimation = True
+        self.scale = ogre.Vector3(.5, .5, .5)
+        #changed
+        self.material = "Examples/BlueTeam"
+   
+class BVB(Entity):
+    id = 0
+    def __init__(self, engine, id, pos = MyVector(0, 0 ,0), vel = MyVector(0, 0, 0), yaw = 0):
+        Entity.__init__(self, engine, id, pos = pos, vel = vel, yaw = yaw)
+        print "player init"
+        self.mesh = 'ninja.mesh'
+        self.uiname = 'BVB' + str(BVB.id)
+        BVB.id += 1
         self.acceleration = 360
         self.turningRate = 120
         self.maxSpeed = 400
@@ -113,7 +182,9 @@ class PlayerB(Entity):
         self.wakeSize = 'Large'
         self.offset = ogre.Degree(180)
         self.hasAnimation = True
-        self.scale = ogre.Vector3(2, 2, 2)
+        self.scale = ogre.Vector3(.5, .5, .5)
+        self.material = "Examples/YellowTeam"
+   
 
 
 class TopStad(Entity):
@@ -123,7 +194,7 @@ class TopStad(Entity):
         print "player init"
         self.mesh = 'WireFrameTopStad.mesh'
         self.uiname = 'Top'
-        PlayerB.id += 1
+        #PlayerB.id += 1
         self.acceleration = 0
         self.turningRate = 0
         self.maxSpeed = 0
@@ -145,7 +216,7 @@ class Stands(Entity):
         print "player init"
         self.mesh = "Stands.mesh"
         self.uiname = 'Stands'
-        PlayerB.id += 1
+        #PlayerB.id += 1
         self.acceleration = 0
         self.turningRate = 0
         self.maxSpeed = 0
