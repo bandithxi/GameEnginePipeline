@@ -56,7 +56,7 @@ class Ball(Entity):
         Entity.__init__(self, engine, id, pos = MyVector(0,25,0), vel = vel, yaw = yaw) 
         
         self.mesh = 'sphere.mesh'
-        self.uiname = 'Ball' + str(Ball.id)
+        self.uiname = 'Ball'# + str(Ball.id)
         Ball.id += 1
         self.acceleration = 250
         self.turningRate = 30

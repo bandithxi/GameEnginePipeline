@@ -68,11 +68,11 @@ class ControlMgr:
   
                 for eid, ent in self.entityMgr.entities.iteritems():
                         if (ent.uiname == "Ball"):
-
+                            #print "Here1"
                             if (ent.attachEnt != None):   
                                 ent.heading = ent.attachEnt.heading
                                 ent.desiredHeading = ent.heading + rand.uniform(-20*self.heldTime, 20*self.heldTime)
-
+                                #print "Here2"
                                 ent.attachEnt = None
                                 ent.toggle = 3.0
                         
@@ -80,16 +80,17 @@ class ControlMgr:
                             
                                 if self.heldTime > 1.1:
                                     ent.speed = ent.maxSpeed * self.heldTime
-                                
+                                    #print "Here3" 
                                     ent.vel.y = 1000.0 * self.heldTime / 2.0
                                 else:
-                                
+                                    #print "Here4"
                                     ent.speed = ent.maxSpeed * 2.0 * self.heldTime
                                 
                                 #print ent.speed
                                 ent.desiredSpeed = 0
                                 self.heldTime = 0
                             else:
+                                #print "Here5"
                                 pass
 
                         
