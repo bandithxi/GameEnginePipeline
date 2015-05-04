@@ -1,5 +1,5 @@
 # GameEnginePipeline
-This is a repository containing my Unity and Orge code for game development class.
+This is a repository containing my Python Orge and Pygame code for game development class.
 
 There are various python scripts and a webpage source here. All scripts are assumed to be working. However, some projects may require asset file paths to be changed.
 
