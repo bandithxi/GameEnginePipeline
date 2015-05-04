@@ -27,7 +27,8 @@ class Entity:
         self.aspects = []
         self.scale = ogre.Vector3(1, 1, 1)
         self.wakeSize = 'Small'
-        
+        self.hasAnimation = False
+
         #Make jet ski face the same way
         self.offset = 0
 
@@ -48,20 +49,6 @@ class Entity:
         x = "Entity: %s \nPos: %s, Vel: %s, yaw: %f" % (self.id, str(self.pos), str(self.vel), self.yaw)
         return x
 
-class Ddg51(Entity):
-    def __init__(self, engine, id, pos = MyVector(0,0,0), vel = MyVector(0,0,0), yaw = 0):
-        Entity.__init__(self, engine, id, pos = pos, vel = vel, yaw = yaw) 
-        #print "ddg51 init"
-        self.mesh = 'ddg51.mesh'
-        self.uiname = 'DDG51'
-        self.acceleration = 7
-        self.turningRate = 15
-        self.maxSpeed = 150
-        self.desiredSpeed = 0
-        self.desiredHeading = 90
-        self.speed = 0
-        self.heading = 90    
-        self.wakeSize = 'Large'
 
 class Ball(Entity):
     def __init__(self, engine, id, pos = MyVector(0,0,0), vel = MyVector(0,0,0), yaw = 0):
@@ -81,155 +68,10 @@ class Ball(Entity):
         self.wakeSize = 'Large'
         self.pitch = 0.0
         self.spin = 0.0
-
-
-
-class Cvn(Entity):
-    def __init__(self, engine, id, pos = MyVector(0,0,0), vel = MyVector(0, 0, 0), yaw = 0):
-        Entity.__init__(self, engine, id, pos = pos, vel = vel, yaw = yaw)
-        self.mesh = 'cvn68.mesh'
-        self.uiname = 'CVN68'
-        self.acceleration = 5
-        self.turningRate  = 5
-        self.maxSpeed = 250
-        self.desiredSpeed = 0
-        self.desiredHeading = 90
-        self.speed = 0
-        self.heading = 90    
-        self.wakeSize = 'Large'
-
-class Sleek(Entity):
-    def __init__(self, engine, id, pos = MyVector(0,0,0), vel = MyVector(0, 0, 0), yaw = 0):
-        Entity.__init__(self, engine, id, pos = pos, vel = vel, yaw = yaw)        
-        print "sleek init"
-        self.mesh = 'sleek.mesh'
-        self.uiname = 'SLEEK'
-        self.acceleration = 12
-        self.turningRate = 12
-        self.maxSpeed = 120
-        self.desiredSpeed = 0
-        self.desiredHeading = 0
-        self.speed = 0
-        self.heading = 0    
-        self.wakeSize = 'Large'
-
-class Monterey(Entity):
-    def __init__(self, engine, id, pos = MyVector(0,0,0), vel = MyVector(0, 0, 0), yaw = 0):
-        Entity.__init__(self, engine, id, pos = pos, vel = vel, yaw = yaw)
-        print "MONTEREY INIT"
-        self.mesh = '3699_Monterey_189_92.mesh'
-        self.uiname = 'MONTEREY'
-        self.acceleration = 7
-        self.turningRate = 35
-        self.maxSpeed = 60
-        self.desiredSpeed = 0
-        self.desiredHeading = 0
-        self.speed = 0
-        self.heading = 0
-        self.scale = ogre.Vector3(2, 2, 2)
-        self.offset = ogre.Degree(90)
-   
-            
-        self.wakeSize = 'Medium'
-
-class Watercr(Entity):
-    def __init__(self, engine, id, pos = MyVector(0,0,0), vel = MyVector(0, 0, 0), yaw = 0):
-        Entity.__init__(self, engine, id, pos = pos, vel = vel, yaw = yaw)
-        print "Watercr init"
-        self.mesh = '4685_Personal_Watercr.mesh'
-        self.uiname = 'JETSKI'
-        self.acceleration = 10
-        self.turningRate = 35
-        self.maxSpeed = 40
-        self.desiredSpeed = 0
-        self.desiredHeading = 0
-        self.speed = 0
-        self.heading = 0
-        self.offset = ogre.Degree(90)
-        self.scale = ogre.Vector3(.5, .5, .5)    
+        self.attachEnt = None
         
-            
-        self.wakeSize = 'Medium'
-
-class Boat5086(Entity):
-    def __init__(self, engine, id, pos = MyVector(0,0,0), vel = MyVector(0, 0, 0), yaw = 0):
-        Entity.__init__(self, engine, id, pos = pos, vel = vel, yaw = yaw)
-        print "Boat5086 init"
-        self.mesh = '5086_Boat.mesh'
-        self.uiname = 'BOAT2'
-        self.acceleration = 10
-        self.turningRate = 30
-        self.maxSpeed = 50
-        self.desiredSpeed = 0
-        self.desiredHeading = 0
-        self.speed = 0
-        self.heading = 0
-        self.scale = ogre.Vector3(2, 2, 2)
-    
-class Alienship(Entity):
-    def __init__(self, engine, id, pos = MyVector(0,0,0), vel = MyVector(0, 0, 0), yaw = 0):
-        Entity.__init__(self, engine, id, pos = pos, vel = vel, yaw = yaw)
-        print "alienship init"
-        self.mesh = 'alienship.mesh'
-        self.uiname = 'ALIEN'
-        self.acceleration = 150
-        self.turningRate = 25
-        self.maxSpeed = 700
-        self.desiredSpeed = 0
-        self.desiredHeading = 0
-        self.speed = 0
-        self.heading = 0
-        self.scale = ogre.Vector3(15, 15, 15)
         
-            
-        self.wakeSize = 'Large'
 
-class Cigarette(Entity):
-    def __init__(self, engine, id, pos = MyVector(0,0,0), vel = MyVector(0, 0, 0), yaw = 0):
-        Entity.__init__(self, engine, id, pos = pos, vel = vel, yaw = yaw)
-        print "cigarette init"
-        self.mesh = 'cigarette.mesh'
-        self.uiname = 'CIGARETTE'
-        self.acceleration = 30
-        self.turningRate = 45
-        self.maxSpeed = 150
-        self.desiredSpeed = 0
-        self.desiredHeading = 0
-        self.speed = 0
-        self.heading = 0
-        
-            
-        self.wakeSize = 'Medium'
-
-class Boat(Entity):
-    def __init__(self, engine, id, pos = MyVector(0,0,0), vel = MyVector(0, 0, 0), yaw = 0):
-        Entity.__init__(self, engine, id, pos = pos, vel = vel, yaw = yaw)
-        print "boat init"
-        self.mesh = 'boat.mesh'
-        self.uiname = 'BOAT'
-        self.acceleration = 10
-        self.turningRate = 10
-        self.maxSpeed = 30
-        self.desiredSpeed = 0
-        self.desiredHeading = 0
-        self.speed = 0
-        self.heading = 0
-        
-        self.wakeSize = 'Medium'
-
-class Sailboat(Entity):
-    def __init__(self, engine, id, pos = MyVector(0, 0 ,0), vel = MyVector(0, 0, 0), yaw = 0):
-        Entity.__init__(self, engine, id, pos = pos, vel = vel, yaw = yaw)
-        print "sailboat init"
-        self.mesh = 'sailboat.mesh'
-        self.uiname = 'SAILBOAT'
-        self.acceleration = 2
-        self.turningRate = 25
-        self.maxSpeed = 36
-        self.desiredSpeed = 0
-        self.desiredHeading = 0
-        self.speed = 0
-        self.heading = 0
 
 class PlayerA(Entity):
     id = 0
@@ -248,7 +90,7 @@ class PlayerA(Entity):
         self.heading = 0
         self.wakeSize = 'Large'
         self.offset = ogre.Degree(-90)
-        
+        self.hasAnimation = True
         self.scale = ogre.Vector3(.5, .5, .5)
    
 class PlayerB(Entity):
@@ -268,7 +110,7 @@ class PlayerB(Entity):
         self.heading = 0
         self.wakeSize = 'Large'
         self.offset = ogre.Degree(180)
-        
+        self.hasAnimation = True
         self.scale = ogre.Vector3(2, 2, 2)
 
 
@@ -280,9 +122,9 @@ class TopStad(Entity):
         self.mesh = 'WireFrameTopStad.mesh'
         self.uiname = 'Top'
         PlayerB.id += 1
-        self.acceleration = 360
-        self.turningRate = 120
-        self.maxSpeed = 400
+        self.acceleration = 0
+        self.turningRate = 0
+        self.maxSpeed = 0
         self.desiredSpeed = 0
         self.desiredHeading = 0
         self.speed = 0
@@ -302,9 +144,93 @@ class Stands(Entity):
         self.mesh = "Stands.mesh"
         self.uiname = 'Stands'
         PlayerB.id += 1
-        self.acceleration = 360
-        self.turningRate = 120
-        self.maxSpeed = 400
+        self.acceleration = 0
+        self.turningRate = 0
+        self.maxSpeed = 0
+        self.desiredSpeed = 0
+        self.desiredHeading = 0
+        self.speed = 0
+        self.heading = 0
+        self.wakeSize = 'Large'
+        self.offset = ogre.Degree(90)
+        
+        #self.scale = ogre.Vector3(1, 1, 1)
+
+        self.scale = ogre.Vector3(50, 50, 50)
+
+class Entrance(Entity):
+    id = 0
+    def __init__(self, engine, id, pos = MyVector(0, 0 ,0), vel = MyVector(0, 0, 0), yaw = 0):
+        Entity.__init__(self, engine, id, pos = pos, vel = vel, yaw = yaw)
+        print "player init"
+        self.mesh = "entrance.mesh"
+        self.uiname = 'entrance'
+        self.acceleration = 0
+        self.turningRate = 0
+        self.maxSpeed = 0
+        self.desiredSpeed = 0
+        self.desiredHeading = 0
+        self.speed = 0
+        self.heading = 0
+        self.wakeSize = 'Large'
+        self.offset = ogre.Degree(90)
+        
+        #self.scale = ogre.Vector3(1, 1, 1)
+
+        self.scale = ogre.Vector3(50, 50, 50)
+
+class highWall(Entity):
+    id = 0
+    def __init__(self, engine, id, pos = MyVector(0, 0 ,0), vel = MyVector(0, 0, 0), yaw = 0):
+        Entity.__init__(self, engine, id, pos = pos, vel = vel, yaw = yaw)
+        print "player init"
+        self.mesh = "highWall.mesh"
+        self.uiname = 'highWall'
+        self.acceleration = 0
+        self.turningRate = 0
+        self.maxSpeed = 0
+        self.desiredSpeed = 0
+        self.desiredHeading = 0
+        self.speed = 0
+        self.heading = 0
+        self.wakeSize = 'Large'
+        self.offset = ogre.Degree(90)
+        
+        #self.scale = ogre.Vector3(1, 1, 1)
+
+        self.scale = ogre.Vector3(50, 50, 50)
+
+class lowWall(Entity):
+    id = 0
+    def __init__(self, engine, id, pos = MyVector(0, 0 ,0), vel = MyVector(0, 0, 0), yaw = 0):
+        Entity.__init__(self, engine, id, pos = pos, vel = vel, yaw = yaw)
+        print "player init"
+        self.mesh = "lowWall.mesh"
+        self.uiname = 'lowWall'
+        self.acceleration = 0
+        self.turningRate = 0
+        self.maxSpeed = 0
+        self.desiredSpeed = 0
+        self.desiredHeading = 0
+        self.speed = 0
+        self.heading = 0
+        self.wakeSize = 'Large'
+        self.offset = ogre.Degree(90)
+        
+        #self.scale = ogre.Vector3(1, 1, 1)
+
+        self.scale = ogre.Vector3(50, 50, 50)
+
+class midWall(Entity):
+    id = 0
+    def __init__(self, engine, id, pos = MyVector(0, 0 ,0), vel = MyVector(0, 0, 0), yaw = 0):
+        Entity.__init__(self, engine, id, pos = pos, vel = vel, yaw = yaw)
+        print "player init"
+        self.mesh = "midWall.mesh"
+        self.uiname = 'midWall'
+        self.acceleration = 0
+        self.turningRate = 0
+        self.maxSpeed = 0
         self.desiredSpeed = 0
         self.desiredHeading = 0
         self.speed = 0
@@ -317,3 +243,67 @@ class Stands(Entity):
         self.scale = ogre.Vector3(50, 50, 50)
 
 
+class post(Entity):
+    id = 0
+    def __init__(self, engine, id, pos = MyVector(0, 0 ,0), vel = MyVector(0, 0, 0), yaw = 0):
+        Entity.__init__(self, engine, id, pos = pos, vel = vel, yaw = yaw)
+        print "player init"
+        self.mesh = "post.mesh"
+        self.uiname = 'post'
+        self.acceleration = 0
+        self.turningRate = 0
+        self.maxSpeed = 0
+        self.desiredSpeed = 0
+        self.desiredHeading = 0
+        self.speed = 0
+        self.heading = 0
+        self.wakeSize = 'Large'
+        self.offset = ogre.Degree(90)
+        
+        #self.scale = ogre.Vector3(1, 1, 1)
+
+        self.scale = ogre.Vector3(50, 50, 50)
+
+
+class RoofFrame(Entity):
+    id = 0
+    def __init__(self, engine, id, pos = MyVector(0, 0 ,0), vel = MyVector(0, 0, 0), yaw = 0):
+        Entity.__init__(self, engine, id, pos = pos, vel = vel, yaw = yaw)
+        print "player init"
+        self.mesh = "RoofFrame.mesh"
+        self.uiname = 'RoofFrame'
+        self.acceleration = 0
+        self.turningRate = 0
+        self.maxSpeed = 0
+        self.desiredSpeed = 0
+        self.desiredHeading = 0
+        self.speed = 0
+        self.heading = 0
+        self.wakeSize = 'Large'
+        self.offset = ogre.Degree(90)
+        
+        #self.scale = ogre.Vector3(1, 1, 1)
+
+        self.scale = ogre.Vector3(50, 50, 50)
+
+
+class stairs(Entity):
+    id = 0
+    def __init__(self, engine, id, pos = MyVector(0, 0 ,0), vel = MyVector(0, 0, 0), yaw = 0):
+        Entity.__init__(self, engine, id, pos = pos, vel = vel, yaw = yaw)
+        print "player init"
+        self.mesh = "stairs.mesh"
+        self.uiname = 'stairs'
+        self.acceleration = 0
+        self.turningRate = 0
+        self.maxSpeed = 0
+        self.desiredSpeed = 0
+        self.desiredHeading = 0
+        self.speed = 0
+        self.heading = 0
+        self.wakeSize = 'Large'
+        self.offset = ogre.Degree(90)
+        
+        #self.scale = ogre.Vector3(1, 1, 1)
+
+        self.scale = ogre.Vector3(50, 50, 50)

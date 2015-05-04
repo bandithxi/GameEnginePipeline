@@ -64,6 +64,10 @@ class ControlMgr:
             pass
          
         if not self.Keyboard.isKeyDown(OIS.KC_SPACE) and self.pressed:
+            for ent in self.engine.entityMgr.entities:
+                    if (ent.mesh == "sphere.mesh"):
+                            ent.attachEnt = None
+                
             for eid, ent in self.entityMgr.entities.iteritems():
                     if (ent.uiname == "Ball"):  
                          

@@ -24,7 +24,7 @@ class GameMgr:
         self.p1Team = 0
         self.p2Team = 0
         
-        self.teamSize = 1
+        self.teamSize = 5
 
         print "starting Game mgr"
         pass
@@ -65,8 +65,7 @@ class GameMgr:
             x -= 300
     
     def loadStad(self):
-        ent = self.engine.entityMgr.createEnt(self.engine.entityMgr.top, pos = MyVector(0, 0, 0))
-        ent = self.engine.entityMgr.createEnt(self.engine.entityMgr.stands, pos = MyVector(0, 0, 0))
+        self.engine.entityMgr.createStad()
 
     def tick(self, dt):
         self.updateTime() 
@@ -100,7 +99,6 @@ class GameMgr:
         self.start = time.time()
         self.engine.guiMgr.overlay.hide()
         self.engine.guiMgr.hud2.show()
-
     
     def loadSetup(self):
         pass
@@ -108,3 +106,5 @@ class GameMgr:
     def gameOver(self):
         #self.backCheck = True
         pass
+
+    

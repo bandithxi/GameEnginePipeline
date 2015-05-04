@@ -47,7 +47,7 @@ class Renderer:
         self.ent.node.yaw(self.ent.offset);
         self.ent.node.yaw(ogre.Degree(self.ent.heading))  
  
-        if (self.ent.uiname != "Ball" and self.ent.uiname != "Stands" and self.ent.uiname != "Top"):
+        if (self.ent.hasAnimation):
             if self.ent.speed > 0:
                 self.wakeNode.setVisible(True)
                 self.animationState = self.entOgre.getAnimationState('Walk')

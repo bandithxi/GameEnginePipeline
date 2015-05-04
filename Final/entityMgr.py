@@ -14,29 +14,29 @@ class EntityMgr:
         self.selectedEntIndex = 0
         self.selectedEntities = []
 
-        #-----------------------------------------------------------------------------------------
-        self.musicVolume = 1.0
-        self.soundManager = None
-        #-----------------------------------------------------------------------------------------
-        
         self.entTypes = [ent.PlayerA, ent.PlayerB]
         self.ball = ent.Ball
         self.stands = ent.Stands
         self.top = ent.TopStad
-  
-        self.stadiumParts = [ent.Stands, ent.TopStad]#,  ent.Trusse, ent.lowWall]
-        #self.entTypes = [ent.Cvn, ]
+        self.lowWall = ent.lowWall
+        self.stadiumParts = [ent.Stands, ent.TopStad, ent.lowWall, ent.Entrance, ent.highWall, ent.midWall, ent.post, ent.RoofFrame, ent.stairs ]
 
     def createEnt(self, entType, pos = MyVector(0,0,0), yaw = 0):
         ent = entType(self.engine, self.nEnts, pos = pos, yaw = yaw)
         ent.init()
+  
         self.entities[self.nEnts] = ent
         self.selectedEnt = ent
         self.selectedEntIndex = self.nEnts;
 
         self.nEnts = self.nEnts+1        
         return ent
-
+    
+    def createStad(self):
+        for entType in self.stadiumParts:
+         
+            ent = self.createEnt(entType)
+            #ent.setMaterial
 
     def getNextEnt(self):
         if self.selectedEntIndex >= self.nEnts - 1:
