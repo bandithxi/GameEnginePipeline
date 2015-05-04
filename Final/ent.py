@@ -180,7 +180,7 @@ class BVB(Entity):
         self.speed = 0
         self.heading = 0
         self.wakeSize = 'Large'
-        self.offset = ogre.Degree(180)
+        self.offset = ogre.Degree(-90)
         self.hasAnimation = True
         self.scale = ogre.Vector3(.5, .5, .5)
         self.material = "Examples/YellowTeam"

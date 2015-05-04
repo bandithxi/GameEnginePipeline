@@ -82,7 +82,7 @@ class SelectionMgr:
             if (cursor < 0):
    
             #change to number of teams
-                cursor = 1
+                cursor = 4
 
             self.engine.gameMgr.p1Team = cursor  
             #scroll between available teams
@@ -93,7 +93,7 @@ class SelectionMgr:
             cursor += 1
 
             #change to number of teams
-            if (cursor > 1):
+            if (cursor > 4):
                 cursor = 0
 
             self.engine.gameMgr.p1Team = cursor  
@@ -107,7 +107,7 @@ class SelectionMgr:
             if (cursor < 0):
    
             #change to number of teams
-                cursor = 1
+                cursor = 4
 
             self.engine.gameMgr.p1Team = cursor  
             #scroll between available teams
@@ -118,7 +118,7 @@ class SelectionMgr:
             cursor += 1
 
             #change to number of teams
-            if (cursor > 1):
+            if (cursor > 4):
                 cursor = 0
 
             self.engine.gameMgr.p2Team = cursor  
