@@ -112,7 +112,7 @@ class Physics:
                    # print "sphereX: ", self.ent.pos.x, "sphereZ: ", self.ent.pos.z
                     #print "ninja    X : ", entity.pos.x, "ninjaX : ", entity.pos.z
                     #print "dist:    ", dist
-                if dist < 30:
+                if dist < 75:
                         #print "SUCCESS: ", dist
                     self.var *= -1
                         #issue is here, sphere cant get away in time before next tick, 

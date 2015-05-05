@@ -74,7 +74,7 @@ class ControlMgr:
                                 ent.desiredHeading = ent.heading + rand.uniform(-20*self.heldTime, 20*self.heldTime)
                                 #print "Here2"
                                 ent.attachEnt = None
-                                ent.toggle = 3.0
+                                ent.toggle = .2
                         
                                 self.pressed = False
                             

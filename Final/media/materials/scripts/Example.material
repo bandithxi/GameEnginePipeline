@@ -687,6 +687,20 @@ material Examples/RedTeam
 	}
 }
 
+material Examples/Ninja
+{
+	technique
+	{
+		pass
+		{
+		
+			texture_unit
+			{
+				texture nskingr.jpg
+			}
+		}
+	}
+}
 material Examples/SushilTeam
 {
 	technique
