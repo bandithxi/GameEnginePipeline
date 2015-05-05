@@ -93,3 +93,7 @@ class EntityMgr:
     def tick(self, dt):
         for eid, entity in self.entities.iteritems():
             entity.tick(dt)
+
+    def addAction(self, entity, action):
+        entity.aspects[2].actionList.append(action)
+    

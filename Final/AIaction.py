@@ -1,0 +1,88 @@
+# Action.py
+
+import ogre.renderer.OGRE as ogre
+import math
+class Action:
+    def __init__(self, ent, targetLoc = ogre.Vector3( 0.0, 0.0, 0.0 )):
+        self.ent = ent
+        self.targetLoc = targetLoc
+        self.maxSpeed = self.ent.maxSpeed
+        self.entityMgr = self.ent.engine.entityMgr
+        
+    def tick(self, dt):
+        pass
+    
+class Move( Action ):
+    def __init__(self, ent, targetLoc):
+        Action.__init__(self, ent, targetLoc)
+    def tick(self, dt):
+        diffZ = self.targetLoc.z - self.ent.pos.z
+        diffX = self.targetLoc.x - self.ent.pos.x
+        
+        self.distance = math.sqrt(diffZ**2 + diffX**2)
+        if self.distance > 5:
+            self.ent.desiredHeading = -math.atan2(diffZ, diffX)
+            self.ent.desiredSpeed = self.maxSpeed
+        else:
+            self.ent.desiredSpeed = 0
+            self.ent.speed = 0
+            self.ent.aspects[2].ActionList.pop(0)
+
+class Follow( Action ):
+    def __init__(self, ent, targetEnt):
+        Action.__init__(self, ent)
+        self.targetEnt = targetEnt
+
+    def tick(self, dt):
+        self.targetLoc = self.targetEnt.pos
+        
+        diffZ = float(self.targetLoc.z - self.ent.pos.z)
+        diffX = float(self.targetLoc.x - self.ent.pos.x)
+        self.distance = math.sqrt(diffZ**2 + diffX**2)
+        
+        if self.distance > 300:
+            self.ent.desiredHeading = -(math.atan2(diffZ, diffX) * 180.0/3.14 )
+            self.ent.desiredSpeed = self.maxSpeed
+        else:
+            self.ent.desiredHeading = -(math.atan2(diffZ, diffX) * 180.0/3.14 )
+#            self.ent.speed = 0
+            self.ent.desiredSpeed = 0
+        print(self.ent.desiredHeading)
+    
+class Intercept( Action ):
+    def __init__(self, ent, targetEnt):
+        Action.__init__(self, ent)
+        self.targetEnt = targetEnt
+    def tick(self, dt):
+        self.targetLoc = self.targetEnt.pos
+        
+        #relativeSpeed = (ogre.Math.Abs(ogre.Vector3.length(self.targetEnt.vel - self.ent.vel))).valueRadians()
+        
+        #self.distance = (ogre.Math.Abs(ogre.Vector3.length( self.targetEnt.pos - self.ent.pos ))).valueRadians()
+
+        relativeSpeedX = self.targetEnt.vel.x - self.ent.vel.x
+        relativeSpeedZ = self.targetEnt.vel.z - self.ent.vel.z
+        
+        self.distX = self.targetLoc.x - self.ent.pos.x
+        self.distZ = self.targetLoc.z - self.ent.pos.z
+
+        self.distance = (ogre.Math.Sqrt(ogre.Math.Sqr(self.distX) + ogre.Math.Sqr(self.distZ))).valueDegrees()
+        relativeSpeed = (ogre.Math.Sqrt(ogre.Math.Sqr(relativeSpeedX) + ogre.Math.Sqr(relativeSpeedZ))).valueDegrees()
+        
+        if relativeSpeed != 0:
+            travelTime = (self.distance / relativeSpeed)
+            
+            self.predictiveLoc = self.targetLoc + (self.targetEnt.vel * travelTime)
+            
+            diffZ = self.predictiveLoc.z - self.ent.pos.z
+            diffX = self.predictiveLoc.x - self.ent.pos.x
+            
+            print self.targetLoc, self.predictiveLoc
+            
+            if self.distance > 10:
+                self.ent.desiredHeading = -ogre.Math.ATan2(diffZ, diffX).valueRadians()
+                self.ent.desiredSpeed = self.maxSpeed
+            else:
+                self.ent.desiredHeading = -ogre.Math.ATan2(diffZ, diffX).valueRadians()
+                self.ent.desiredSpeed = 0
+                self.ent.aspects[2].ActionList.pop(0)

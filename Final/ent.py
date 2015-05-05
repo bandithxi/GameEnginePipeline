@@ -5,6 +5,7 @@ import ogre.renderer.OGRE as ogre
 from physics import Physics
 from renderer import Renderer
 from vector import MyVector
+from playerAI import PlayerAI
 # import math
 # import time
 
@@ -23,7 +24,7 @@ class Entity:
         self.deltaYaw = 0.0
         self.speed = 0.0
         self.heading = 0.0
-        self.aspectTypes = [Physics, Renderer]
+        self.aspectTypes = [Physics, Renderer, PlayerAI]
         self.aspects = []
         self.scale = ogre.Vector3(1, 1, 1)
         self.wakeSize = 'Small'

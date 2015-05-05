@@ -1,5 +1,6 @@
 from vector import MyVector
 import time
+import AIaction as action
 # Dont Change
 
 class GameMgr:
@@ -55,15 +56,18 @@ class GameMgr:
 
     def loadTeam1(self):
         x = 300
+        self.target = None
         for i in range(self.teamSize):
             ent = self.engine.entityMgr.createEnt(self.teamList[self.p1Team], pos = MyVector(x, 0, 0), team = 1)
             x += 300
+        self.target = ent
     def loadTeam2(self):
-        x = -300
+        x = -300 
+        ent = None
         for i in range(self.teamSize):
             ent = self.engine.entityMgr.createEnt(self.teamList[self.p2Team], pos = MyVector(x, 0, 0), team = 2)
             x -= 300
-    
+        self.engine.entityMgr.addAction(ent, action.Follow(ent, self.target))
     def loadStad(self):
         self.engine.entityMgr.createStad()
 

@@ -43,6 +43,10 @@ class Engine(object):
         self.controlMgr = controlMgr.ControlMgr(self)
         self.controlMgr.init()
 
+        import AIMgr
+        self.aiMgr = AIMgr.AIMgr(self)
+        self.aiMgr.init()
+
     def stop(self):
         self.gfxMgr.stop()
         self.inputMgr.stop()
@@ -67,11 +71,12 @@ class Engine(object):
             dtime = now - self.oldTime
             self.oldTime = now
 
-            self.inputMgr.tick(dtime)
-            self.controlMgr.tick(dtime)
-            self.guiMgr.tick(dtime)                        
             
             if self.paused == False:
+                self.inputMgr.tick(dtime)
+                self.controlMgr.tick(dtime)
+                self.guiMgr.tick(dtime)                        
+                self.aiMgr.tick(dtime)
                 self.entityMgr.tick(dtime)
                 self.gfxMgr.tick(dtime)
                 self.netMgr.tick(dtime)
