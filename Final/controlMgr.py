@@ -20,38 +20,46 @@ class ControlMgr:
 
     def handleEntitiesController(self, dt):
     	# print "called handleEntitiesController"
-        selectedEnt = self.entityMgr.selectedEntities
+        team1 = self.entityMgr.team1
 
     	if self.Keyboard.isKeyDown(OIS.KC_NUMPAD8) or self.Keyboard.isKeyDown(OIS.KC_I):
-            for ent in selectedEnt:
-                ent.desiredSpeed += 100 * dt
+            for key, ent in team1.iteritems():
+                if (ent == self.entityMgr.selectedEntP1):    
+                    ent.desiredSpeed += 100 * dt
+                else:
+                    ent.desiredSpeed = 0
         
         if not self.Keyboard.isKeyDown(OIS.KC_NUMPAD8) and not self.Keyboard.isKeyDown(OIS.KC_I):
-            for ent in selectedEnt:
-                ent.desiredSpeed = 0
+            ent = self.entityMgr.selectedEntP1
+            
+            if (ent != None):
+                ent.desiredSpeed = 0.0
 
 
         if self.Keyboard.isKeyDown(OIS.KC_NUMPAD4) or self.Keyboard.isKeyDown(OIS.KC_J):
-            for ent in selectedEnt: 
-                ent.desiredHeading += 100 * dt
-                # Ensure we work with angles 0 to 360
-                if ent.desiredHeading > 360:
-                    # Heading is also decrease by 360 for simpler physics logic 
+            
+            ent = self.entityMgr.selectedEntP1
+            ent.desiredHeading += 100 * dt
+                
+            # Ensure we work with angles 0 to 360
+            if ent.desiredHeading > 360:
+            # Heading is also decrease by 360 for simpler physics logic 
                    
-                    ent.desiredHeading -= 360  
-                    ent.heading -= 360      
+                ent.desiredHeading -= 360  
+                ent.heading -= 360      
                      
 
         if self.Keyboard.isKeyDown(OIS.KC_NUMPAD6) or self.Keyboard.isKeyDown(OIS.KC_L):
-            for ent in selectedEnt: 
-                ent.desiredHeading -= 100 * dt
+            
+            ent = self.entityMgr.selectedEntP1
+            ent.desiredHeading -= 100 * dt
                 
-                # Ensure we work with angles 0 to 360
-                if ent.desiredHeading < 0:
-                    ent.desiredHeading += 360  
-                    ent.heading += 360 
-                  #  if ent.heading < 0:
-                   #     ent.heading += 360
+            # Ensure we work with angles 0 to 360
+            if ent.desiredHeading < 0:
+                ent.desiredHeading += 360  
+                ent.heading += 360 
+                #  if ent.heading < 0:
+                #     ent.heading += 360
             
         
         
@@ -99,9 +107,9 @@ class ControlMgr:
                 
             
           
-        for ent in selectedEnt:
+        #for ent in selectedEnt:
             #Metrics
-            pass
+         #   pass
            # print 'heading:', ent.heading
            # print 'desired heading:', ent.desiredHeading
             #print 'max speed: ', ent.maxSpeed
