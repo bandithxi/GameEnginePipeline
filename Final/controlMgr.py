@@ -74,9 +74,10 @@ class ControlMgr:
         if not self.Keyboard.isKeyDown(OIS.KC_SPACE) and self.pressed:
                
   
-                for eid, ent in self.entityMgr.entities.iteritems():
-                        if (ent.uiname == "Ball"):
+                #for eid, ent in self.entityMgr.entities.iteritems():
+                 #       if (ent.uiname == "Ball"):
                             #print "Here1"
+                            ent = self.entityMgr.ball
                             if (ent.attachEnt != None):   
                                 ent.heading = ent.attachEnt.heading
                                 ent.desiredHeading = ent.heading + rand.uniform(-20*self.heldTime, 20*self.heldTime)

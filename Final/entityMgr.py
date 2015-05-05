@@ -48,8 +48,13 @@ class EntityMgr:
         elif (team == 2): 
             self.team2[self.nP2] = ent
             self.nP2 +=1 
+        
+        
+        if (ent.mesh == "sphere.mesh"):
+            self.ball = ent
+
         return ent
-    
+        
     def createStad(self):
         for entType in self.stadiumParts:
          
