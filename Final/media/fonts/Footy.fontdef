@@ -16,3 +16,11 @@ Fifa15Font
 	size 		96
 	resolution 	128
 }
+
+MyriadPro
+{
+        type            truetype
+        source          MYRIADPRO-BOLDCOND.ttf
+        size            96
+        resolution      96
+}

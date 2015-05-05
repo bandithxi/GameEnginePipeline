@@ -84,31 +84,41 @@ class SelectionMgr:
 
             self.engine.gameMgr.p1Team = cursor  
             #scroll between available teams
+           
+            #Show Flag
+            self.showFlag(cursor)
             print "1Left"
 
         elif (self.p2LCheck(x, y)):
             cursor = self.engine.gameMgr.p2Team
-            cursor += 1
+            cursor -= 1
 
             #change to number of teams
-            if (cursor > 4):
-                cursor = 0
+            if (cursor < 0):
+                cursor = 4
 
             self.engine.gameMgr.p1Team = cursor  
+
+            #Show Flag
+            self.showFlag(cursor)
             
             print "2Left"
         
         elif (self.p1RCheck(x, y)):
-            cursor = self.engine.gameMgr.p2Team
-            cursor -= 1
+            cursor = self.engine.gameMgr.p1Team
+            cursor += 1
 
-            if (cursor < 0):
+            if (cursor > 4):
    
             #change to number of teams
-                cursor = 4
+                cursor = 0
 
             self.engine.gameMgr.p1Team = cursor  
+            print "Cursor - " + str (cursor)
             #scroll between available teams
+
+            #Show Flag
+            self.showFlag(cursor)
             print "1Right"
 
         elif (self.p2RCheck(x, y)):
@@ -120,6 +130,9 @@ class SelectionMgr:
                 cursor = 0
 
             self.engine.gameMgr.p2Team = cursor  
+
+            #Show Flag
+            self.showFlag(cursor)
             print "2Right"
    
         elif (self.startCheck(x,y)):
@@ -148,18 +161,42 @@ class SelectionMgr:
 
     def p1LCheck(self, x, y):
         #print "p1LCheck"
-        return x > 60 and x < 300  and y > 220 and y < 380
+        return x > 170 and x < 310  and y > 250 and y < 375
 
     def p1RCheck(self, x, y):
-        #print "p2RCheck"
-        return x > 550 and x < 750  and y > 220 and y < 380
-  
+        #print "p1RCheck"
+        return x > 1295 and x < 1430  and y > 250 and y < 375
+ 
     def p2LCheck(self, x, y):
         #print "p2LCheck"
-        return x > 350 and x < 560  and y > 420 and y < 600
+        return x > 170 and x < 310  and y > 755 and y < 880
 
     def p2RCheck(self, x, y):
         #print "p2RCheck"
-        return x > 750 and x < 950  and y > 420 and y < 600
+        return x > 1295 and x < 1430  and y > 755 and y < 880
+
+    def showFlag (self, cursor): 
+        if cursor == 0:
+                self.engine.guiMgr.flagRed.hide()
+                self.engine.guiMgr.flagBlue.hide()
+                self.engine.guiMgr.flagYellow.show()
+        elif cursor == 1:
+                self.engine.guiMgr.flagYellow.hide()                
+                self.engine.guiMgr.flagRed.hide()
+                self.engine.guiMgr.flagBlue.show()
+        elif cursor == 2:
+                self.engine.guiMgr.flagBlue.hide()
+                self.engine.guiMgr.flagYellow.hide()                
+                self.engine.guiMgr.flagRed.show()
+        elif cursor == 3:
+                self.engine.guiMgr.flagBlue.hide()
+                self.engine.guiMgr.flagYellow.hide()                
+                self.engine.guiMgr.flagRed.hide()
+        elif cursor == 4:
+                self.engine.guiMgr.flagBlue.hide()
+                self.engine.guiMgr.flagYellow.hide()                
+                self.engine.guiMgr.flagRed.hide()
+
+
 
 

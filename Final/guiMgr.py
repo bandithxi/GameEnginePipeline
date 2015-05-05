@@ -53,6 +53,24 @@ class GuiMgr:
         self.panel2.setDimensions( .25, .35 )
         self.panel2.setMaterialName( "clearPanel" )
 
+        # Create a red flag panel
+        self.panelFlagRed = self.overlayMgr.createOverlayElement ( "Panel", "Flag-Red")
+        self.panelFlagRed.setPosition( .35, .16 )
+        self.panelFlagRed.setDimensions ( .31, .32 )
+        self.panelFlagRed.setMaterialName ( "FlagRed" )
+
+        # Create a blue flag panel
+        self.panelFlagBlue = self.overlayMgr.createOverlayElement ( "Panel", "Flag-Blue")
+        self.panelFlagBlue.setPosition( .35, .16 )
+        self.panelFlagBlue.setDimensions ( .31, .32 )
+        self.panelFlagBlue.setMaterialName ( "FlagBlue" )
+
+        # Create a yellow flag panel
+        self.panelFlagYellow = self.overlayMgr.createOverlayElement ( "Panel", "Flag-Yellow")
+        self.panelFlagYellow.setPosition( .35, .16 )
+        self.panelFlagYellow.setDimensions ( .31, .32 )
+        self.panelFlagYellow.setMaterialName ( "FlagYellow" )
+
         # Create team panel
         self.panel3 = self.overlayMgr.createOverlayElement( "Panel", "LevelButtons" )
         self.panel3.setPosition( 0, 0 )
@@ -61,53 +79,53 @@ class GuiMgr:
 
         # Create Instructions Panel
         self.panel4 = self.overlayMgr.createOverlayElement( "Panel", "InstructionScreen" )
-        self.panel4.setPosition( .118, .12 )
-        self.panel4.setDimensions( .75, .75 )
+        self.panel4.setPosition( 0, 0 )
+        self.panel4.setDimensions( 1, 1 )
         self.panel4.setMaterialName( "Instructions" )
         
         # Create Credits Panel
         self.panel5 = self.overlayMgr.createOverlayElement( "Panel", "CreditScreen" )
-        self.panel5.setPosition( .118, .12 )
-        self.panel5.setDimensions( .75, .75 )
+        self.panel5.setPosition( 0, 0 )
+        self.panel5.setDimensions( 1, 1 )
         self.panel5.setMaterialName( "Credits" )
 
         # Create a button panel
         self.panel6 = self.overlayMgr.createOverlayElement( "Panel", "BackButton" )
         self.panel6.setPosition( 0.0, 0.925 )
         self.panel6.setDimensions( .1, .075 )
-        self.panel6.setMaterialName( "clearPanel" )
+        #self.panel6.setMaterialName( "clearPanel" )
         
         # Title
-        self.text = self.overlayMgr.createOverlayElement( "TextArea", "Title" )
-        self.text.setPosition( .01, .11 )
-        self.text.setDimensions( .5, .5 )
-        self.text.setCaption( "Footy" )    
-        self.text.setCharHeight(.1)
-        self.text.setFontName("Fifa15Font")
-        self.text.setColourTop((0.0, 0.0, 0.0))
-        self.text.setColourBottom((0.0, 0.0, 0.0))
-        self.panel.addChild( self.text )
+#        self.text = self.overlayMgr.createOverlayElement( "TextArea", "Title" )
+#        self.text.setPosition( .01, .11 )
+#        self.text.setDimensions( .5, .5 )
+#        self.text.setCaption( "Footy" )    
+#        self.text.setCharHeight(.1)
+#        self.text.setFontName("Fifa15Font")
+#        self.text.setColourTop((1.0, 1.0, 1.0))
+#        self.text.setColourBottom((1.0, 1.0, 1.0))
+#        self.panel.addChild( self.text )
  
         # Title
-        self.text = self.overlayMgr.createOverlayElement( "TextArea", "Titley" )
-        self.text.setPosition( .25, .11 )
-        self.text.setDimensions( .5, .5 )
-        self.text.setCaption( "y" )    
-        self.text.setCharHeight(.1)
-        self.text.setFontName("Fifa15Font")
-        self.text.setColourTop((1.0, 1.0, 1.0))
-        self.text.setColourBottom((0.0, 0.0, 0.0))
-        self.panel.addChild( self.text )
+#        self.text = self.overlayMgr.createOverlayElement( "TextArea", "Titley" )
+#        self.text.setPosition( .25, .11 )
+#        self.text.setDimensions( .5, .5 )
+#        self.text.setCaption( "y" )    
+#        self.text.setCharHeight(.1)
+#        self.text.setFontName("Fifa15Font")
+#        self.text.setColourTop((1.0, 1.0, 1.0))
+#        self.text.setColourBottom((0.0, 0.0, 0.0))
+#        self.panel.addChild( self.text )
 
 
         # Start Button
         self.text = self.overlayMgr.createOverlayElement( "TextArea", "Start" )
         self.text.setPosition( 0.05, 0.05)
         self.text.setDimensions( 1, 1 )
-        self.text.setCaption( "New Game" )    
+        self.text.setCaption( "NEW GAME" )    
         self.text.setCharHeight(.025)
         self.text.setFontName("Fifa15Font")
-        self.text.setColour( ( 1, 1, 1 ) )
+        self.text.setColour( ( 0, 0, 0 ) )
         self.text.setSpaceWidth( .01 )
         self.panel2.addChild( self.text )
         
@@ -115,10 +133,10 @@ class GuiMgr:
         self.text = self.overlayMgr.createOverlayElement( "TextArea", "Instructions" )
         self.text.setPosition( 0.05, 0.10)
         self.text.setDimensions( 1, 1 )
-        self.text.setCaption( "Instructions" )    
+        self.text.setCaption( "INSTRUCTIONS" )    
         self.text.setCharHeight(.025)
         self.text.setFontName("Fifa15Font")
-        self.text.setColour( ( 1, 1, 1 ) )
+        self.text.setColour( ( 0, 0, 0 ) )
         self.text.setSpaceWidth( .01 )
         self.panel2.addChild( self.text )
 
@@ -126,10 +144,10 @@ class GuiMgr:
         self.text = self.overlayMgr.createOverlayElement( "TextArea", "Credits" )
         self.text.setPosition( 0.05, 0.15)
         self.text.setDimensions( 1, 1 )
-        self.text.setCaption( "Credits" )    
+        self.text.setCaption( "CREDITS" )    
         self.text.setCharHeight(.025)
         self.text.setFontName("Fifa15Font")
-        self.text.setColour( ( 1, 1, 1 ) )
+        self.text.setColour( ( 0, 0, 0 ) )
         self.text.setSpaceWidth( .01 )
         self.panel2.addChild( self.text )
 
@@ -138,10 +156,10 @@ class GuiMgr:
         self.text = self.overlayMgr.createOverlayElement( "TextArea", "TeamSelect" )
         self.text.setPosition( 0.05, 0.20)
         self.text.setDimensions( 1, 1 )
-        self.text.setCaption( "Team Selection" )    
-        self.text.setCharHeight(.02)
+        self.text.setCaption( "TEAM SELECT" )    
+        self.text.setCharHeight(.025)
         self.text.setFontName("Fifa15Font")
-        self.text.setColour( ( 1, 1, 1 ) )
+        self.text.setColour( ( 0, 0, 0 ) )
         self.text.setSpaceWidth( .01 )
         self.panel2.addChild( self.text )
 
@@ -153,8 +171,9 @@ class GuiMgr:
         self.text.setCharHeight(.03)
         self.text.setFontName("Fifa15Font")
         self.text.setColourTop((1.0, 1.0, 1.0))
-        self.text.setColourBottom((0.0, 0.0, 0.0))
+        self.text.setColourBottom((1.0, 1.0, 1.0))
         self.panel6.addChild( self.text )
+
 
         # Add the panel to the overlay
         self.overlay.add2D( self.panel )
@@ -163,6 +182,9 @@ class GuiMgr:
         self.overlay.add2D( self.panel4 )
         self.overlay.add2D( self.panel5 )
         self.overlay.add2D( self.panel6 )
+        self.overlay.add2D( self.panelFlagRed )
+        self.overlay.add2D( self.panelFlagBlue )
+        self.overlay.add2D( self.panelFlagYellow )
 
         # grabbed window height and width
         self.windowWidth  = self.engine.gfxMgr.renderWindow.getWidth()
@@ -199,6 +221,15 @@ class GuiMgr:
 
         back = self.overlayMgr.getOverlayElement( "BackButton" )
         back.hide()
+        
+        self.flagRed = self.overlayMgr.getOverlayElement( "Flag-Red" )
+        self.flagRed.hide()
+
+        self.flagBlue = self.overlayMgr.getOverlayElement( "Flag-Blue" )
+        self.flagBlue.hide()
+
+        self.flagYellow = self.overlayMgr.getOverlayElement( "Flag-Yellow" )
+        self.flagYellow.hide()
     
     def createHud (self):
         self.hudMgr = ogre.OverlayManager.getSingleton()
@@ -217,7 +248,7 @@ class GuiMgr:
 
         # Team One
         self.text = self.hudMgr.createOverlayElement( "TextArea", "Team Name One" )
-        self.text.setPosition( .025, .055 )
+        self.text.setPosition( .125, .07 )
         self.text.setDimensions( 1, 1 )
         self.text.setCaption( "USA" )    
         self.text.setCharHeight(.025)
@@ -229,30 +260,30 @@ class GuiMgr:
  
         # Team Two
         self.text = self.hudMgr.createOverlayElement( "TextArea", "Team Name Two" )
-        self.text.setPosition( .025, .1225 )
+        self.text.setPosition( .125, .13 )
         self.text.setDimensions( 1, 1 )
         self.text.setCaption( "Mexico" )    
         self.text.setCharHeight(.025)
         self.text.setFontName("Fifa15Font")
-        self.text.setColourTop((1.0, 1.0, 1.0))
-        self.text.setColourBottom((1.0, 1.0, 1.0))
+        self.text.setColourTop((0.0, 0.0, 0.0))
+        self.text.setColourBottom((0.0, 0.0, 0.0))
         self.hudPanel.addChild( self.text )
 
         # Score 1 
         self.text = self.hudMgr.createOverlayElement( "TextArea", "Score - Team One" )
-        self.text.setPosition( .2575, .055 )
+        self.text.setPosition( .2375, .065 )
         self.text.setDimensions( 1, 1 )
         scoreOne = "0"
         self.text.setCaption( scoreOne )    
         self.text.setCharHeight(.025)
         self.text.setFontName("Fifa15Font")
-        self.text.setColourTop((1.0, 1.0, 1.0))
-        self.text.setColourBottom((1.0, 1.0, 1.0))
+        self.text.setColourTop((0.0, 0.0, 0.0))
+        self.text.setColourBottom((0.0, 0.0, 0.0))
         self.hudPanel.addChild( self.text )
 
         # Score 2 
         self.text = self.hudMgr.createOverlayElement( "TextArea", "Score - Team Two" )
-        self.text.setPosition( .2575, .1225 )
+        self.text.setPosition( .2375, .135 )
         self.text.setDimensions( 1, 1 )
         scoreTwo = "0"
         self.text.setCaption( scoreTwo )    
@@ -265,12 +296,12 @@ class GuiMgr:
 
         # Time 
         self.text = self.hudMgr.createOverlayElement( "TextArea", "Time" )
-        self.text.setPosition( .885, .055 )
+        self.text.setPosition( .26, .09 )
         self.text.setDimensions( 1, 1 )
         Time = "5:00"
         self.text.setCaption( Time )    
-        self.text.setCharHeight(.03)
-        self.text.setFontName("Fifa15Font")
+        self.text.setCharHeight(.06)
+        self.text.setFontName("MyriadPro")
         self.text.setColourTop((1.0, 1.0, 1.0))
         self.text.setColourBottom((1.0, 1.0, 1.0))
         self.hudPanel.addChild( self.text )
@@ -288,6 +319,7 @@ class GuiMgr:
             buttons.hide()
             teams = self.overlayMgr.getOverlayElement( "LevelButtons" )
             teams.show()
+            self.flagYellow.show()
             self.teamSelect = False
         
         # instructions screen
@@ -325,6 +357,9 @@ class GuiMgr:
             menu.show()          
             buttons.show()
             backButton.hide()
+            self.flagYellow.hide()
+            self.flagBlue.hide()
+            self.flagRed.hide()
             self.engine.gameMgr.creditsCheck = False  
             self.engine.gameMgr.instructionsCheck = False 
             self.engine.gameMgr.teamCheck = False
@@ -351,7 +386,12 @@ class GuiMgr:
         self.text = self.hudMgr.getOverlayElement("Score - Team One")
         self.text.setCaption(score)
    
-    def updateTime(self):
-        time = str(self.engine.gameMgr.gameTime / 60) + ":" +str(self.engine.gameMgr.gameTime % 60) 
+    def updateTime(self): 
+        tempTime = ( self.engine.gameMgr.gameTime % 60 )
+
+        if tempTime >= 0 and tempTime <= 9:
+                tempTime = "0" + str (tempTime)
+
+        time = str(self.engine.gameMgr.gameTime / 60) + ":" + str (tempTime) 
         self.text = self.hudMgr.getOverlayElement("Time")
         self.text.setCaption(time)
