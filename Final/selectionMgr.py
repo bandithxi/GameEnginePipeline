@@ -31,9 +31,9 @@ class SelectionMgr:
             #print "tab test"
 
             if self.keyboard.isKeyDown(OIS.KC_LSHIFT):
-                self.addNextEnt()
+                self.selectNextEnt(2)
             else:
-                self.selectNextEnt()
+                self.selectNextEnt(1)
 
             # ent = self.engine.entityMgr.selectedEnt
             # ent.node.showBoundingBox(False)
@@ -42,18 +42,16 @@ class SelectionMgr:
             # ent.node.showBoundingBox(True)
 
 
-    def addNextEnt(self):
-        ent = self.engine.entityMgr.getNextEnt()
+    def selectNextEnt(self, team):
+        if (team == 1):
+            for key, ent in self.engine.entityMgr.team1.iteritems():
+                ent.node.showBoundingBox(False)
+        else:
+            for key, ent in self.engine.entityMgr.team2.iteritems():
+                ent.node.showBoundingBox(False)
+        ent = self.engine.entityMgr.getNextEnt(team)
         ent.node.showBoundingBox(True)
-        self.engine.entityMgr.selectedEntities.append(ent)
-
-    def selectNextEnt(self):
-        for ent in self.engine.entityMgr.selectedEntities:
-            ent.node.showBoundingBox(False)
-        self.engine.entityMgr.selectedEntities = []
-        self.addNextEnt()
-
-
+        
     def stop(self):
         pass
     

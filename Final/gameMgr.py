@@ -56,12 +56,12 @@ class GameMgr:
     def loadTeam1(self):
         x = 300
         for i in range(self.teamSize):
-            ent = self.engine.entityMgr.createEnt(self.teamList[self.p1Team], pos = MyVector(x, 0, 0))
+            ent = self.engine.entityMgr.createEnt(self.teamList[self.p1Team], pos = MyVector(x, 0, 0), team = 1)
             x += 300
     def loadTeam2(self):
         x = -300
         for i in range(self.teamSize):
-            ent = self.engine.entityMgr.createEnt(self.teamList[self.p2Team], pos = MyVector(x, 0, 0))
+            ent = self.engine.entityMgr.createEnt(self.teamList[self.p2Team], pos = MyVector(x, 0, 0), team = 2)
             x -= 300
     
     def loadStad(self):
