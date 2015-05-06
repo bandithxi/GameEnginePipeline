@@ -1,5 +1,6 @@
 import ent
 from vector import MyVector
+import random
 
 class EntityMgr:
     def __init__(self, engine):
@@ -44,11 +45,12 @@ class EntityMgr:
         if (team == 1):
             print ent
             self.team1[self.nP1] = ent 
+            ent.team = 1
             self.nP1 +=1
         elif (team == 2): 
             self.team2[self.nP2] = ent
             self.nP2 +=1 
-        
+            ent.team = 2
         
         if (ent.mesh == "sphere.mesh"):
             self.ball = ent
@@ -91,8 +93,15 @@ class EntityMgr:
             return self.selectedEntP2
 
     def tick(self, dt):
-        for eid, entity in self.entities.iteritems():
+        #an entity that show up later in a list will alway win a tackle unless we randomize their order
+        collisionList = self.entities.values()
+        random.shuffle(collisionList)
+        
+        for entity in collisionList:
+        
             entity.tick(dt)
+
+
 
     def addAction(self, entity, action):
         entity.aspects[2].actionList.append(action)

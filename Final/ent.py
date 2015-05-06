@@ -32,6 +32,7 @@ class Entity:
 
         #Make jet ski face the same way
         self.offset = 0
+        self.team = 0
 
     def init(self):
         self.initAspects()

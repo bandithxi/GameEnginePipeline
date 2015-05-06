@@ -2,6 +2,7 @@
 
 import ogre.renderer.OGRE as ogre
 import math
+import utils
 class Action:
     def __init__(self, ent, targetLoc = ogre.Vector3( 0.0, 0.0, 0.0 )):
         self.ent = ent
@@ -40,14 +41,32 @@ class Follow( Action ):
         diffX = float(self.targetLoc.x - self.ent.pos.x)
         self.distance = math.sqrt(diffZ**2 + diffX**2)
         
-        if self.distance > 300:
-            self.ent.desiredHeading = -(math.atan2(diffZ, diffX) * 180.0/3.14 )
+        if self.distance > 25:
+            self.ent.desiredHeading = -(math.atan2(diffZ, diffX) * 180.0/3.14) 
+
+            if (self.ent.desiredHeading < 0 ):
+                self.ent.desiredHeading += 360
+                dAngle = math.fabs(self.ent.desiredHeading - self.ent.heading)
+                if dAngle > 180:
+                    self.ent.desiredHeading -= 360
+
+
             self.ent.desiredSpeed = self.maxSpeed
         else:
-            self.ent.desiredHeading = -(math.atan2(diffZ, diffX) * 180.0/3.14 )
-#            self.ent.speed = 0
+            self.ent.desiredHeading = -(math.atan2(diffZ, diffX) * 180.0/3.14)
+            
+            
+            if (self.ent.desiredHeading < 0 ):
+                self.ent.desiredHeading += 360
+                dAngle = math.fabs(self.ent.desiredHeading - self.ent.heading)
+                if dAngle > 180:
+                    self.ent.desiredHeading -= 360
+
+            #elif (self.ent.desiredHeading > 360):
+             #   self.ent.desiredHeading -=360 
             self.ent.desiredSpeed = 0
-        print(self.ent.desiredHeading)
+            self.ent.speed = 0
+        #print(self.ent.desiredHeading)
     
 class Intercept( Action ):
     def __init__(self, ent, targetEnt):

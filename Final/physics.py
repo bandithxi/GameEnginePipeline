@@ -79,20 +79,23 @@ class Physics:
             self.ent.pos.x = -3200
         
         self.boundaryCheck()
+
         self.collisionCheck()
    
-        if (self.ent.mesh == "sphere.mesh"):
-            if (self.ent.attachEnt != None): #if player has ball then move ball
-                self.ent.pos = self.ent.attachEnt.pos
+        if (self.ent.engine.entityMgr.ball):
+            ball = self.ent.engine.entityMgr.ball
+            if (ball.attachEnt != None): #if player has ball then move ball
+                ball.pos = ball.attachEnt.pos
           #      pass
             else: # if he doesn't decr time until he is allowed
-                if (self.ent.toggle <= 0.0): 
-                    self.ent.toggle = 0.0
+                if (ball.toggle <= 0.0): 
+                    ball.toggle = 0.0
                     
-                 #   print "here"
+                    #print "here"
 
                 else:
-                    self.ent.toggle -= dtime
+                    ball.toggle -= dtime
+                    #print ball.toggle
                 #    print "there"
             
         #print "ent.pos", self.ent.pos
@@ -117,21 +120,37 @@ class Physics:
                     self.var *= -1
                         #issue is here, sphere cant get away in time before next tick, 
                         #updates var causing back and forth
-                    if (ball.toggle <= 0.0): #if ball is allowed to be held then attach to a player
+                    if (ball.toggle <= 0.0 and ball.attachEnt != self.ent): #if ball is allowed to be held then attach to a player
                      #   print "collision"
-                        
+                        #ball.toggle = .1
                         ball.attachEnt = self.ent 
-                   # if self.var > 0:
-                    #    self.ent.pos.y += 30
-                     
-                    #else:
-                     #   self.ent.pos.y -= 30
-            
-            #self.ent.pos.x += (self.var * 2)
-         
+                        #print self.ent.uiname
+                  
         
         pass
 
+    def bcollisionCheck(self, team):
+        team1 = self.ent.engine.entityMgr.team1
+        team2 = self.ent.engine.entityMgr.team2
+        ball = self.ent.engine.entityMgr.ball
+
+        if (team == 1):
+            for key, ent in team2.iteritems():
+                dist = self.distance(self.ent.pos.x, ent.pos.x, self.ent.pos.z, ent.pos.z)
+            
+                if dist < 75:
+                    if (ball.toggle <= 0.0 and ball.attachEnt != self.ent):
+                        ball.attachEnt = self.ent
+        elif (team == 2):
+            for key, ent in team1.iteritems():
+                dist = self.distance(self.ent.pos.x, ent.pos.x, self.ent.pos.z, ent.pos.z)
+            
+                if dist < 75:
+                    if (ball.toggle <= 0.0 and ball.attachEnt != self.ent):
+                        ball.attachEnt = self.ent
+        else:
+            pass
+        
     def boundaryCheck(self):
         if (self.ent.mesh == "sphere.mesh"):
             #print "sphere check"

@@ -1,6 +1,7 @@
 import ogre.renderer.OGRE as ogre
 import ogre.io.OIS as OIS
 import random as rand
+import utils
 
 class ControlMgr:
 
