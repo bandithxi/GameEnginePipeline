@@ -82,8 +82,8 @@ class Physics:
 
         self.collisionCheck()
    
-        if (self.ent.engine.entityMgr.ball):
-            ball = self.ent.engine.entityMgr.ball
+        if (self.ent.mesh == "sphere.mesh"):
+            ball = self.ent
             if (ball.attachEnt != None): #if player has ball then move ball
                 ball.pos = ball.attachEnt.pos
           #      pass
@@ -120,7 +120,7 @@ class Physics:
                     self.var *= -1
                         #issue is here, sphere cant get away in time before next tick, 
                         #updates var causing back and forth
-                    if (ball.toggle <= 0.0 and ball.attachEnt != self.ent): #if ball is allowed to be held then attach to a player
+                    if (ball.toggle <= 0.0): #and ball.attachEnt != self.ent): #if ball is allowed to be held then attach to a player
                      #   print "collision"
                         #ball.toggle = .1
                         ball.attachEnt = self.ent 
