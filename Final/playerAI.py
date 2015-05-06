@@ -6,3 +6,6 @@ class PlayerAI:
     def tick(self, dtime):
         if len(self.actionList) > 0:
             self.actionList[0].tick(dtime)
+
+    def clear(self):
+    	del self.actionList[:]

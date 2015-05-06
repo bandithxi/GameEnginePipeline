@@ -1,7 +1,9 @@
 from vector import MyVector
 import time
 import AIaction as action
-# Dont Change
+
+import ogre.renderer.OGRE as ogre
+
 
 class GameMgr:
     def __init__(self, engine):
@@ -17,7 +19,7 @@ class GameMgr:
         self.backCheck = False
         self.teamCheck = False
 
-        self.gameTime = 300
+        self.gameTime = 600
         self.start = time.time()
        
         self.teamList = self.engine.entityMgr.entTypes
@@ -26,6 +28,7 @@ class GameMgr:
         self.p2Team = 0
         
         self.teamSize = 5
+        self.reset = False
 
         print "starting Game mgr"
         pass
@@ -55,20 +58,37 @@ class GameMgr:
         self.engine.entityMgr.createEnt(self.engine.entityMgr.ball, pos = MyVector(0, 0, 0))  
 
     def loadTeam1(self):
-        x = 300
-        self.target = None
-        for i in range(self.teamSize):
-            ent = self.engine.entityMgr.createEnt(self.teamList[self.p1Team], pos = MyVector(x, 0, 0), team = 1)
-            x += 300
+        x = 600
+        ent = self.engine.entityMgr.createEnt(self.teamList[self.p1Team], pos = ogre.Vector3(x, 0, 0), team = 1)
+        x += 600
+        ent = self.engine.entityMgr.createEnt(self.teamList[self.p1Team], pos = ogre.Vector3(x, 0, 600), team = 1)
+        
+        ent = self.engine.entityMgr.createEnt(self.teamList[self.p1Team], pos = ogre.Vector3(x, 0, -600), team = 1)
+        x += 600
+        ent = self.engine.entityMgr.createEnt(self.teamList[self.p1Team], pos = ogre.Vector3(x, 0, 0), team = 1)
+        x += 600
+        ent = self.engine.entityMgr.createEnt(self.teamList[self.p1Team], pos = ogre.Vector3(x, 0, 0), team = 1)
+        
+        for en in self.engine.entityMgr.team1.values():
+            en.desiredHeading = 180
+            en.heading = 180
         self.target = ent
         
     def loadTeam2(self):
-        x = -300 
-        ent = None
-        for i in range(self.teamSize):
-            ent = self.engine.entityMgr.createEnt(self.teamList[self.p2Team], pos = MyVector(x, 0, 0), team = 2)
-            x -= 300
-        #self.engine.entityMgr.addAction(ent, action.Follow(ent, self.target))
+        x = -600
+        ent = self.engine.entityMgr.createEnt(self.teamList[self.p2Team], pos = ogre.Vector3(x, 0, 0), team = 2)
+        x -= 600
+        ent = self.engine.entityMgr.createEnt(self.teamList[self.p2Team], pos = ogre.Vector3(x, 0, 600), team = 2)
+        
+        ent = self.engine.entityMgr.createEnt(self.teamList[self.p2Team], pos = ogre.Vector3(x, 0, -600), team = 2)
+        x -= 600
+        ent = self.engine.entityMgr.createEnt(self.teamList[self.p2Team], pos = ogre.Vector3(x, 0, 0), team = 2)
+        x -= 600
+        ent = self.engine.entityMgr.createEnt(self.teamList[self.p2Team], pos = ogre.Vector3(x, 0, 0), team = 2)
+
+
+
+        self.engine.entityMgr.addAction(ent, action.Follow(ent, self.target))
     def loadStad(self):
         self.engine.entityMgr.createStad()
 
@@ -80,6 +100,10 @@ class GameMgr:
             self.loadSetup()
             self.startGame()
             #print self.teamList[self.p1Team] , self.teamList[self.p2Team]
+       
+        if (self.reset):
+            self.resetGame()
+       
         pass
 
     def stop(self):
@@ -99,7 +123,7 @@ class GameMgr:
     def startGame(self):
         self.sfxMgr.stopMusic("Champions_League_theme")
         self.sfxMgr.playMusic(self.chantList[self.p1Team])
-        self.gameTime = 300
+        self.gameTime = 600
         self.loadGameAsset()
         self.start = time.time()
         self.engine.guiMgr.overlay.hide()
@@ -111,5 +135,22 @@ class GameMgr:
     def gameOver(self):
         #self.backCheck = True
         pass
+
+    def resetGame(self):
+        self.reset = False
+        for ent in self.engine.entityMgr.entities.values():
+                    ent.aspects[2].clear()
+                    ent.speed = 0
+                    ent.desiredSpeed = 0
+
+        for ent in self.engine.entityMgr.team1.values():
+            self.engine.entityMgr.addAction(ent, action.GoHome(ent, ent.home))
+
+        
+
+        for ent in self.engine.entityMgr.team2.values():
+            self.engine.entityMgr.addAction(ent, action.GoHome(ent, ent.home))
+        
+
 
     

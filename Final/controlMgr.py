@@ -2,6 +2,7 @@ import ogre.renderer.OGRE as ogre
 import ogre.io.OIS as OIS
 import random as rand
 import utils
+import AIaction as action
 
 class ControlMgr:
 
@@ -79,26 +80,48 @@ class ControlMgr:
                  #       if (ent.uiname == "Ball"):
                             #print "Here1"
                             ent = self.entityMgr.ball
-                            if (ent.attachEnt != None):   
-                                ent.heading = ent.attachEnt.heading
-                                ent.desiredHeading = ent.heading + rand.uniform(-20*self.heldTime, 20*self.heldTime)
+                            if (ent.attachEnt != None):
+                                
+                                teammate = ent.attachEnt.nearestTeamate()
+                                distance = 1000000 # 
+                                
+                                if (teammate):
+                                    distance = utils.distance(ent.attachEnt, teammate)
+                                    #distance = 1000000
+                                
+                                #1/4 s short pass
+                                if (self.heldTime < .5 and distance < 600.0):
+                                    print "short pass"
+                                    self.engine.entityMgr.addAction(ent, action.Intercept(ent, teammate))
+
+                                    pass
+
+                                else:    
+                                    ent.heading = ent.attachEnt.heading
+                                    ent.desiredHeading = ent.heading + rand.uniform(-20*self.heldTime, 20*self.heldTime)
                                 #print "Here2"
-                                ent.attachEnt = None
-                                ent.toggle = .2
-                        
-                                self.pressed = False
-                            
-                                if self.heldTime > 1.1:
-                                    ent.speed = ent.maxSpeed * self.heldTime
+                                    #1/2 s or longer and the ball will rise
+                                    if self.heldTime > 1.1:
+                                        ent.speed = ent.maxSpeed * self.heldTime
                                     #print "Here3" 
-                                    ent.vel.y = 1000.0 * self.heldTime / 2.0
-                                else:
+                                        ent.vel.y = 1000.0 * self.heldTime / 2.0
+                                    else:
                                     #print "Here4"
-                                    ent.speed = ent.maxSpeed * 2.0 * self.heldTime
+                                        ent.speed = ent.maxSpeed * 2.0 * self.heldTime
+
+                                    # team mate will try to interscept
+                                    #if (teammate):
+                                     #   self.engine.entityMgr.addAction(teammate, action.Intercept(teammate, ent))
                                 
                                 #print ent.speed
                                 ent.desiredSpeed = 0
                                 self.heldTime = 0
+                                ent.attachEnt = None
+                                ent.toggle = .2
+                        
+                                self.pressed = False
+                                
+                                
                             else:
                                 #print "Here5"
                                 pass
@@ -124,3 +147,5 @@ class ControlMgr:
 
     def stop(self):
         pass
+
+

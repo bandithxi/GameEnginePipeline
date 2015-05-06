@@ -6,7 +6,8 @@ from physics import Physics
 from renderer import Renderer
 from vector import MyVector
 from playerAI import PlayerAI
-# import math
+import utils 
+import math
 # import time
 
 
@@ -33,6 +34,7 @@ class Entity:
         #Make jet ski face the same way
         self.offset = 0
         self.team = 0
+        self.home = None
 
     def init(self):
         self.initAspects()
@@ -51,6 +53,41 @@ class Entity:
         x = "Entity: %s \nPos: %s, Vel: %s, yaw: %f" % (self.id, str(self.pos), str(self.vel), self.yaw)
         return x
 
+    def nearestTeamate(self):
+        team = self.team
+        teamList = []
+        teamList.append(self.engine.entityMgr.team1)
+        teamList.append(self.engine.entityMgr.team2)
+        closestTeammate = None
+        length = 10000000 #infinity
+
+        for ent in teamList[team - 1].values():
+            x = 1200.0 * math.cos(self.heading)
+            z = 1200.0 * math.sin(self.heading)
+           # print x
+           # print z
+            #weird vector 2 bug
+            vecA = ogre.Vector3( x - self.pos.x , z - self.pos.z, 0)
+            vecB = ogre.Vector3(ent.pos.x - self.pos.x, ent.pos.z - self.pos.z, 0)
+
+            dAngle = vecA.angleBetween(vecB).valueDegrees()      
+            #print ent.uiname, ",", dAngle
+            if (float(math.fabs(dAngle)) < 50.0):
+                #store good teammates to array
+
+                if (vecB.length() < length):
+                    length = vecB.length()
+                    if (ent != self):
+                        closestTeammate = ent
+
+             
+        return closestTeammate
+                             
+
+
+        pass
+
+    
 
 class Ball(Entity):
     id = 0

@@ -12,6 +12,10 @@ class Action:
         
     def tick(self, dt):
         pass
+
+class GoHome(Action):
+    def __init__(self, ent, targetLoc):
+        pass
     
 class Move( Action ):
     def __init__(self, ent, targetLoc):

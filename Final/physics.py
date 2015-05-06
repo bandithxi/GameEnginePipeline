@@ -115,60 +115,46 @@ class Physics:
                    # print "sphereX: ", self.ent.pos.x, "sphereZ: ", self.ent.pos.z
                     #print "ninja    X : ", entity.pos.x, "ninjaX : ", entity.pos.z
                     #print "dist:    ", dist
-                if dist < 75:
+                if dist < 75 and (self.ent.pos.y == ball.pos.y):
                         #print "SUCCESS: ", dist
-                    self.var *= -1
+                    
                         #issue is here, sphere cant get away in time before next tick, 
                         #updates var causing back and forth
                     if (ball.toggle <= 0.0): #and ball.attachEnt != self.ent): #if ball is allowed to be held then attach to a player
                      #   print "collision"
                         #ball.toggle = .1
-                        ball.attachEnt = self.ent 
+                        #ball.aspects[2].clear()
+                        ball.attachEnt = self.ent
+
                         #print self.ent.uiname
                   
         
         pass
 
-    def bcollisionCheck(self, team):
-        team1 = self.ent.engine.entityMgr.team1
-        team2 = self.ent.engine.entityMgr.team2
-        ball = self.ent.engine.entityMgr.ball
-
-        if (team == 1):
-            for key, ent in team2.iteritems():
-                dist = self.distance(self.ent.pos.x, ent.pos.x, self.ent.pos.z, ent.pos.z)
-            
-                if dist < 75:
-                    if (ball.toggle <= 0.0 and ball.attachEnt != self.ent):
-                        ball.attachEnt = self.ent
-        elif (team == 2):
-            for key, ent in team1.iteritems():
-                dist = self.distance(self.ent.pos.x, ent.pos.x, self.ent.pos.z, ent.pos.z)
-            
-                if dist < 75:
-                    if (ball.toggle <= 0.0 and ball.attachEnt != self.ent):
-                        ball.attachEnt = self.ent
-        else:
-            pass
-        
+     
     def boundaryCheck(self):
         if (self.ent.mesh == "sphere.mesh"):
             #print "sphere check"
             
+
             #print self.ent.pos.x
             if self.ent.pos.x > self.fieldDimenX - self.grassOffSet:
                 #check goal
                 #print "right check"
                 #print self.ent.pos.x
-                if self.ent.engine.gameMgr.half == 1:
-                    self.ent.engine.gameMgr.scoreOne+= 1
-                else:
-                    self.ent.engine.gameMgr.scoreTwo+= 1
+
+                if (self.ent.pos.z < 2.5 * self.grassOffSet and self.ent.pos.z > -2.5 * self.grassOffSet):
+                 
+                    if self.ent.engine.gameMgr.half == 1:
+                        self.ent.engine.gameMgr.scoreOne+= 1
+                    else:
+                        self.ent.engine.gameMgr.scoreTwo+= 1
                 
                 self.ent.pos.x = self.ent.pos.y = self.ent.pos.z = 0
                 self.ent.speed = 0
 
-
+                
+                self.ent.engine.gameMgr.reset = True
                 #o.w. out of bounds 
                     #set ball for goal kick
                     #dist of all players are > goal box
@@ -176,36 +162,53 @@ class Physics:
    
                # print "score", self.score 
             if self.ent.pos.x < -self.fieldDimenX + self.grassOffSet:
-                #check goal
-                if self.ent.engine.gameMgr.half == 1:
-                    self.ent.engine.gameMgr.scoreTwo+= 1
-                else:
-                    self.ent.engine.gameMgr.scoreOne+= 1
-                self.ent.pos.x = self.ent.pos.y = self.ent.pos.z = 0
+                #check goal)
 
+                if (self.ent.pos.z < 2.5 * self.grassOffSet and self.ent.pos.z > -2.5 * self.grassOffSet):
+                    if self.ent.engine.gameMgr.half == 1:
+                        self.ent.engine.gameMgr.scoreTwo+= 1
+                    else:
+                        self.ent.engine.gameMgr.scoreOne+= 1
+                    
+                self.ent.pos.x = self.ent.pos.y = self.ent.pos.z = 0
                 self.ent.speed = 0
                 
+                self.ent.engine.gameMgr.reset = True
         #if (self.ent.mesh == "ninja.mesh"):
          #   for eid, entity in self.entities.iteritems():
           #      if (entity.mesh == "sphere.mesh"):
            #         self.ent.pos.z = entity.pos.z
 
+        else:
+            if (self.ent.pos.x > self.fieldDimenX - 1.5*self.grassOffSet):
+                self.ent.pos.x = self.fieldDimenX - 1.5*self.grassOffSet
+                self.ent.speed = 0
+                self.ent.desiredSpeed = 0
 
-       # if (self.ent.pos.x > self.fieldDimenX):
-        #    self.ent.pos.x = self.ent.pos.x - 10
 
-        #if (self.ent.pos.x < -self.fieldDimenX): 
-         #   self.ent.pos.x = self.ent.pos.x + 10            
+            if (self.ent.pos.x < -self.fieldDimenX - 1.5*self.grassOffSet): 
+                self.ent.pos.x = self.fieldDimenX + 1.5*self.grassOffSet
+                self.ent.speed = 0
+                self.ent.desiredSpeed = 0
+  
 
+        gravity = 8
         if (self.ent.pos.z > self.fieldDimenZ - self.grassOffSet):
             self.ent.pos.z = self.fieldDimenZ - self.grassOffSet
-            self.ent.vel.x = 0
-            self.ent.vel.z = 0
+            #self.ent.vel.x = 0
+            self.ent.vel.z -= gravity
+            self.ent.vel.z = -self.ent.vel.z / 2
+            #self.ent.desiredSpeed = 0
 
         if (self.ent.pos.z < -self.fieldDimenZ + self.grassOffSet):
             self.ent.pos.z = -self.fieldDimenZ + self.grassOffSet
-            self.ent.vel.x = 0
-            self.ent.vel.z = 0
+            #self.ent.vel.x = 0
+            self.ent.vel.z -= gravity
+            self.ent.vel.z = -self.ent.vel.z / 2
+            #self.ent.desiredSpeed = 0
+
+
+
         pass
 
     def goalCheck(self):
