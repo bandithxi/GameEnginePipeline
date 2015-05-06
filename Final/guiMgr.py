@@ -52,7 +52,9 @@ class GuiMgr:
         self.panel2.setPosition( .05, .5 )
         self.panel2.setDimensions( .25, .35 )
         self.panel2.setMaterialName( "clearPanel" )
-
+       
+       ###### PLAYER 1 #####
+        ### Main Flag ###
         # Create a red flag panel
         self.panelFlagRed = self.overlayMgr.createOverlayElement ( "Panel", "Flag-Red")
         self.panelFlagRed.setPosition( .35, .16 )
@@ -70,6 +72,60 @@ class GuiMgr:
         self.panelFlagYellow.setPosition( .35, .16 )
         self.panelFlagYellow.setDimensions ( .31, .32 )
         self.panelFlagYellow.setMaterialName ( "FlagYellow" )
+
+        # Create a green flag panel
+        self.panelFlagGreen = self.overlayMgr.createOverlayElement ( "Panel", "Flag-Green")
+        self.panelFlagGreen.setPosition( .35, .16 )
+        self.panelFlagGreen.setDimensions ( .31, .32 )
+        self.panelFlagGreen.setMaterialName ( "FlagGreen" )
+
+        # Create a purple flag panel
+        self.panelFlagPurple = self.overlayMgr.createOverlayElement ( "Panel", "Flag-Purple")
+        self.panelFlagPurple.setPosition( .35, .16 )
+        self.panelFlagPurple.setDimensions ( .31, .32 )
+        self.panelFlagPurple.setMaterialName ( "FlagPurple" )
+
+        ### Mini Flag Left ###
+
+        # Create a red mini flag
+        self.panelFlagRedL = self.overlayMgr.createOverlayElement ( "Panel", "Flag-Red-L")
+        self.panelFlagRedL.setPosition( .23, .24 )
+        self.panelFlagRedL.setDimensions ( .139, .139 )
+        self.panelFlagRedL.setMaterialName ( "FlagRed" )
+        
+       ###### PLAYER 2 ######
+        ### Main Flag ### 
+        # Create a red flag panel
+        self.panelFlagRedP2 = self.overlayMgr.createOverlayElement ( "Panel", "Flag-Red-P2")
+        self.panelFlagRedP2.setPosition( .35, .65 )
+        self.panelFlagRedP2.setDimensions ( .31, .32 )
+        self.panelFlagRedP2.setMaterialName ( "FlagRed" )
+
+        # Create a blue flag panel
+        self.panelFlagBlueP2 = self.overlayMgr.createOverlayElement ( "Panel", "Flag-Blue-P2")
+        self.panelFlagBlueP2.setPosition( .35, .65 )
+        self.panelFlagBlueP2.setDimensions ( .31, .32 )
+        self.panelFlagBlueP2.setMaterialName ( "FlagBlue" )
+
+        # Create a Yellow flag panel
+        self.panelFlagYellowP2 = self.overlayMgr.createOverlayElement ( "Panel", "Flag-Yellow-P2")
+        self.panelFlagYellowP2.setPosition( .35, .65 )
+        self.panelFlagYellowP2.setDimensions ( .31, .32 )
+        self.panelFlagYellowP2.setMaterialName ( "FlagYellow" )
+
+        # Create a Green flag panel
+        self.panelFlagGreenP2 = self.overlayMgr.createOverlayElement ( "Panel", "Flag-Green-P2")
+        self.panelFlagGreenP2.setPosition( .35, .65 )
+        self.panelFlagGreenP2.setDimensions ( .31, .32 )
+        self.panelFlagGreenP2.setMaterialName ( "FlagGreen" )
+
+        # Create a Purple flag panel
+        self.panelFlagPurpleP2 = self.overlayMgr.createOverlayElement ( "Panel", "Flag-Purple-P2")
+        self.panelFlagPurpleP2.setPosition( .35, .65 )
+        self.panelFlagPurpleP2.setDimensions ( .31, .32 )
+        self.panelFlagPurpleP2.setMaterialName ( "FlagPurple" )
+
+
 
         # Create team panel
         self.panel3 = self.overlayMgr.createOverlayElement( "Panel", "LevelButtons" )
@@ -95,29 +151,6 @@ class GuiMgr:
         self.panel6.setDimensions( .1, .075 )
         #self.panel6.setMaterialName( "clearPanel" )
         
-        # Title
-#        self.text = self.overlayMgr.createOverlayElement( "TextArea", "Title" )
-#        self.text.setPosition( .01, .11 )
-#        self.text.setDimensions( .5, .5 )
-#        self.text.setCaption( "Footy" )    
-#        self.text.setCharHeight(.1)
-#        self.text.setFontName("Fifa15Font")
-#        self.text.setColourTop((1.0, 1.0, 1.0))
-#        self.text.setColourBottom((1.0, 1.0, 1.0))
-#        self.panel.addChild( self.text )
- 
-        # Title
-#        self.text = self.overlayMgr.createOverlayElement( "TextArea", "Titley" )
-#        self.text.setPosition( .25, .11 )
-#        self.text.setDimensions( .5, .5 )
-#        self.text.setCaption( "y" )    
-#        self.text.setCharHeight(.1)
-#        self.text.setFontName("Fifa15Font")
-#        self.text.setColourTop((1.0, 1.0, 1.0))
-#        self.text.setColourBottom((0.0, 0.0, 0.0))
-#        self.panel.addChild( self.text )
-
-
         # Start Button
         self.text = self.overlayMgr.createOverlayElement( "TextArea", "Start" )
         self.text.setPosition( 0.05, 0.05)
@@ -185,6 +218,14 @@ class GuiMgr:
         self.overlay.add2D( self.panelFlagRed )
         self.overlay.add2D( self.panelFlagBlue )
         self.overlay.add2D( self.panelFlagYellow )
+        self.overlay.add2D( self.panelFlagPurple )
+        self.overlay.add2D( self.panelFlagGreen )
+        self.overlay.add2D( self.panelFlagRedL )
+        self.overlay.add2D( self.panelFlagRedP2 )
+        self.overlay.add2D( self.panelFlagBlueP2 )
+        self.overlay.add2D( self.panelFlagYellowP2 )
+        self.overlay.add2D( self.panelFlagPurpleP2 )
+        self.overlay.add2D( self.panelFlagGreenP2 )
 
         # grabbed window height and width
         self.windowWidth  = self.engine.gfxMgr.renderWindow.getWidth()
@@ -230,6 +271,30 @@ class GuiMgr:
 
         self.flagYellow = self.overlayMgr.getOverlayElement( "Flag-Yellow" )
         self.flagYellow.hide()
+
+        self.flagGreen = self.overlayMgr.getOverlayElement( "Flag-Green" )
+        self.flagGreen.hide()
+
+        self.flagPurple = self.overlayMgr.getOverlayElement( "Flag-Purple" )
+        self.flagPurple.hide()
+
+        self.flagRedL = self.overlayMgr.getOverlayElement( "Flag-Red-L" )
+        self.flagRedL.hide()
+
+        self.flagRedP2 = self.overlayMgr.getOverlayElement( "Flag-Red-P2" )
+        self.flagRedP2.hide()
+
+        self.flagBlueP2 = self.overlayMgr.getOverlayElement( "Flag-Blue-P2" )
+        self.flagBlueP2.hide()
+
+        self.flagYellowP2 = self.overlayMgr.getOverlayElement( "Flag-Yellow-P2" )
+        self.flagYellowP2.hide()
+
+        self.flagGreenP2 = self.overlayMgr.getOverlayElement( "Flag-Green-P2" )
+        self.flagGreenP2.hide()
+
+        self.flagPurpleP2 = self.overlayMgr.getOverlayElement( "Flag-Purple-P2" )
+        self.flagPurpleP2.hide()
     
     def createHud (self):
         self.hudMgr = ogre.OverlayManager.getSingleton()
@@ -320,6 +385,7 @@ class GuiMgr:
             teams = self.overlayMgr.getOverlayElement( "LevelButtons" )
             teams.show()
             self.flagYellow.show()
+            self.flagYellowP2.show()
             self.teamSelect = False
         
         # instructions screen
@@ -360,6 +426,14 @@ class GuiMgr:
             self.flagYellow.hide()
             self.flagBlue.hide()
             self.flagRed.hide()
+            self.flagGreen.hide()
+            self.flagPurple.hide()
+            self.flagRedL.hide()
+            self.flagRedP2.hide()
+            self.flagBlueP2.hide()
+            self.flagRedP2.hide()
+            self.flagGreenP2.hide()
+            self.flagPurpleP2.hide()
             self.engine.gameMgr.creditsCheck = False  
             self.engine.gameMgr.instructionsCheck = False 
             self.engine.gameMgr.teamCheck = False

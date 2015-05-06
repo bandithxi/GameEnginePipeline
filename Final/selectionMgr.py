@@ -8,6 +8,7 @@ class SelectionMgr:
     def init(self):
         self.keyboard = self.engine.inputMgr.keyboard
         self.toggle = 0.1
+        self.onTeamScreen = False
 
         # buttonPositions
         self.buttonStartX = self.engine.guiMgr.buttonStartX
@@ -58,6 +59,7 @@ class SelectionMgr:
     def checkPointAt(self, x, y):
         if (self.teamCheck(x, y)):
             self.engine.gameMgr.teamCheck = True
+            self.onTeamScreen = True 
             print True
 
         elif (self.instructionCheck(x, y)):
@@ -72,8 +74,9 @@ class SelectionMgr:
         
         elif (self.backCheck(x, y)):
             self.engine.gameMgr.backCheck = True
+            self.onTeamScreen = False
         
-        elif (self.p1LCheck(x, y)):
+        elif (self.p1LCheck(x, y) and self.onTeamScreen == True):
             cursor = self.engine.gameMgr.p1Team
             cursor -= 1
 
@@ -83,13 +86,14 @@ class SelectionMgr:
                 cursor = 4
 
             self.engine.gameMgr.p1Team = cursor  
+            print "Cursor - " + str (cursor)
             #scroll between available teams
            
             #Show Flag
             self.showFlag(cursor)
             print "1Left"
 
-        elif (self.p2LCheck(x, y)):
+        elif (self.p2LCheck(x, y) and self.onTeamScreen == True ):
             cursor = self.engine.gameMgr.p2Team
             cursor -= 1
 
@@ -97,14 +101,14 @@ class SelectionMgr:
             if (cursor < 0):
                 cursor = 4
 
-            self.engine.gameMgr.p1Team = cursor  
-
+            self.engine.gameMgr.p2Team = cursor  
+            print "Cursor - " + str (cursor)
             #Show Flag
-            self.showFlag(cursor)
+            self.showFlagP2(cursor)
             
             print "2Left"
         
-        elif (self.p1RCheck(x, y)):
+        elif (self.p1RCheck(x, y) and self.onTeamScreen == True ):
             cursor = self.engine.gameMgr.p1Team
             cursor += 1
 
@@ -121,7 +125,7 @@ class SelectionMgr:
             self.showFlag(cursor)
             print "1Right"
 
-        elif (self.p2RCheck(x, y)):
+        elif (self.p2RCheck(x, y) and self.onTeamScreen == True ):
             cursor = self.engine.gameMgr.p2Team
             cursor += 1
 
@@ -130,9 +134,9 @@ class SelectionMgr:
                 cursor = 0
 
             self.engine.gameMgr.p2Team = cursor  
-
+            print "Cursor - " + str (cursor)
             #Show Flag
-            self.showFlag(cursor)
+            self.showFlagP2(cursor)
             print "2Right"
    
         elif (self.startCheck(x,y)):
@@ -165,7 +169,7 @@ class SelectionMgr:
 
     def p1RCheck(self, x, y):
         #print "p1RCheck"
-        return x > 1295 and x < 1430  and y > 250 and y < 375
+        return x > 1540 and x < 1700  and y > 250 and y < 375
  
     def p2LCheck(self, x, y):
         #print "p2LCheck"
@@ -173,29 +177,71 @@ class SelectionMgr:
 
     def p2RCheck(self, x, y):
         #print "p2RCheck"
-        return x > 1295 and x < 1430  and y > 755 and y < 880
+        return x > 1540 and x < 1700  and y > 755 and y < 880
 
     def showFlag (self, cursor): 
         if cursor == 0:
                 self.engine.guiMgr.flagRed.hide()
                 self.engine.guiMgr.flagBlue.hide()
+                self.engine.guiMgr.flagGreen.hide()
+                self.engine.guiMgr.flagPurple.hide()
                 self.engine.guiMgr.flagYellow.show()
         elif cursor == 1:
                 self.engine.guiMgr.flagYellow.hide()                
                 self.engine.guiMgr.flagRed.hide()
+                self.engine.guiMgr.flagGreen.hide()
+                self.engine.guiMgr.flagPurple.hide()
                 self.engine.guiMgr.flagBlue.show()
         elif cursor == 2:
                 self.engine.guiMgr.flagBlue.hide()
-                self.engine.guiMgr.flagYellow.hide()                
+                self.engine.guiMgr.flagYellow.hide()   
+                self.engine.guiMgr.flagGreen.hide()
+                self.engine.guiMgr.flagPurple.hide()             
                 self.engine.guiMgr.flagRed.show()
         elif cursor == 3:
                 self.engine.guiMgr.flagBlue.hide()
                 self.engine.guiMgr.flagYellow.hide()                
                 self.engine.guiMgr.flagRed.hide()
+                self.engine.guiMgr.flagGreen.show()
+                self.engine.guiMgr.flagPurple.hide()
         elif cursor == 4:
                 self.engine.guiMgr.flagBlue.hide()
                 self.engine.guiMgr.flagYellow.hide()                
                 self.engine.guiMgr.flagRed.hide()
+                self.engine.guiMgr.flagGreen.hide()
+                self.engine.guiMgr.flagPurple.show()
+
+    def showFlagP2 (self, cursor): 
+        if cursor == 0:
+                self.engine.guiMgr.flagRedP2.hide()
+                self.engine.guiMgr.flagBlueP2.hide()
+                self.engine.guiMgr.flagGreenP2.hide()
+                self.engine.guiMgr.flagPurpleP2.hide()
+                self.engine.guiMgr.flagYellowP2.show()
+        elif cursor == 1:
+                self.engine.guiMgr.flagYellowP2.hide()                
+                self.engine.guiMgr.flagRedP2.hide()
+                self.engine.guiMgr.flagGreenP2.hide()
+                self.engine.guiMgr.flagPurpleP2.hide()
+                self.engine.guiMgr.flagBlueP2.show()
+        elif cursor == 2:
+                self.engine.guiMgr.flagBlueP2.hide()
+                self.engine.guiMgr.flagYellowP2.hide()   
+                self.engine.guiMgr.flagGreenP2.hide()
+                self.engine.guiMgr.flagPurpleP2.hide()             
+                self.engine.guiMgr.flagRedP2.show()
+        elif cursor == 3:
+                self.engine.guiMgr.flagBlueP2.hide()
+                self.engine.guiMgr.flagYellowP2.hide()                
+                self.engine.guiMgr.flagRedP2.hide()
+                self.engine.guiMgr.flagGreenP2.show()
+                self.engine.guiMgr.flagPurpleP2.hide()
+        elif cursor == 4:
+                self.engine.guiMgr.flagBlueP2.hide()
+                self.engine.guiMgr.flagYellowP2.hide()                
+                self.engine.guiMgr.flagRedP2.hide()
+                self.engine.guiMgr.flagGreenP2.hide()
+                self.engine.guiMgr.flagPurpleP2.show()
 
 
 

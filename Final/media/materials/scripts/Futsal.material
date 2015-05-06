@@ -149,6 +149,42 @@ material FlagYellow
 	}
 }
 
+material FlagGreen
+{
+	technique
+	{
+		pass
+		{
+		        lighting off
+		        scene_blend alpha_blend
+			depth_check off
+
+			texture_unit
+			{
+				texture FlagGreen.png
+			}
+		}
+	}
+}
+
+material FlagPurple
+{
+	technique
+	{
+		pass
+		{
+		        lighting off
+		        scene_blend alpha_blend
+			depth_check off
+
+			texture_unit
+			{
+				texture FlagPurple.png
+			}
+		}
+	}
+}
+
 material Examples/Hud
 {
 	technique
