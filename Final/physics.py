@@ -109,7 +109,7 @@ class Physics:
 
    
     def collisionCheck(self):
-        for eid, ball in self.entities.iteritems():
+            ball = self.ent.engine.entityMgr.ball
             if (ball.mesh == "sphere.mesh" and self.ent.hasAnimation):
                 dist = self.distance(self.ent.pos.x, ball.pos.x, self.ent.pos.z, ball.pos.z)
                     
@@ -117,8 +117,12 @@ class Physics:
                     #print "ninja    X : ", entity.pos.x, "ninjaX : ", entity.pos.z
                     #print "dist:    ", dist
                 #slide
-                #if :
-                if dist < 75 and (self.ent.pos.y == ball.pos.y):
+                if self.ent.slide:
+                    length = ball.radiiSlide + self.ent.radiiSlide
+                else:
+                    length = ball.radiiNorm + self.ent.radiiNorm
+
+                if dist < length and (self.ent.pos.y == ball.pos.y):
                         #print "SUCCESS: ", dist
                     #print ball.toggle
                     
@@ -134,7 +138,7 @@ class Physics:
                         #print self.ent.uiname
                   
         
-        pass
+            pass
 
      
     def boundaryCheck(self):
@@ -147,38 +151,62 @@ class Physics:
                 #check goal
                 #print "right check"
                 #print self.ent.pos.x
-
-                if (self.ent.pos.z < 2.5 * self.grassOffSet and self.ent.pos.z > -2.5 * self.grassOffSet):
+                z = self.ent.pos.z
+                if (z < 2.5 * self.grassOffSet and z > -2.5 * self.grassOffSet) and self.ent.pos.y < self.grassOffSet - 50:
                  
                     if self.ent.engine.gameMgr.half == 1:
                         self.ent.engine.gameMgr.scoreOne+= 1
                     else:
                         self.ent.engine.gameMgr.scoreTwo+= 1
                 
-                self.ent.pos.x = self.ent.pos.y = self.ent.pos.z = 0
-                self.ent.speed = 0
+                    self.ent.pos.x = self.ent.pos.y = self.ent.pos.z = 0
+                    self.ent.speed = 0
 
                 
-                self.ent.engine.gameMgr.reset = True
+                    self.ent.engine.gameMgr.reset = True
+                else:
+                    if (self.ent.pos.x > self.fieldDimenX - 1.5*self.grassOffSet):
+                        self.ent.pos.x = self.fieldDimenX - 1.5*self.grassOffSet
+                        self.ent.speed = -self.ent.speed / 2
+                        self.ent.desiredSpeed = 0
+
+
+                    if (self.ent.pos.x < -self.fieldDimenX - 1.5*self.grassOffSet): 
+                        self.ent.pos.x = self.fieldDimenX + 1.5*self.grassOffSet
+                        self.ent.speed = -self.ent.speed / 2
+                        self.ent.desiredSpeed = 0
+  
                 #o.w. out of bounds 
                     #set ball for goal kick
                     #dist of all players are > goal box
                 
    
                # print "score", self.score 
-            if self.ent.pos.x < -self.fieldDimenX + self.grassOffSet:
+            elif self.ent.pos.x < -self.fieldDimenX + self.grassOffSet:
                 #check goal)
 
-                if (self.ent.pos.z < 2.5 * self.grassOffSet and self.ent.pos.z > -2.5 * self.grassOffSet):
+                if (z < 2.5 * self.grassOffSet and z > -2.5 * self.grassOffSet) and self.ent.pos.y < self.grassOffSet - 50:
                     if self.ent.engine.gameMgr.half == 1:
                         self.ent.engine.gameMgr.scoreTwo+= 1
                     else:
                         self.ent.engine.gameMgr.scoreOne+= 1
                     
-                self.ent.pos.x = self.ent.pos.y = self.ent.pos.z = 0
-                self.ent.speed = 0
+                    self.ent.pos.x = self.ent.pos.y = self.ent.pos.z = 0
+                    self.ent.speed = 0
                 
-                self.ent.engine.gameMgr.reset = True
+                    self.ent.engine.gameMgr.reset = True
+                else:
+                    if (self.ent.pos.x > self.fieldDimenX - 1.5*self.grassOffSet):
+                        self.ent.pos.x = self.fieldDimenX - 1.5*self.grassOffSet
+                        self.ent.speed = -self.ent.speed / 2
+                        self.ent.desiredSpeed = 0
+
+
+                    if (self.ent.pos.x < -self.fieldDimenX - 1.5*self.grassOffSet): 
+                        self.ent.pos.x = self.fieldDimenX + 1.5*self.grassOffSet
+                        self.ent.speed = -self.ent.speed / 2
+                        self.ent.desiredSpeed = 0
+  
         #if (self.ent.mesh == "ninja.mesh"):
          #   for eid, entity in self.entities.iteritems():
           #      if (entity.mesh == "sphere.mesh"):
@@ -187,30 +215,29 @@ class Physics:
         else:
             if (self.ent.pos.x > self.fieldDimenX - 1.5*self.grassOffSet):
                 self.ent.pos.x = self.fieldDimenX - 1.5*self.grassOffSet
-                self.ent.speed = 0
+                self.ent.speed = -self.ent.speed / 2
                 self.ent.desiredSpeed = 0
 
 
             if (self.ent.pos.x < -self.fieldDimenX - 1.5*self.grassOffSet): 
                 self.ent.pos.x = self.fieldDimenX + 1.5*self.grassOffSet
-                self.ent.speed = 0
+                self.ent.speed = -self.ent.speed / 2 
                 self.ent.desiredSpeed = 0
   
 
-        gravity = 8
         if (self.ent.pos.z > self.fieldDimenZ - self.grassOffSet):
             self.ent.pos.z = self.fieldDimenZ - self.grassOffSet
             #self.ent.vel.x = 0
-            self.ent.vel.z -= gravity
-            self.ent.vel.z = -self.ent.vel.z / 2
-            #self.ent.desiredSpeed = 0
+            self.ent.speed = -self.ent.speed / 2
+            #self.ent.vel.z = -self.ent.vel.z / 2
+            self.ent.desiredSpeed = 0
 
         if (self.ent.pos.z < -self.fieldDimenZ + self.grassOffSet):
             self.ent.pos.z = -self.fieldDimenZ + self.grassOffSet
             #self.ent.vel.x = 0
-            self.ent.vel.z -= gravity
-            self.ent.vel.z = -self.ent.vel.z / 2
-            #self.ent.desiredSpeed = 0
+            self.ent.speed = -self.ent.speed / 2
+            #self.ent.vel.z = -self.ent.vel.z / 2
+            self.ent.desiredSpeed = 0
 
 
 

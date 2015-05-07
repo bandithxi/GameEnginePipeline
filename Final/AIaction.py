@@ -32,6 +32,8 @@ class Move( Action ):
         Action.__init__(self, ent, targetLoc)
 
     def tick(self, dt):
+        if not targetLoc:
+            return 
         diffZ = self.targetLoc.z - self.ent.pos.z
         diffX = self.targetLoc.x - self.ent.pos.x
         

@@ -24,7 +24,6 @@ class ControlMgr:
         self.sceneManager = engine.gfxMgr.sceneManager
         self.pressed = False 
         self.heldTime = 0
-        self.slide = False
             
     def init(self):
         pygame.joystick.init()

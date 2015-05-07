@@ -37,6 +37,7 @@ class Entity:
 
         #home is init start
         self.home = pos
+        self.slide = False
 
     def init(self):
         self.initAspects()
@@ -141,8 +142,8 @@ class Arsenal(Entity):
         #changed
         self.material = "Examples/RedTeam"
 
-        self.radiiNorm = 50.0
-        self.radiiSlide = 100.0
+        self.radiiNorm = 115.0
+        self.radiiSlide = 200.0
 
 
 class EgbertTeam(Entity):
@@ -168,8 +169,8 @@ class EgbertTeam(Entity):
         self.material = "Examples/EgbertTeam"
         
 
-        self.radiiNorm = 50.0
-        self.radiiSlide = 100.0
+        self.radiiNorm = 115.0
+        self.radiiSlide = 200.0
 
 
 class Liverpool(Entity):
@@ -196,8 +197,8 @@ class Liverpool(Entity):
         self.material = "Examples/SushilTeam"
 
         
-        self.radiiNorm = 50.0
-        self.radiiSlide = 100.0
+        self.radiiNorm = 115.0
+        self.radiiSlide = 200.0
 
 class Chelsea(Entity):
     id = 0
@@ -222,8 +223,8 @@ class Chelsea(Entity):
         self.material = "Examples/BlueTeam"
 
 
-        self.radiiNorm = 50.0
-        self.radiiSlide = 100.0
+        self.radiiNorm = 115.0
+        self.radiiSlide = 200.0
 
    
 class BVB(Entity):
@@ -248,8 +249,8 @@ class BVB(Entity):
         self.material = "Examples/YellowTeam"
         
         
-        self.radiiNorm = 50.0
-        self.radiiSlide = 100.0
+        self.radiiNorm = 115.0
+        self.radiiSlide = 200.0
 
 
 class TopStad(Entity):
