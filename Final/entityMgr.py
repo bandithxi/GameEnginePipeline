@@ -27,7 +27,8 @@ class EntityMgr:
         self.selectedEntities = []
 
         self.entTypes = [ent.Liverpool, ent.BVB, ent.Arsenal, ent.Chelsea, ent.EgbertTeam]
-        self.ball = ent.Ball
+        self.ballEnt = ent.Ball
+        self.ball = None
         self.stands = ent.Stands
         self.top = ent.TopStad
         self.lowWall = ent.lowWall
@@ -131,5 +132,5 @@ class EntityMgr:
 
 
     def addAction(self, entity, action):
-        entity.aspects[2].actionList.append(action)
+        entity.aspects[2].ActionList.append(action)
     

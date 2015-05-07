@@ -34,7 +34,9 @@ class Entity:
         #Make jet ski face the same way
         self.offset = 0
         self.team = 0
-        self.home = None
+
+        #home is init start
+        self.home = pos
 
     def init(self):
         self.initAspects()
@@ -114,7 +116,8 @@ class Ball(Entity):
         self.toggle = 0.0
         self.radiiNorm = 25.0
         self.radiiSlide = 25.0
-
+        #self.tackleToggle = 0.0
+        
 
 class Arsenal(Entity):
     id = 0

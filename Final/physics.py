@@ -87,16 +87,17 @@ class Physics:
             if (ball.attachEnt != None): #if player has ball then move ball
                 ball.pos = ball.attachEnt.pos
           #      pass
-            else: # if he doesn't decr time until he is allowed
-                if (ball.toggle <= 0.0): 
-                    ball.toggle = 0.0
+            #else: # if he doesn't decr time until he is allowed
+            if (ball.toggle <= 0.0): 
+                ball.toggle = 0.0
                     
-                    #print "here"
+                #print "here"
 
-                else:
-                    ball.toggle -= dtime
-                    #print ball.toggle
-                #    print "there"
+            else:
+                ball.toggle -= dtime
+                #print ball.toggle
+                #print "there"
+
             
         #print "ent.pos", self.ent.pos
         #print "ent.velo", self.ent.vel
@@ -119,13 +120,15 @@ class Physics:
                 #if :
                 if dist < 75 and (self.ent.pos.y == ball.pos.y):
                         #print "SUCCESS: ", dist
+                    #print ball.toggle
                     
                         #issue is here, sphere cant get away in time before next tick, 
                         #updates var causing back and forth
-                    if (ball.toggle <= 0.0): #and ball.attachEnt != self.ent): #if ball is allowed to be held then attach to a player
+                    if (ball.toggle <= 0.0):#and ball.tackleToggle <= 0.0): #and ball.attachEnt != self.ent): #if ball is allowed to be held then attach to a player
                      #   print "collision"
-                        #ball.toggle = .1
+                        ball.toggle = .5
                         #ball.aspects[2].clear()
+                        ball.engine.aiMgr.whoHasBall = self.ent.team
                         ball.attachEnt = self.ent
 
                         #print self.ent.uiname

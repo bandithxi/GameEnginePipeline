@@ -55,7 +55,7 @@ class GameMgr:
         self.loadStad()
         
     def loadBall(self):
-        self.engine.entityMgr.createEnt(self.engine.entityMgr.ball, pos = MyVector(0, 0, 0))  
+        self.engine.entityMgr.createEnt(self.engine.entityMgr.ballEnt, pos = MyVector(0, 0, 0))  
 
     def loadTeam1(self):
         x = 600

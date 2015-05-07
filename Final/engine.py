@@ -76,13 +76,14 @@ class Engine(object):
                 self.inputMgr.tick(dtime)
                 self.controlMgr.tick(dtime)
                 self.guiMgr.tick(dtime)                        
-                self.aiMgr.tick(dtime)
+                
                 self.entityMgr.tick(dtime)
                 self.gfxMgr.tick(dtime)
                 self.netMgr.tick(dtime)
                 self.selectionMgr.tick(dtime)
                 self.gameMgr.tick(dtime)
-            
+                self.aiMgr.tick(dtime)
+                
             self.runTime += dtime
         
             weu.messagePump()             # Needed for linux/mac

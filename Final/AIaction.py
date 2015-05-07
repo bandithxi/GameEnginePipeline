@@ -15,11 +15,22 @@ class Action:
 
 class GoHome(Action):
     def __init__(self, ent, targetLoc):
+
+        Action.__init__(self, ent, targetLoc)
         pass
+
+    def tick(self, dt):
+        self.ent.pos.x = self.ent.home.x
+        self.ent.pos.y = self.ent.home.y
+
+        if self.ent.aspects[2].ActionList:
+            self.ent.aspects[2].ActionList.pop(0)
+
     
 class Move( Action ):
     def __init__(self, ent, targetLoc):
         Action.__init__(self, ent, targetLoc)
+
     def tick(self, dt):
         diffZ = self.targetLoc.z - self.ent.pos.z
         diffX = self.targetLoc.x - self.ent.pos.x
@@ -31,14 +42,18 @@ class Move( Action ):
         else:
             self.ent.desiredSpeed = 0
             self.ent.speed = 0
-            self.ent.aspects[2].ActionList.pop(0)
 
+            if self.ent.aspects[2].ActionList:
+                    self.ent.aspects[2].ActionList.pop(0)
+            
 class Follow( Action ):
     def __init__(self, ent, targetEnt):
         Action.__init__(self, ent)
         self.targetEnt = targetEnt
 
     def tick(self, dt):
+        if (not self.targetEnt):
+            return
         self.targetLoc = self.targetEnt.pos
         
         diffZ = float(self.targetLoc.z - self.ent.pos.z)
@@ -76,7 +91,12 @@ class Intercept( Action ):
     def __init__(self, ent, targetEnt):
         Action.__init__(self, ent)
         self.targetEnt = targetEnt
+
     def tick(self, dt):
+        if (not self.targetEnt):
+            
+            return
+        print self.targetEnt.uiname
         self.targetLoc = self.targetEnt.pos
         
         #relativeSpeed = (ogre.Math.Abs(ogre.Vector3.length(self.targetEnt.vel - self.ent.vel))).valueRadians()
@@ -108,5 +128,6 @@ class Intercept( Action ):
             else:
                 self.ent.desiredHeading = -ogre.Math.ATan2(diffZ, diffX).valueRadians()
                 self.ent.desiredSpeed = 0
-                if not self.ent.aspects[2].ActionList:
+
+                if self.ent.aspects[2].ActionList:
                     self.ent.aspects[2].ActionList.pop(0)
