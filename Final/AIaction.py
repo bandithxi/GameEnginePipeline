@@ -108,4 +108,5 @@ class Intercept( Action ):
             else:
                 self.ent.desiredHeading = -ogre.Math.ATan2(diffZ, diffX).valueRadians()
                 self.ent.desiredSpeed = 0
-                self.ent.aspects[2].ActionList.pop(0)
+                if not self.ent.aspects[2].ActionList:
+                    self.ent.aspects[2].ActionList.pop(0)
