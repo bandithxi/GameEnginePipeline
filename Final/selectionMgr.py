@@ -186,30 +186,94 @@ class SelectionMgr:
                 self.engine.guiMgr.flagGreen.hide()
                 self.engine.guiMgr.flagPurple.hide()
                 self.engine.guiMgr.flagYellow.show()
+
+                self.engine.guiMgr.flagRedL.hide()
+                self.engine.guiMgr.flagBlueL.hide()
+                self.engine.guiMgr.flagGreenL.hide()
+                self.engine.guiMgr.flagPurpleL.show()
+                self.engine.guiMgr.flagYellowL.hide()
+
+                self.engine.guiMgr.flagRedR.hide()
+                self.engine.guiMgr.flagBlueR.show()
+                self.engine.guiMgr.flagGreenR.hide()
+                self.engine.guiMgr.flagPurpleR.hide()
+                self.engine.guiMgr.flagYellowR.hide()
         elif cursor == 1:
-                self.engine.guiMgr.flagYellow.hide()                
                 self.engine.guiMgr.flagRed.hide()
+                self.engine.guiMgr.flagBlue.show()
                 self.engine.guiMgr.flagGreen.hide()
                 self.engine.guiMgr.flagPurple.hide()
-                self.engine.guiMgr.flagBlue.show()
+                self.engine.guiMgr.flagYellow.hide()
+
+                self.engine.guiMgr.flagRedL.hide()
+                self.engine.guiMgr.flagBlueL.hide()
+                self.engine.guiMgr.flagGreenL.hide()
+                self.engine.guiMgr.flagPurpleL.hide()
+                self.engine.guiMgr.flagYellowL.show()
+
+                self.engine.guiMgr.flagRedR.show()
+                self.engine.guiMgr.flagBlueR.hide()
+                self.engine.guiMgr.flagGreenR.hide()
+                self.engine.guiMgr.flagPurpleR.hide()
+                self.engine.guiMgr.flagYellowR.hide()
         elif cursor == 2:
-                self.engine.guiMgr.flagBlue.hide()
-                self.engine.guiMgr.flagYellow.hide()   
-                self.engine.guiMgr.flagGreen.hide()
-                self.engine.guiMgr.flagPurple.hide()             
+
                 self.engine.guiMgr.flagRed.show()
-        elif cursor == 3:
                 self.engine.guiMgr.flagBlue.hide()
-                self.engine.guiMgr.flagYellow.hide()                
+                self.engine.guiMgr.flagGreen.hide()
+                self.engine.guiMgr.flagPurple.hide()
+                self.engine.guiMgr.flagYellow.hide()
+
+                self.engine.guiMgr.flagRedL.hide()
+                self.engine.guiMgr.flagBlueL.show()
+                self.engine.guiMgr.flagGreenL.hide()
+                self.engine.guiMgr.flagPurpleL.hide()
+                self.engine.guiMgr.flagYellowL.hide()
+
+                self.engine.guiMgr.flagRedR.hide()
+                self.engine.guiMgr.flagBlueR.hide()
+                self.engine.guiMgr.flagGreenR.show()
+                self.engine.guiMgr.flagPurpleR.hide()
+                self.engine.guiMgr.flagYellowR.hide()
+
+        elif cursor == 3:
+
                 self.engine.guiMgr.flagRed.hide()
+                self.engine.guiMgr.flagBlue.hide()
                 self.engine.guiMgr.flagGreen.show()
                 self.engine.guiMgr.flagPurple.hide()
+                self.engine.guiMgr.flagYellow.hide()
+
+                self.engine.guiMgr.flagRedL.show()
+                self.engine.guiMgr.flagBlueL.hide()
+                self.engine.guiMgr.flagGreenL.hide()
+                self.engine.guiMgr.flagPurpleL.hide()
+                self.engine.guiMgr.flagYellowL.hide()
+
+                self.engine.guiMgr.flagRedR.hide()
+                self.engine.guiMgr.flagBlueR.hide()
+                self.engine.guiMgr.flagGreenR.hide()
+                self.engine.guiMgr.flagPurpleR.show()
+                self.engine.guiMgr.flagYellowR.hide()
         elif cursor == 4:
-                self.engine.guiMgr.flagBlue.hide()
-                self.engine.guiMgr.flagYellow.hide()                
+
                 self.engine.guiMgr.flagRed.hide()
+                self.engine.guiMgr.flagBlue.hide()
                 self.engine.guiMgr.flagGreen.hide()
                 self.engine.guiMgr.flagPurple.show()
+                self.engine.guiMgr.flagYellow.hide()
+
+                self.engine.guiMgr.flagRedL.hide()
+                self.engine.guiMgr.flagBlueL.hide()
+                self.engine.guiMgr.flagGreenL.show()
+                self.engine.guiMgr.flagPurpleL.hide()
+                self.engine.guiMgr.flagYellowL.hide()
+
+                self.engine.guiMgr.flagRedR.hide()
+                self.engine.guiMgr.flagBlueR.hide()
+                self.engine.guiMgr.flagGreenR.hide()
+                self.engine.guiMgr.flagPurpleR.hide()
+                self.engine.guiMgr.flagYellowR.show()
 
     def showFlagP2 (self, cursor): 
         if cursor == 0:
@@ -218,31 +282,94 @@ class SelectionMgr:
                 self.engine.guiMgr.flagGreenP2.hide()
                 self.engine.guiMgr.flagPurpleP2.hide()
                 self.engine.guiMgr.flagYellowP2.show()
+
+                self.engine.guiMgr.flagRedLP2.hide()
+                self.engine.guiMgr.flagBlueLP2.hide()
+                self.engine.guiMgr.flagGreenLP2.hide()
+                self.engine.guiMgr.flagPurpleLP2.show()
+                self.engine.guiMgr.flagYellowLP2.hide()
+
+                self.engine.guiMgr.flagRedRP2.hide()
+                self.engine.guiMgr.flagBlueRP2.show()
+                self.engine.guiMgr.flagGreenRP2.hide()
+                self.engine.guiMgr.flagPurpleRP2.hide()
+                self.engine.guiMgr.flagYellowRP2.hide()
         elif cursor == 1:
-                self.engine.guiMgr.flagYellowP2.hide()                
                 self.engine.guiMgr.flagRedP2.hide()
+                self.engine.guiMgr.flagBlueP2.show()
                 self.engine.guiMgr.flagGreenP2.hide()
                 self.engine.guiMgr.flagPurpleP2.hide()
-                self.engine.guiMgr.flagBlueP2.show()
+                self.engine.guiMgr.flagYellowP2.hide()
+
+                self.engine.guiMgr.flagRedLP2.hide()
+                self.engine.guiMgr.flagBlueLP2.hide()
+                self.engine.guiMgr.flagGreenLP2.hide()
+                self.engine.guiMgr.flagPurpleLP2.hide()
+                self.engine.guiMgr.flagYellowLP2.show()
+
+                self.engine.guiMgr.flagRedRP2.show()
+                self.engine.guiMgr.flagBlueRP2.hide()
+                self.engine.guiMgr.flagGreenRP2.hide()
+                self.engine.guiMgr.flagPurpleRP2.hide()
+                self.engine.guiMgr.flagYellowRP2.hide()
         elif cursor == 2:
-                self.engine.guiMgr.flagBlueP2.hide()
-                self.engine.guiMgr.flagYellowP2.hide()   
-                self.engine.guiMgr.flagGreenP2.hide()
-                self.engine.guiMgr.flagPurpleP2.hide()             
+
                 self.engine.guiMgr.flagRedP2.show()
-        elif cursor == 3:
                 self.engine.guiMgr.flagBlueP2.hide()
-                self.engine.guiMgr.flagYellowP2.hide()                
+                self.engine.guiMgr.flagGreenP2.hide()
+                self.engine.guiMgr.flagPurpleP2.hide()
+                self.engine.guiMgr.flagYellowP2.hide()
+
+                self.engine.guiMgr.flagRedLP2.hide()
+                self.engine.guiMgr.flagBlueLP2.show()
+                self.engine.guiMgr.flagGreenLP2.hide()
+                self.engine.guiMgr.flagPurpleLP2.hide()
+                self.engine.guiMgr.flagYellowLP2.hide()
+
+                self.engine.guiMgr.flagRedRP2.hide()
+                self.engine.guiMgr.flagBlueRP2.hide()
+                self.engine.guiMgr.flagGreenRP2.show()
+                self.engine.guiMgr.flagPurpleRP2.hide()
+                self.engine.guiMgr.flagYellowRP2.hide()
+
+        elif cursor == 3:
+
                 self.engine.guiMgr.flagRedP2.hide()
+                self.engine.guiMgr.flagBlueP2.hide()
                 self.engine.guiMgr.flagGreenP2.show()
                 self.engine.guiMgr.flagPurpleP2.hide()
+                self.engine.guiMgr.flagYellowP2.hide()
+
+                self.engine.guiMgr.flagRedLP2.show()
+                self.engine.guiMgr.flagBlueLP2.hide()
+                self.engine.guiMgr.flagGreenLP2.hide()
+                self.engine.guiMgr.flagPurpleLP2.hide()
+                self.engine.guiMgr.flagYellowLP2.hide()
+
+                self.engine.guiMgr.flagRedRP2.hide()
+                self.engine.guiMgr.flagBlueRP2.hide()
+                self.engine.guiMgr.flagGreenRP2.hide()
+                self.engine.guiMgr.flagPurpleRP2.show()
+                self.engine.guiMgr.flagYellowRP2.hide()
         elif cursor == 4:
-                self.engine.guiMgr.flagBlueP2.hide()
-                self.engine.guiMgr.flagYellowP2.hide()                
+
                 self.engine.guiMgr.flagRedP2.hide()
+                self.engine.guiMgr.flagBlueP2.hide()
                 self.engine.guiMgr.flagGreenP2.hide()
                 self.engine.guiMgr.flagPurpleP2.show()
+                self.engine.guiMgr.flagYellowP2.hide()
 
+                self.engine.guiMgr.flagRedLP2.hide()
+                self.engine.guiMgr.flagBlueLP2.hide()
+                self.engine.guiMgr.flagGreenLP2.show()
+                self.engine.guiMgr.flagPurpleLP2.hide()
+                self.engine.guiMgr.flagYellowLP2.hide()
+
+                self.engine.guiMgr.flagRedRP2.hide()
+                self.engine.guiMgr.flagBlueRP2.hide()
+                self.engine.guiMgr.flagGreenRP2.hide()
+                self.engine.guiMgr.flagPurpleRP2.hide()
+                self.engine.guiMgr.flagYellowRP2.show()
 
 
 
