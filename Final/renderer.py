@@ -14,7 +14,7 @@ class Renderer:
             self.entOgre.setMaterialName ("Ball")
         elif (self.ent.hasAnimation and self.ent.material):
             self.entOgre.setMaterialName (self.ent.material)
-
+        
         self.ent.node = self.node
         
         self.node.scale(self.ent.scale)   
@@ -48,7 +48,16 @@ class Renderer:
         self.wakeNode.yaw(self.ent.offset);
         self.ent.node.yaw(self.ent.offset);
         self.ent.node.yaw(ogre.Degree(self.ent.heading))  
- 
+        
+         
+        if (self.ent.slide):
+            if (self.ent.heading > 180):
+                self.node.roll(80)
+
+            if (self.ent.heading <= 180):
+                self.node.roll(-80)
+                
+
         if (self.ent.hasAnimation):
             if self.ent.speed > 0:
                 self.wakeNode.setVisible(True)
@@ -68,4 +77,6 @@ class Renderer:
                 ent = self.ent
                 self.ent.node.pitch(ent.vel.x)
                 #self.ent.node.roll(ent.vel.z)
+
+
                 

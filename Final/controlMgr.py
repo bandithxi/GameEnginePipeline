@@ -33,7 +33,7 @@ class ControlMgr:
         self.p1UseJoystick = False
         self.p2UseJoystick = False
         self.JS_Pressed_A = False
-
+        self.slideToggle = 0.0
         for i in range(self.num_joysticks):
             joystick = pygame.joystick.Joystick(i)
             joystick.init()
@@ -165,6 +165,35 @@ class ControlMgr:
                 if self.heldTime > 2.0:  
                     self.heldTime = 2.0
                 pass
+
+            if self.Keyboard.isKeyDown(OIS.KC_M):
+                
+                ent = self.entityMgr.selectedEntP1
+
+                
+                self.slideToggle = .5
+                    
+                if ent:
+                    ent.slide = True
+                    ent.desiredSpeed = 0
+                    
+
+
+
+
+
+            if not self.Keyboard.isKeyDown(OIS.KC_M):
+                ent = self.entityMgr.selectedEntP1
+
+                if ent:
+                    ent.slide = False 
+
+                if (self.slideToggle < 0.0):
+                    self.slideToggle = 0.0
+                else:
+
+                    self.slideToggle -= dt
+
          
         if (not self.Keyboard.isKeyDown(OIS.KC_SPACE) and not self.JS_Pressed_A ) and self.pressed:    
   

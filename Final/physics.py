@@ -128,9 +128,13 @@ class Physics:
                     
                         #issue is here, sphere cant get away in time before next tick, 
                         #updates var causing back and forth
-                    if (ball.toggle <= 0.0):#and ball.tackleToggle <= 0.0): #and ball.attachEnt != self.ent): #if ball is allowed to be held then attach to a player
+                    if (ball.toggle <= 0.0): #if ball is allowed to be held then attach to a player
                      #   print "collision"
-                        ball.toggle = .5
+                        if self.ent.slide:
+                            ball.toggle = 1
+                        else:
+                            ball.toggle = .5
+                            
                         #ball.aspects[2].clear()
                         ball.engine.aiMgr.whoHasBall = self.ent.team
                         ball.attachEnt = self.ent

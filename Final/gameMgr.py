@@ -60,6 +60,9 @@ class GameMgr:
     def loadTeam1(self):
         x = 600
         ent = self.engine.entityMgr.createEnt(self.teamList[self.p1Team], pos = ogre.Vector3(x, 0, 0), team = 1)
+        self.engine.entityMgr.selectedEntP1 = ent
+        ent.node.showBoundingBox(True)
+        
         x += 600
         ent = self.engine.entityMgr.createEnt(self.teamList[self.p1Team], pos = ogre.Vector3(x, 0, 600), team = 1)
         
@@ -72,11 +75,14 @@ class GameMgr:
         for en in self.engine.entityMgr.team1.values():
             en.desiredHeading = 180
             en.heading = 180
-        self.target = ent
+        
         
     def loadTeam2(self):
         x = -600
         ent = self.engine.entityMgr.createEnt(self.teamList[self.p2Team], pos = ogre.Vector3(x, 0, 0), team = 2)
+        self.engine.entityMgr.selectedEntP2 = ent
+        ent.node.showBoundingBox(True)
+       
         x -= 600
         ent = self.engine.entityMgr.createEnt(self.teamList[self.p2Team], pos = ogre.Vector3(x, 0, 600), team = 2)
         
@@ -85,10 +91,8 @@ class GameMgr:
         ent = self.engine.entityMgr.createEnt(self.teamList[self.p2Team], pos = ogre.Vector3(x, 0, 0), team = 2)
         x -= 600
         ent = self.engine.entityMgr.createEnt(self.teamList[self.p2Team], pos = ogre.Vector3(x, 0, 0), team = 2)
+        
 
-
-
-        self.engine.entityMgr.addAction(ent, action.Follow(ent, self.target))
     def loadStad(self):
         self.engine.entityMgr.createStad()
 
