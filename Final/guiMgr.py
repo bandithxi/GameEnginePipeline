@@ -90,8 +90,65 @@ class GuiMgr:
         # Create a red mini flag
         self.panelFlagRedL = self.overlayMgr.createOverlayElement ( "Panel", "Flag-Red-L")
         self.panelFlagRedL.setPosition( .23, .24 )
-        self.panelFlagRedL.setDimensions ( .139, .139 )
+        self.panelFlagRedL.setDimensions ( .137, .139 )
         self.panelFlagRedL.setMaterialName ( "FlagRed" )
+
+        # Create a blue mini flag
+        self.panelFlagBlueL = self.overlayMgr.createOverlayElement ( "Panel", "Flag-Blue-L")
+        self.panelFlagBlueL.setPosition( .23, .24 )
+        self.panelFlagBlueL.setDimensions ( .137, .139 )
+        self.panelFlagBlueL.setMaterialName ( "FlagBlue" )
+
+        # Create a yellow mini flag
+        self.panelFlagYellowL = self.overlayMgr.createOverlayElement ( "Panel", "Flag-Yellow-L")
+        self.panelFlagYellowL.setPosition( .23, .24 )
+        self.panelFlagYellowL.setDimensions ( .137, .139 )
+        self.panelFlagYellowL.setMaterialName ( "FlagYellow" )
+
+        # Create a green mini flag
+        self.panelFlagGreenL = self.overlayMgr.createOverlayElement ( "Panel", "Flag-Green-L")
+        self.panelFlagGreenL.setPosition( .23, .24 )
+        self.panelFlagGreenL.setDimensions ( .137, .139 )
+        self.panelFlagGreenL.setMaterialName ( "FlagGreen" )
+
+        # Create a purple mini flag
+        self.panelFlagPurpleL = self.overlayMgr.createOverlayElement ( "Panel", "Flag-Purple-L")
+        self.panelFlagPurpleL.setPosition( .23, .24 )
+        self.panelFlagPurpleL.setDimensions ( .137, .139 )
+        self.panelFlagPurpleL.setMaterialName ( "FlagPurple" )
+        
+     ### Mini Flag Right ###
+
+        # Create a red mini flag
+        self.panelFlagRedR = self.overlayMgr.createOverlayElement ( "Panel", "Flag-Red-R")
+        self.panelFlagRedR.setPosition( .645, .24 )
+        self.panelFlagRedR.setDimensions ( .137, .139 )
+        self.panelFlagRedR.setMaterialName ( "FlagRed" )
+
+        # Create a blue mini flag
+        self.panelFlagBlueR = self.overlayMgr.createOverlayElement ( "Panel", "Flag-Blue-R")
+        self.panelFlagBlueR.setPosition( .645, .24 )
+        self.panelFlagBlueR.setDimensions ( .137, .139 )
+        self.panelFlagBlueR.setMaterialName ( "FlagBlue" )
+
+        # Create a yellow mini flag
+        self.panelFlagYellowR = self.overlayMgr.createOverlayElement ( "Panel", "Flag-Yellow-R")
+        self.panelFlagYellowR.setPosition( .645, .24 )
+        self.panelFlagYellowR.setDimensions ( .137, .139 )
+        self.panelFlagYellowR.setMaterialName ( "FlagYellow" )
+
+        # Create a green mini flag
+        self.panelFlagGreenR = self.overlayMgr.createOverlayElement ( "Panel", "Flag-Green-R")
+        self.panelFlagGreenR.setPosition( .645, .24 )
+        self.panelFlagGreenR.setDimensions ( .137, .139 )
+        self.panelFlagGreenR.setMaterialName ( "FlagGreen" )
+
+        # Create a purple mini flag
+        self.panelFlagPurpleR = self.overlayMgr.createOverlayElement ( "Panel", "Flag-Purple-R")
+        self.panelFlagPurpleR.setPosition( .645, .24 )
+        self.panelFlagPurpleR.setDimensions ( .137, .139 )
+        self.panelFlagPurpleR.setMaterialName ( "FlagPurple" )
+
         
        ###### PLAYER 2 ######
         ### Main Flag ### 
@@ -124,6 +181,71 @@ class GuiMgr:
         self.panelFlagPurpleP2.setPosition( .35, .65 )
         self.panelFlagPurpleP2.setDimensions ( .31, .32 )
         self.panelFlagPurpleP2.setMaterialName ( "FlagPurple" )
+
+     ### Mini Flag Left ###
+
+        # Create a red mini flag
+        self.panelFlagRedLP2 = self.overlayMgr.createOverlayElement ( "Panel", "Flag-Red-L-P2")
+        self.panelFlagRedLP2.setPosition( .23, .73 )
+        self.panelFlagRedLP2.setDimensions ( .137, .139 )
+        self.panelFlagRedLP2.setMaterialName ( "FlagRed" )
+
+        # Create a blue mini flag
+        self.panelFlagBlueLP2 = self.overlayMgr.createOverlayElement ( "Panel", "Flag-Blue-L-P2")
+        self.panelFlagBlueLP2.setPosition( .23, .73 )
+        self.panelFlagBlueLP2.setDimensions ( .137, .139 )
+        self.panelFlagBlueLP2.setMaterialName ( "FlagBlue" )
+
+        # Create a yellow mini flag
+        self.panelFlagYellowLP2 = self.overlayMgr.createOverlayElement ( "Panel", "Flag-Yellow-L-P2")
+        self.panelFlagYellowLP2.setPosition( .23, .73 )
+        self.panelFlagYellowLP2.setDimensions ( .137, .139 )
+        self.panelFlagYellowLP2.setMaterialName ( "FlagYellow" )
+
+        # Create a green mini flag
+        self.panelFlagGreenLP2 = self.overlayMgr.createOverlayElement ( "Panel", "Flag-Green-L-P2")
+        self.panelFlagGreenLP2.setPosition( .23, .73 )
+        self.panelFlagGreenLP2.setDimensions ( .137, .139 )
+        self.panelFlagGreenLP2.setMaterialName ( "FlagGreen" )
+
+        # Create a purple mini flag
+        self.panelFlagPurpleLP2 = self.overlayMgr.createOverlayElement ( "Panel", "Flag-Purple-L-P2")
+        self.panelFlagPurpleLP2.setPosition( .23, .73 )
+        self.panelFlagPurpleLP2.setDimensions ( .137, .139 )
+        self.panelFlagPurpleLP2.setMaterialName ( "FlagPurple" )
+        
+     ### Mini Flag Right ###
+
+        # Create a red mini flag
+        self.panelFlagRedRP2 = self.overlayMgr.createOverlayElement ( "Panel", "Flag-Red-R-P2")
+        self.panelFlagRedRP2.setPosition( .645, .73 )
+        self.panelFlagRedRP2.setDimensions ( .137, .139 )
+        self.panelFlagRedRP2.setMaterialName ( "FlagRed" )
+
+        # Create a blue mini flag
+        self.panelFlagBlueRP2 = self.overlayMgr.createOverlayElement ( "Panel", "Flag-Blue-R-P2")
+        self.panelFlagBlueRP2.setPosition( .645, .73 )
+        self.panelFlagBlueRP2.setDimensions ( .137, .139 )
+        self.panelFlagBlueRP2.setMaterialName ( "FlagBlue" )
+
+        # Create a yellow mini flag
+        self.panelFlagYellowRP2 = self.overlayMgr.createOverlayElement ( "Panel", "Flag-Yellow-R-P2")
+        self.panelFlagYellowRP2.setPosition( .645, .73 )
+        self.panelFlagYellowRP2.setDimensions ( .137, .139 )
+        self.panelFlagYellowRP2.setMaterialName ( "FlagYellow" )
+
+        # Create a green mini flag
+        self.panelFlagGreenRP2 = self.overlayMgr.createOverlayElement ( "Panel", "Flag-Green-R-P2")
+        self.panelFlagGreenRP2.setPosition( .645, .73 )
+        self.panelFlagGreenRP2.setDimensions ( .137, .139 )
+        self.panelFlagGreenRP2.setMaterialName ( "FlagGreen" )
+
+        # Create a purple mini flag
+        self.panelFlagPurpleRP2 = self.overlayMgr.createOverlayElement ( "Panel", "Flag-Purple-R-P2")
+        self.panelFlagPurpleRP2.setPosition( .645, .73 )
+        self.panelFlagPurpleRP2.setDimensions ( .137, .139 )
+        self.panelFlagPurpleRP2.setMaterialName ( "FlagPurple" )
+
 
 
 
@@ -215,17 +337,43 @@ class GuiMgr:
         self.overlay.add2D( self.panel4 )
         self.overlay.add2D( self.panel5 )
         self.overlay.add2D( self.panel6 )
+        #Player 1 Flags
         self.overlay.add2D( self.panelFlagRed )
         self.overlay.add2D( self.panelFlagBlue )
         self.overlay.add2D( self.panelFlagYellow )
         self.overlay.add2D( self.panelFlagPurple )
         self.overlay.add2D( self.panelFlagGreen )
+        # Player 1 Flags Mini Left
         self.overlay.add2D( self.panelFlagRedL )
+        self.overlay.add2D( self.panelFlagBlueL )
+        self.overlay.add2D( self.panelFlagYellowL )
+        self.overlay.add2D( self.panelFlagPurpleL )
+        self.overlay.add2D( self.panelFlagGreenL )
+        # Player 1 Flags Mini Right
+        self.overlay.add2D( self.panelFlagRedR )
+        self.overlay.add2D( self.panelFlagBlueR )
+        self.overlay.add2D( self.panelFlagYellowR )
+        self.overlay.add2D( self.panelFlagPurpleR )
+        self.overlay.add2D( self.panelFlagGreenR )
+        # Player 2 Flags
         self.overlay.add2D( self.panelFlagRedP2 )
         self.overlay.add2D( self.panelFlagBlueP2 )
         self.overlay.add2D( self.panelFlagYellowP2 )
         self.overlay.add2D( self.panelFlagPurpleP2 )
         self.overlay.add2D( self.panelFlagGreenP2 )
+        # Player 1 Flags Mini Left
+        self.overlay.add2D( self.panelFlagRedLP2 )
+        self.overlay.add2D( self.panelFlagBlueLP2 )
+        self.overlay.add2D( self.panelFlagYellowLP2 )
+        self.overlay.add2D( self.panelFlagPurpleLP2 )
+        self.overlay.add2D( self.panelFlagGreenLP2 )
+        # Player 1 Flags Mini Right
+        self.overlay.add2D( self.panelFlagRedRP2 )
+        self.overlay.add2D( self.panelFlagBlueRP2 )
+        self.overlay.add2D( self.panelFlagYellowRP2 )
+        self.overlay.add2D( self.panelFlagPurpleRP2 )
+        self.overlay.add2D( self.panelFlagGreenRP2 )
+
 
         # grabbed window height and width
         self.windowWidth  = self.engine.gfxMgr.renderWindow.getWidth()
@@ -263,6 +411,7 @@ class GuiMgr:
         back = self.overlayMgr.getOverlayElement( "BackButton" )
         back.hide()
         
+        # Player 1 Flags
         self.flagRed = self.overlayMgr.getOverlayElement( "Flag-Red" )
         self.flagRed.hide()
 
@@ -278,9 +427,40 @@ class GuiMgr:
         self.flagPurple = self.overlayMgr.getOverlayElement( "Flag-Purple" )
         self.flagPurple.hide()
 
+        # Player 1 Mini Left Flags
         self.flagRedL = self.overlayMgr.getOverlayElement( "Flag-Red-L" )
         self.flagRedL.hide()
 
+        self.flagBlueL = self.overlayMgr.getOverlayElement( "Flag-Blue-L" )
+        self.flagBlueL.hide()
+
+        self.flagYellowL = self.overlayMgr.getOverlayElement( "Flag-Yellow-L" )
+        self.flagYellowL.hide()
+
+        self.flagGreenL = self.overlayMgr.getOverlayElement( "Flag-Green-L" )
+        self.flagGreenL.hide()
+
+        self.flagPurpleL = self.overlayMgr.getOverlayElement( "Flag-Purple-L" )
+        self.flagPurpleL.hide()
+
+        # Player 1 Mini Right Flags
+
+        self.flagRedR = self.overlayMgr.getOverlayElement( "Flag-Red-R" )
+        self.flagRedR.hide()
+
+        self.flagBlueR = self.overlayMgr.getOverlayElement( "Flag-Blue-R" )
+        self.flagBlueR.hide()
+
+        self.flagYellowR = self.overlayMgr.getOverlayElement( "Flag-Yellow-R" )
+        self.flagYellowR.hide()
+
+        self.flagGreenR = self.overlayMgr.getOverlayElement( "Flag-Green-R" )
+        self.flagGreenR.hide()
+
+        self.flagPurpleR = self.overlayMgr.getOverlayElement( "Flag-Purple-R" )
+        self.flagPurpleR.hide()
+
+        # Player 2 Flags
         self.flagRedP2 = self.overlayMgr.getOverlayElement( "Flag-Red-P2" )
         self.flagRedP2.hide()
 
@@ -295,6 +475,39 @@ class GuiMgr:
 
         self.flagPurpleP2 = self.overlayMgr.getOverlayElement( "Flag-Purple-P2" )
         self.flagPurpleP2.hide()
+
+        # Player 1 Mini Left Flags
+        self.flagRedLP2 = self.overlayMgr.getOverlayElement( "Flag-Red-L-P2" )
+        self.flagRedLP2.hide()
+
+        self.flagBlueLP2 = self.overlayMgr.getOverlayElement( "Flag-Blue-L-P2" )
+        self.flagBlueLP2.hide()
+
+        self.flagYellowLP2 = self.overlayMgr.getOverlayElement( "Flag-Yellow-L-P2" )
+        self.flagYellowLP2.hide()
+
+        self.flagGreenLP2 = self.overlayMgr.getOverlayElement( "Flag-Green-L-P2" )
+        self.flagGreenLP2.hide()
+
+        self.flagPurpleLP2 = self.overlayMgr.getOverlayElement( "Flag-Purple-L-P2" )
+        self.flagPurpleLP2.hide()
+
+        # Player 1 Mini Right Flags
+
+        self.flagRedRP2 = self.overlayMgr.getOverlayElement( "Flag-Red-R-P2" )
+        self.flagRedRP2.hide()
+
+        self.flagBlueRP2 = self.overlayMgr.getOverlayElement( "Flag-Blue-R-P2" )
+        self.flagBlueRP2.hide()
+
+        self.flagYellowRP2 = self.overlayMgr.getOverlayElement( "Flag-Yellow-R-P2" )
+        self.flagYellowRP2.hide()
+
+        self.flagGreenRP2 = self.overlayMgr.getOverlayElement( "Flag-Green-R-P2" )
+        self.flagGreenRP2.hide()
+
+        self.flagPurpleRP2 = self.overlayMgr.getOverlayElement( "Flag-Purple-R-P2" )
+        self.flagPurpleRP2.hide()
     
     def createHud (self):
         self.hudMgr = ogre.OverlayManager.getSingleton()
@@ -386,6 +599,10 @@ class GuiMgr:
             teams.show()
             self.flagYellow.show()
             self.flagYellowP2.show()
+            self.flagPurpleL.show()
+            self.flagBlueR.show()
+            self.flagPurpleLP2.show()
+            self.flagBlueRP2.show()
             self.teamSelect = False
         
         # instructions screen
@@ -422,18 +639,47 @@ class GuiMgr:
             instructions.hide()
             menu.show()          
             buttons.show()
-            backButton.hide()
+            backButton.hide()  
+
+         # Hide All The Flags if Back Button Is Pressed 
+
+            # Main Flag - Player 1
             self.flagYellow.hide()
             self.flagBlue.hide()
             self.flagRed.hide()
             self.flagGreen.hide()
             self.flagPurple.hide()
+            # Mini Flag Left - Player 1
             self.flagRedL.hide()
+            self.flagBlueL.hide()
+            self.flagYellowL.hide()
+            self.flagGreenL.hide()
+            self.flagPurpleL.hide()
+            # Mini Flag Right - Player 1 
+            self.flagRedR.hide()
+            self.flagBlueR.hide()
+            self.flagYellowR.hide()
+            self.flagGreenR.hide()
+            self.flagPurpleR.hide()
+            # Main Flag - Player 2
             self.flagRedP2.hide()
             self.flagBlueP2.hide()
-            self.flagRedP2.hide()
+            self.flagYellowP2.hide()
             self.flagGreenP2.hide()
             self.flagPurpleP2.hide()
+            # Mini Flag Left - Player 2 
+            self.flagRedLP2.hide()
+            self.flagBlueLP2.hide()
+            self.flagYellowLP2.hide()
+            self.flagGreenLP2.hide()
+            self.flagPurpleLP2.hide()
+            # Mini Flag Right - Player 2 
+            self.flagRedRP2.hide()
+            self.flagBlueRP2.hide()
+            self.flagYellowRP2.hide()
+            self.flagGreenRP2.hide()
+            self.flagPurpleRP2.hide()
+
             self.engine.gameMgr.creditsCheck = False  
             self.engine.gameMgr.instructionsCheck = False 
             self.engine.gameMgr.teamCheck = False
