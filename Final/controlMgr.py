@@ -99,6 +99,26 @@ class ControlMgr:
                     self.heldTime = 2.0
             self.JS_Pressed_A = someJoyButton
 
+            #button: b
+            if (self.js[i].get_button(2)):
+                #print "YOU TACKLED SUSHIL"
+                pass
+
+            #button: select
+            if (self.js[i].get_button(8)):
+                #print "select"
+                pass
+
+            #button: start
+            if (self.js[i].get_button(9)):
+                #print "start"
+                pass
+
+
+            #for button_index in range(buttons):
+            #    button = self.js[i].get_button(button_index)
+            #    print button_index, button
+
         if not self.p1UseJoystick:
             if self.Keyboard.isKeyDown(OIS.KC_NUMPAD8) or self.Keyboard.isKeyDown(OIS.KC_I):
                 for key, ent in team1.iteritems():
