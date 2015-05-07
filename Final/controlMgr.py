@@ -14,7 +14,7 @@ class ControlMgr:
         self.sceneManager = engine.gfxMgr.sceneManager
         self.pressed = False 
         self.heldTime = 0
-        
+        self.slide = False
             
     def init(self): 
         
@@ -72,7 +72,13 @@ class ControlMgr:
             if self.heldTime > 2.0:  
                 self.heldTime = 2.0
             pass
-         
+
+        if self.Keyboard.isKeyDown(OIS.KC_M):
+            self.slide = True
+
+        if not self.Keyboard.isKeyDown(OIS.KC_M):
+            self.slide = False
+
         if not self.Keyboard.isKeyDown(OIS.KC_SPACE) and self.pressed:
                
   
@@ -90,7 +96,7 @@ class ControlMgr:
                                     #distance = 1000000
                                 
                                 #1/4 s short pass
-                                if (self.heldTime < .5 and distance < 600.0):
+                                if (self.heldTime < .5 and distance < 1200.0):
                                     print "short pass"
                                     self.engine.entityMgr.addAction(ent, action.Intercept(ent, teammate))
 

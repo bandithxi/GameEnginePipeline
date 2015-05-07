@@ -111,7 +111,8 @@ class Ball(Entity):
         self.spin = 0.0
         self.attachEnt = None
         self.toggle = 0.0
-        
+        self.radiiNorm = 25.0
+        self.radiiSlide = 25.0
 
 
 class Arsenal(Entity):
@@ -136,6 +137,10 @@ class Arsenal(Entity):
         #changed
         self.material = "Examples/RedTeam"
 
+        self.radiiNorm = 50.0
+        self.radiiSlide = 100.0
+
+
 class EgbertTeam(Entity):
     id = 0
     def __init__(self, engine, id, pos = MyVector(0, 0 ,0), vel = MyVector(0, 0, 0), yaw = 0):
@@ -157,6 +162,10 @@ class EgbertTeam(Entity):
         self.scale = ogre.Vector3(.5, .5, .5)
         #changed
         self.material = "Examples/EgbertTeam"
+        
+
+        self.radiiNorm = 50.0
+        self.radiiSlide = 100.0
 
 
 class Liverpool(Entity):
@@ -179,7 +188,12 @@ class Liverpool(Entity):
         self.hasAnimation = True
         self.scale = ogre.Vector3(.5, .5, .5)
         #changed
+
         self.material = "Examples/SushilTeam"
+
+        
+        self.radiiNorm = 50.0
+        self.radiiSlide = 100.0
 
 class Chelsea(Entity):
     id = 0
@@ -202,6 +216,11 @@ class Chelsea(Entity):
         self.scale = ogre.Vector3(.5, .5, .5)
         #changed
         self.material = "Examples/BlueTeam"
+
+
+        self.radiiNorm = 50.0
+        self.radiiSlide = 100.0
+
    
 class BVB(Entity):
     id = 0
@@ -223,7 +242,10 @@ class BVB(Entity):
         self.hasAnimation = True
         self.scale = ogre.Vector3(.5, .5, .5)
         self.material = "Examples/YellowTeam"
-   
+        
+        
+        self.radiiNorm = 50.0
+        self.radiiSlide = 100.0
 
 
 class TopStad(Entity):
@@ -247,6 +269,7 @@ class TopStad(Entity):
         #self.scale = ogre.Vector3(1, 1, 1)
 
         self.scale = ogre.Vector3(50, 50, 50)
+
 
 class Stands(Entity):
     id = 0

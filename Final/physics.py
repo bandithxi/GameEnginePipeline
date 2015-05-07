@@ -115,6 +115,8 @@ class Physics:
                    # print "sphereX: ", self.ent.pos.x, "sphereZ: ", self.ent.pos.z
                     #print "ninja    X : ", entity.pos.x, "ninjaX : ", entity.pos.z
                     #print "dist:    ", dist
+                #slide
+                #if :
                 if dist < 75 and (self.ent.pos.y == ball.pos.y):
                         #print "SUCCESS: ", dist
                     
