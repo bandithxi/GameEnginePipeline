@@ -62,23 +62,24 @@ class Entity:
         length = 10000000 #infinity
 
         for ent in teamList[team - 1].values():
-            x = 1200.0 * math.cos(self.heading)
-            z = 1200.0 * math.sin(self.heading)
+            if (ent != self):
+                x = 1200.0 * math.cos(self.heading)
+                z = 1200.0 * math.sin(self.heading)
            # print x
            # print z
             #weird vector 2 bug
-            vecA = ogre.Vector3( x - self.pos.x , z - self.pos.z, 0)
-            vecB = ogre.Vector3(ent.pos.x - self.pos.x, ent.pos.z - self.pos.z, 0)
+                vecA = ogre.Vector3( x - self.pos.x , z - self.pos.z, 0)
+                vecB = ogre.Vector3(ent.pos.x - self.pos.x, ent.pos.z - self.pos.z, 0)
 
-            dAngle = vecA.angleBetween(vecB).valueDegrees()      
+                dAngle = vecA.angleBetween(vecB).valueDegrees()      
             #print ent.uiname, ",", dAngle
-            if (float(math.fabs(dAngle)) < 50.0):
+                if (float(math.fabs(dAngle)) < 50.0):
                 #store good teammates to array
 
-                if (vecB.length() < length):
-                    length = vecB.length()
-                    if (ent != self):
-                        closestTeammate = ent
+                    if (vecB.length() < length):
+                        length = vecB.length()
+                        if (ent != self):
+                            closestTeammate = ent
 
              
         return closestTeammate

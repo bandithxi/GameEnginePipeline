@@ -1,6 +1,7 @@
 import ent
 from vector import MyVector
 import random
+import utils
 
 class EntityMgr:
     def __init__(self, engine):
@@ -84,7 +85,33 @@ class EntityMgr:
             self.selectedEntP2 = self.team2[self.selectedEntIndexP2]
             #print "EntMgr selected: ", str(self.selectedEnt)
             return self.selectedEntP2
+    
+    def getPlayerClosestToBall(self, team):
+        teamList = []
+        teamList.append(self.engine.entityMgr.team1)
+        teamList.append(self.engine.entityMgr.team2)
+        closestTeammate = None
+        shortDist = 10000000 #infinity
+        ball = self.ball
+        index = -1
+        
+        for ent in teamList[team - 1].values():
+            dist = utils.distance(ball, ent)
+            index += 1
+            if (shortDist > dist):
+                shortDist = dist
+                closestTeammate = ent
+        
 
+        if (team == 1):
+            self.selectedEntP1 = closestTeammate
+            self.selectedEntIndexP1 = index
+
+        elif (team == 2):
+            self.selectedEntP2 = closestTeammate
+            self.selectedEntIndexP2 = index
+
+        return closestTeammate
 
     def getSelected(self, team):
         if (team == 1):

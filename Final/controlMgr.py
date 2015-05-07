@@ -33,7 +33,7 @@ class ControlMgr:
         self.js = []
         self.p1UseJoystick = False
         self.p2UseJoystick = False
-        self.JS_Pressed_A = True
+        self.JS_Pressed_A = False
 
         for i in range(self.num_joysticks):
             joystick = pygame.joystick.Joystick(i)
@@ -116,6 +116,7 @@ class ControlMgr:
     
             if self.Keyboard.isKeyDown(OIS.KC_NUMPAD4) or self.Keyboard.isKeyDown(OIS.KC_J):
                 ent = self.entityMgr.selectedEntP1
+                
                 ent.desiredHeading += 100 * dt
                     
                 # Ensure we work with angles 0 to 360
@@ -139,6 +140,7 @@ class ControlMgr:
             
             if self.Keyboard.isKeyDown(OIS.KC_SPACE):
                 self.pressed = True
+                #print "pressed"
                 #print dt
                 self.heldTime += 2.0 * dt
                 if self.heldTime > 2.0:  
@@ -150,6 +152,8 @@ class ControlMgr:
                 #for eid, ent in self.entityMgr.entities.iteritems():
                  #       if (ent.uiname == "Ball"):
                             #print "Here1"
+
+#                            print "released"
                             ent = self.entityMgr.ball
                             if (ent.attachEnt != None):
                                 

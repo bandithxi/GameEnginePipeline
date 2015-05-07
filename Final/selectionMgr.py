@@ -50,7 +50,7 @@ class SelectionMgr:
         else:
             for key, ent in self.engine.entityMgr.team2.iteritems():
                 ent.node.showBoundingBox(False)
-        ent = self.engine.entityMgr.getNextEnt(team)
+        ent = self.engine.entityMgr.getPlayerClosestToBall(team)
         ent.node.showBoundingBox(True)
         
     def stop(self):
