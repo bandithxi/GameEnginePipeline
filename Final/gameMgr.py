@@ -180,7 +180,7 @@ class GameMgr:
         
         if (self.scored and not self.celebrating):
             self.engine.soundMgr.stopMusic(self.chantList[self.p1Team])
-            self.engine.soundMgr.playMusic("celebration", 0)
+            self.engine.soundMgr.playACelebration()
             self.celebrating = True
         elif (self.scored and self.celebrating):
             if (not self.engine.soundMgr.musicBusy()):

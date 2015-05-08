@@ -1,6 +1,6 @@
 import pygame
 from pygame.locals import *
-
+import random as rand
 class SoundMgr:
     
     path = "media/sounds/"
@@ -19,6 +19,8 @@ class SoundMgr:
    
         self.musicList = ["liverpool", "bvb", "arsenal", "liverpool", "bvb"]
         self.sfxList = ["break", "bounce"]
+        self.celebrationList = ["cel1", "cel2", "cel3", "cel4", "cel5", "cel6", "cel7"]
+        self.celebrationNum = len(self.celebrationList) - 1
         
         if SoundMgr.debug:
             self.playMusic("Champions_League_theme")
@@ -33,6 +35,10 @@ class SoundMgr:
     def playSound(self, sfx):
         sound = pygame.mixer.Sound(SoundMgr.path + sfx + SoundMgr.sfxExt)
         sound.play()
+    
+    def playACelebration(self):
+        songNum = rand.randint(0, self.celebrationNum)
+        self.playMusic(self.celebrationList[songNum], 0)
 
     def soundBusy(self):
         return pygame.mixer.get_busy()
