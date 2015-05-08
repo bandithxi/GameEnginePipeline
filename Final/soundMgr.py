@@ -25,14 +25,20 @@ class SoundMgr:
             self.playSound("break")
 
 
-    def playMusic(self, music):
+    def playMusic(self, music, num = -1):
         pygame.mixer.music.load(SoundMgr.path + music + SoundMgr.musExt)
-        pygame.mixer.music.play(-1)
+        pygame.mixer.music.play(num)
         pygame.mixer.music.set_volume(self.musicVolume / 100.0)
 
     def playSound(self, sfx):
         sound = pygame.mixer.Sound(SoundMgr.path + sfx + SoundMgr.sfxExt)
         sound.play()
+
+    def soundBusy(self):
+        return pygame.mixer.get_busy()
+
+    def musicBusy(self):
+        return pygame.mixer.music.get_busy()
 
     def stopMusic(self, music):
         pygame.mixer.music.stop()

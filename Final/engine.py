@@ -76,15 +76,16 @@ class Engine(object):
             self.controlMgr.tick(dtime)
             self.guiMgr.tick(dtime)       
             
+            
             if self.paused == False:                 
                 
                 self.entityMgr.tick(dtime)
                 self.gfxMgr.tick(dtime)
                 self.netMgr.tick(dtime)
                 self.selectionMgr.tick(dtime)
-                self.gameMgr.tick(dtime)
                 self.aiMgr.tick(dtime)
-                
+
+            self.gameMgr.tick(dtime)
             self.runTime += dtime
         
             weu.messagePump()             # Needed for linux/mac

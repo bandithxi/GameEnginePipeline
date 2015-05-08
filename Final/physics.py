@@ -174,6 +174,8 @@ class Physics:
                     self.ent.speed = 0
 
                 
+                    self.ent.engine.paused = True
+                    self.ent.engine.gameMgr.scored = True
                     self.ent.engine.gameMgr.reset = True
                 else:
                     if (self.ent.pos.x > self.fieldDimenX - 1.5*self.grassOffSet):
@@ -206,6 +208,8 @@ class Physics:
                     self.ent.pos.x = self.ent.pos.y = self.ent.pos.z = 0
                     self.ent.speed = 0
                 
+                    self.ent.engine.paused = True
+                    self.ent.engine.gameMgr.scored = True
                     self.ent.engine.gameMgr.reset = True
                 else:
                     if (self.ent.pos.x > self.fieldDimenX - 1.5*self.grassOffSet):

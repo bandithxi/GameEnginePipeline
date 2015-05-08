@@ -18,6 +18,8 @@ class GameMgr:
         self.creditsCheck = False
         self.backCheck = False
         self.teamCheck = False
+        self.scored = False
+        self.celebrating = False
 
         self.gameTime = 600
         self.start = time.time()
@@ -93,18 +95,24 @@ class GameMgr:
         self.engine.entityMgr.createStad()
 
     def tick(self, dt):
-        self.updateTime() 
-        
-        if (self.startCheck):
-            self.startCheck = False
-            self.startGame()
+        if (not self.engine.paused):
+            self.updateTime() 
+            if (self.startCheck):
+                self.startCheck = False
+                self.startGame()
             #print self.teamList[self.p1Team] , self.teamList[self.p2Team]
        
-        if (self.reset):
-            self.resetPlayers()
+            if (self.reset):
+                self.resetPlayers()
        
-        if (self.gameTime < 1):
-            self.gameOver()
+            if (self.gameTime < 1):
+                self.gameOver()
+        
+        if (self.scored):
+            self.celebration()
+        
+        #print self.engine.soundMgr.soundBusy()
+
         pass
 
     def stop(self):
@@ -122,7 +130,12 @@ class GameMgr:
     
     def startGame(self):
         self.sfxMgr.stopMusic("Champions_League_theme")
+
+        # if (self.engine.AIMgr.simpleAI):
+        #     self.sfxMgr.playMusic("Benny_Hill")
+        # else:
         self.sfxMgr.playMusic(self.chantList[self.p1Team])
+
         self.sfxMgr.setVolume(5)
         self.gameTime = 600
         self.loadTeamColors()
@@ -158,10 +171,23 @@ class GameMgr:
         #self.startCheck = True
         pass
 
-    def paused(self):
+    def pauseMenu(self):
         #put code to show pause menu here
         #paused binded to keyboard N for now
         pass
+
+    def celebration(self):
+        
+        if (self.scored and not self.celebrating):
+            self.engine.soundMgr.stopMusic(self.chantList[self.p1Team])
+            self.engine.soundMgr.playMusic("celebration", 0)
+            self.celebrating = True
+        elif (self.scored and self.celebrating):
+            if (not self.engine.soundMgr.musicBusy()):
+                self.scored = False
+                self.celebrating = False
+                self.engine.paused = False
+                self.engine.soundMgr.playMusic(self.chantList[self.p1Team])
 
     def mainMenu(self):
         self.engine.guiMgr.overlay.show()
@@ -184,8 +210,6 @@ class GameMgr:
 
         for ent in self.engine.entityMgr.team2.values():
             self.engine.entityMgr.addAction(ent, action.GoHome(ent, ent.home))
-
-             
         
 
 

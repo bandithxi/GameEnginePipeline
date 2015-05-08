@@ -10,7 +10,7 @@ class AIMgr:
         self.half = self.engine.gameMgr.half
         self.whoHasBall = 0
         self.entityMgr = self.engine.entityMgr
-        #self.simpleAI = True
+        self.simpleAI = True
 
     def init(self):
 
@@ -21,7 +21,7 @@ class AIMgr:
         
         if (ball.attachEnt):
             self.whoHasBall = ball.attachEnt.team
-
+        self.whoHasBall = 0
         if (self.whoHasBall == 1):
         	for ent in self.entityMgr.team2.values():
         		ent.aspects[2].clear()
