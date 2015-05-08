@@ -41,7 +41,7 @@ class InputMgr(OIS.KeyListener, OIS.MouseListener):
 
         self.RTSCamNode = self.engine.gfxMgr.sceneManager.getSceneNode("RTSCamNode")
         self.camPitchNode = self.engine.gfxMgr.sceneManager.getSceneNode("RTSPitchNode")
-        self.usingRTSCam = True
+        self.usingRTSCam = False
 
     def tick(self, dt):
         self.dt = dt
@@ -58,16 +58,16 @@ class InputMgr(OIS.KeyListener, OIS.MouseListener):
         pos = self.RTSCamNode.getPosition()
         self.RTSCamNode.setPosition(ogre.Vector3(ball.pos.x, pos.y, pos.z));
 
-        #if (self.usingRTSCam):
+        if (self.usingRTSCam):
             
-         #   self.RTSCamNode.resetOrientation()
-          #  self.camPitchNode.resetOrientation()
+            self.RTSCamNode.resetOrientation()
+            self.camPitchNode.resetOrientation()
 
-           # self.RTSCamNode.yaw(ogre.Radian(self.yaw))
-            #self.camPitchNode.pitch(ogre.Radian(self.pitch))
-            #self.RTSCamNode.translate(self.RTSCamNode.orientation
-             #                 * self.transVector
-              #                * dt)
+            self.RTSCamNode.yaw(ogre.Radian(self.yaw))
+            self.camPitchNode.pitch(ogre.Radian(self.pitch))
+            self.RTSCamNode.translate(self.RTSCamNode.orientation
+                              * self.transVector
+                              * dt)
             #print self.RTSCamNode.orientation
             
 
@@ -130,6 +130,9 @@ class InputMgr(OIS.KeyListener, OIS.MouseListener):
             self.camPitchNode.attachObject(self.engine.gfxMgr.camera)
             #self.engine.gfxMgr.camera.lookAt = (0, 0, 0)
             self.usingRTSCam = True
+
+        if self.keyboard.isKeyDown(OIS.KC_3):
+            self.usingRTSCam = not self.usingRTSCam
 
         if self.keyboard.isKeyDown(OIS.KC_2):
             print "YO CAMERA 2"
