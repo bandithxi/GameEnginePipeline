@@ -413,11 +413,11 @@ class post(Entity):
         self.speed = 0
         self.heading = 0
         self.wakeSize = 'Large'
-        self.offset = ogre.Degree(90)
+        self.offset = ogre.Degree(0)
         
         #self.scale = ogre.Vector3(1, 1, 1)
 
-        self.scale = ogre.Vector3(50, 50, 50)
+        self.scale = ogre.Vector3(1.9, 1.9, 1.9)
 
 
 class RoofFrame(Entity):
@@ -464,3 +464,25 @@ class stairs(Entity):
         #self.scale = ogre.Vector3(1, 1, 1)
 
         self.scale = ogre.Vector3(50, 50, 50)
+
+class net(Entity):
+    id = 0
+    def __init__(self, engine, id, pos = MyVector(0, 0 ,0), vel = MyVector(0, 0, 0), yaw = 0):
+        Entity.__init__(self, engine, id, pos = pos, vel = vel, yaw = yaw)
+        print "player init"
+        self.mesh = "net.mesh"
+        self.uiname = 'net' + str(net.id)
+        net.id += 1
+        self.acceleration = 0
+        self.turningRate = 0
+        self.maxSpeed = 0
+        self.desiredSpeed = 0
+        self.desiredHeading = 0
+        self.speed = 0
+        self.heading = 0
+        self.wakeSize = 'Large'
+        self.offset = ogre.Degree(90)
+        
+        #self.scale = ogre.Vector3(1, 1, 1)
+
+        self.scale = ogre.Vector3(1.9, 1.9, 1.9)

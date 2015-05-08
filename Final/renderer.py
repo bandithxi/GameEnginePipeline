@@ -14,10 +14,14 @@ class Renderer:
             self.entOgre.setMaterialName ("Ball")
         elif (self.ent.hasAnimation and self.ent.material):
             self.entOgre.setMaterialName (self.ent.material)
+
         
         self.ent.node = self.node
         
         self.node.scale(self.ent.scale)   
+        if (self.ent.mesh == "net.mesh" or self.ent.mesh == "post.mesh"):
+            self.ent.node.showBoundingBox(True)
+
         
         wakeOffsetz = self.entOgre.getBoundingBox().getSize().z / 2
         wakeOffsetx = self.entOgre.getBoundingBox().getSize().x / 2
@@ -44,7 +48,7 @@ class Renderer:
             self.entOgre.setMaterialName ("Ball")
         elif (self.ent.hasAnimation and self.ent.material):
             self.entOgre.setMaterialName (self.ent.material)
-        
+
         self.ent.node.setPosition(self.ent.pos)
 
         self.ent.node.resetOrientation()
@@ -53,7 +57,14 @@ class Renderer:
         self.ent.node.yaw(self.ent.offset);
         self.ent.node.yaw(ogre.Degree(self.ent.heading))  
         
-         
+        
+        if (self.ent.mesh == "post.mesh"):
+            #self.ent.node.pitch(90)
+            
+            #self.ent.node.roll(90)
+            #self.ent.node.yaw(90)
+            pass
+                 
         if (self.ent.slide):
             if (self.ent.heading > 180):
                 self.node.roll(80)
