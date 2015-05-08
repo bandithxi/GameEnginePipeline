@@ -188,6 +188,7 @@ class Physics:
                # print "score", self.score 
             elif self.ent.pos.x < -self.fieldDimenX + self.grassOffSet:
                 #check goal)
+                z = self.ent.pos.z
 
                 if (z < 2.5 * self.grassOffSet and z > -2.5 * self.grassOffSet) and self.ent.pos.y < self.grassOffSet - 50:
                     if self.ent.engine.gameMgr.half == 1:

@@ -71,7 +71,7 @@ class GfxMgr:
         self.camera.nearClipDistance = 10
         yawNode = self.sceneManager.getRootSceneNode().createChildSceneNode("RTSCamNode", (0, 1000, 3300))
         yawNode.yaw(ogre.Degree(0))
-        #yawNode.pitch(ogre.Degree(90))
+        yawNode.pitch(ogre.Degree(-25))
         yawNode.createChildSceneNode("RTSPitchNode").attachObject(self.camera)
         self.camera.lookAt = (0, 0, 0)
         
