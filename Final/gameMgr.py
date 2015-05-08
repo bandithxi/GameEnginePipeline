@@ -131,10 +131,11 @@ class GameMgr:
     def startGame(self):
         self.sfxMgr.stopMusic("Champions_League_theme")
 
-        # if (self.engine.AIMgr.simpleAI):
-        #     self.sfxMgr.playMusic("Benny_Hill")
-        # else:
-        self.sfxMgr.playMusic(self.chantList[self.p1Team])
+        if (self.engine.aiMgr.simpleAI):
+             self.sfxMgr.playMusic("Benny_Hill")
+             self.sfxMgr.setVolume(50)
+        else:
+            self.sfxMgr.playMusic(self.chantList[self.p1Team])
 
         self.sfxMgr.setVolume(5)
         self.gameTime = 600
