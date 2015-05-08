@@ -24,6 +24,7 @@ class ControlMgr:
         self.sceneManager = engine.gfxMgr.sceneManager
         self.pressed = False 
         self.heldTime = 0
+        self.timer = .1
             
     def init(self):
         pygame.joystick.init()
@@ -177,7 +178,14 @@ class ControlMgr:
                     ent.desiredSpeed = 0
                     
             if self.Keyboard.isKeyDown(OIS.KC_N):
-                self.engine.paused = not self.engine.paused
+
+                if (self.timer < 0.0):
+
+                    self.engine.paused = not self.engine.paused
+
+                    self.timer = .5
+                else:
+                    self.timer -= dt
             
                 
 

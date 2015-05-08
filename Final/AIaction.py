@@ -98,7 +98,7 @@ class Intercept( Action ):
         if (not self.targetEnt):
             
             return
-        print self.targetEnt.uiname
+        #print self.targetEnt.uiname
         self.targetLoc = self.targetEnt.pos
         
         #relativeSpeed = (ogre.Math.Abs(ogre.Vector3.length(self.targetEnt.vel - self.ent.vel))).valueRadians()
@@ -111,9 +111,10 @@ class Intercept( Action ):
         self.distX = self.targetLoc.x - self.ent.pos.x
         self.distZ = self.targetLoc.z - self.ent.pos.z
 
-        self.distance = (ogre.Math.Sqrt(ogre.Math.Sqr(self.distX) + ogre.Math.Sqr(self.distZ))).valueDegrees()
-        relativeSpeed = (ogre.Math.Sqrt(ogre.Math.Sqr(relativeSpeedX) + ogre.Math.Sqr(relativeSpeedZ))).valueDegrees()
+        self.distance = math.sqrt(self.distX**2 + self.distZ**2)
+        relativeSpeed = math.sqrt(relativeSpeedX**2 + relativeSpeedZ**2)
         
+        #print "relativeSpeed", relativeSpeed
         if relativeSpeed != 0:
             travelTime = (self.distance / relativeSpeed)
             
@@ -125,10 +126,10 @@ class Intercept( Action ):
             print self.targetLoc, self.predictiveLoc
             
             if self.distance > 10:
-                self.ent.desiredHeading = -ogre.Math.ATan2(diffZ, diffX).valueRadians()
+                self.ent.desiredHeading = -math.atan2(diffZ, diffX) * 180 / 3.14 
                 self.ent.desiredSpeed = self.maxSpeed
             else:
-                self.ent.desiredHeading = -ogre.Math.ATan2(diffZ, diffX).valueRadians()
+                self.ent.desiredHeading = -math.atan2(diffZ, diffX) * 180 / 3.14
                 self.ent.desiredSpeed = 0
 
                 if self.ent.aspects[2].ActionList:

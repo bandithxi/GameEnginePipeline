@@ -139,6 +139,13 @@ class Physics:
                         ball.engine.aiMgr.whoHasBall = self.ent.team
                         ball.attachEnt = self.ent
 
+                        if (self.ent.team == 1):
+                            self.ent.engine.entityMgr.selectedEntP1 = self.ent
+                            
+
+                        elif (self.ent.team == 2):
+                            self.ent.engine.entityMgr.selectedEntP2 = self.ent
+
                         #print self.ent.uiname
                   
         
