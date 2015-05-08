@@ -10,7 +10,7 @@ class Renderer:
         self.node.attachObject(self.entOgre)
         
         #yuck spagetti code :(
-        if (self.ent.uiname == "Ball"):
+        if (self.ent.mesh == "sphere.mesh"):
             self.entOgre.setMaterialName ("Ball")
         elif (self.ent.hasAnimation and self.ent.material):
             self.entOgre.setMaterialName (self.ent.material)
@@ -22,7 +22,6 @@ class Renderer:
         wakeOffsetz = self.entOgre.getBoundingBox().getSize().z / 2
         wakeOffsetx = self.entOgre.getBoundingBox().getSize().x / 2
                 
-        #for jetski and models that are not facing right
         if self.ent.offset != 0:
             #add wake and offset 3rd person camera because lookat won't work
             self.wakeNode = self.node.createChildSceneNode(ogre.Vector3(0, 0, -wakeOffsetz))
@@ -41,6 +40,11 @@ class Renderer:
         self.wakeNode.attachObject(self.wakeParticle)
 
     def tick(self, dtime):
+        if (self.ent.mesh == "sphere.mesh"):
+            self.entOgre.setMaterialName ("Ball")
+        elif (self.ent.hasAnimation and self.ent.material):
+            self.entOgre.setMaterialName (self.ent.material)
+        
         self.ent.node.setPosition(self.ent.pos)
 
         self.ent.node.resetOrientation()

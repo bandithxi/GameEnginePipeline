@@ -99,7 +99,7 @@ class Ball(Entity):
         Entity.__init__(self, engine, id, pos = MyVector(0,25,0), vel = vel, yaw = yaw) 
         
         self.mesh = 'sphere.mesh'
-        self.uiname = 'Ball'# + str(Ball.id)
+        self.uiname = 'Ball' + str(Ball.id)
         Ball.id += 1
         self.acceleration = 250
         self.turningRate = 30
@@ -122,6 +122,8 @@ class Ball(Entity):
 
 class Arsenal(Entity):
     id = 0
+    defaultMat = "Examples/RedTeam"
+
     def __init__(self, engine, id, pos = MyVector(0, 0 ,0), vel = MyVector(0, 0, 0), yaw = 0):
         Entity.__init__(self, engine, id, pos = pos, vel = vel, yaw = yaw)
         print "player init"
@@ -148,6 +150,8 @@ class Arsenal(Entity):
 
 class EgbertTeam(Entity):
     id = 0
+    defaultMat = "Examples/EgbertTeam"
+
     def __init__(self, engine, id, pos = MyVector(0, 0 ,0), vel = MyVector(0, 0, 0), yaw = 0):
         Entity.__init__(self, engine, id, pos = pos, vel = vel, yaw = yaw)
         print "player init"
@@ -175,6 +179,8 @@ class EgbertTeam(Entity):
 
 class Liverpool(Entity):
     id = 0
+    defaultMat = "Examples/SushilTeam"
+
     def __init__(self, engine, id, pos = MyVector(0, 0 ,0), vel = MyVector(0, 0, 0), yaw = 0):
         Entity.__init__(self, engine, id, pos = pos, vel = vel, yaw = yaw)
         print "player init"
@@ -202,6 +208,8 @@ class Liverpool(Entity):
 
 class Chelsea(Entity):
     id = 0
+    defaultMat = "Examples/BlueTeam"
+
     def __init__(self, engine, id, pos = MyVector(0, 0 ,0), vel = MyVector(0, 0, 0), yaw = 0):
         Entity.__init__(self, engine, id, pos = pos, vel = vel, yaw = yaw)
         print "player init"
@@ -229,6 +237,8 @@ class Chelsea(Entity):
    
 class BVB(Entity):
     id = 0
+    defaultMat = "Examples/YellowTeam"
+    
     def __init__(self, engine, id, pos = MyVector(0, 0 ,0), vel = MyVector(0, 0, 0), yaw = 0):
         Entity.__init__(self, engine, id, pos = pos, vel = vel, yaw = yaw)
         print "player init"
@@ -259,8 +269,8 @@ class TopStad(Entity):
         Entity.__init__(self, engine, id, pos = pos, vel = vel, yaw = yaw)
         print "player init"
         self.mesh = 'WireFrameTopStad.mesh'
-        self.uiname = 'Top'
-        #PlayerB.id += 1
+        self.uiname = 'Top' + str(TopStad.id)
+        TopStad.id += 1
         self.acceleration = 0
         self.turningRate = 0
         self.maxSpeed = 0
@@ -281,9 +291,9 @@ class Stands(Entity):
     def __init__(self, engine, id, pos = MyVector(0, 0 ,0), vel = MyVector(0, 0, 0), yaw = 0):
         Entity.__init__(self, engine, id, pos = pos, vel = vel, yaw = yaw)
         print "player init"
-        self.mesh = "Stands.mesh"
-        self.uiname = 'Stands'
-        #PlayerB.id += 1
+        self.mesh = "Stands.mesh" 
+        self.uiname = 'Stands' + str(Stands.id)
+        Stands.id += 1
         self.acceleration = 0
         self.turningRate = 0
         self.maxSpeed = 0
@@ -303,8 +313,9 @@ class Entrance(Entity):
     def __init__(self, engine, id, pos = MyVector(0, 0 ,0), vel = MyVector(0, 0, 0), yaw = 0):
         Entity.__init__(self, engine, id, pos = pos, vel = vel, yaw = yaw)
         print "player init"
-        self.mesh = "entrance.mesh"
-        self.uiname = 'entrance'
+        self.mesh = "entrance.mesh" 
+        self.uiname = 'entrance' + str(Entrance.id)
+        Entrance.id += 1
         self.acceleration = 0
         self.turningRate = 0
         self.maxSpeed = 0
@@ -325,7 +336,8 @@ class highWall(Entity):
         Entity.__init__(self, engine, id, pos = pos, vel = vel, yaw = yaw)
         print "player init"
         self.mesh = "highWall.mesh"
-        self.uiname = 'highWall'
+        self.uiname = 'highWall' + str(highWall.id)
+        highWall.id += 1
         self.acceleration = 0
         self.turningRate = 0
         self.maxSpeed = 0
@@ -346,7 +358,8 @@ class lowWall(Entity):
         Entity.__init__(self, engine, id, pos = pos, vel = vel, yaw = yaw)
         print "player init"
         self.mesh = "lowWall.mesh"
-        self.uiname = 'lowWall'
+        self.uiname = 'lowWall'  + str(lowWall.id)
+        lowWall.id +=1
         self.acceleration = 0
         self.turningRate = 0
         self.maxSpeed = 0
@@ -367,7 +380,8 @@ class midWall(Entity):
         Entity.__init__(self, engine, id, pos = pos, vel = vel, yaw = yaw)
         print "player init"
         self.mesh = "midWall.mesh"
-        self.uiname = 'midWall'
+        self.uiname = 'midWall' + str(midWall.id)
+        midWall.id += 1
         self.acceleration = 0
         self.turningRate = 0
         self.maxSpeed = 0
@@ -389,7 +403,8 @@ class post(Entity):
         Entity.__init__(self, engine, id, pos = pos, vel = vel, yaw = yaw)
         print "player init"
         self.mesh = "post.mesh"
-        self.uiname = 'post'
+        self.uiname = 'post' + str (post.id)
+        post.id += 1
         self.acceleration = 0
         self.turningRate = 0
         self.maxSpeed = 0
@@ -411,7 +426,8 @@ class RoofFrame(Entity):
         Entity.__init__(self, engine, id, pos = pos, vel = vel, yaw = yaw)
         print "player init"
         self.mesh = "RoofFrame.mesh"
-        self.uiname = 'RoofFrame'
+        self.uiname = 'RoofFrame' + str(RoofFrame.id)
+        RoofFrame.id += 1
         self.acceleration = 0
         self.turningRate = 0
         self.maxSpeed = 0
@@ -433,7 +449,8 @@ class stairs(Entity):
         Entity.__init__(self, engine, id, pos = pos, vel = vel, yaw = yaw)
         print "player init"
         self.mesh = "stairs.mesh"
-        self.uiname = 'stairs'
+        self.uiname = 'stairs' + str(stairs.id)
+        stairs.id += 1
         self.acceleration = 0
         self.turningRate = 0
         self.maxSpeed = 0

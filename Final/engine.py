@@ -72,10 +72,11 @@ class Engine(object):
             self.oldTime = now
 
             
-            if self.paused == False:
-                self.inputMgr.tick(dtime)
-                self.controlMgr.tick(dtime)
-                self.guiMgr.tick(dtime)                        
+            self.inputMgr.tick(dtime)
+            self.controlMgr.tick(dtime)
+            self.guiMgr.tick(dtime)       
+            
+            if self.paused == False:                 
                 
                 self.entityMgr.tick(dtime)
                 self.gfxMgr.tick(dtime)

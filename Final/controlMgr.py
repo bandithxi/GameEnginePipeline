@@ -169,15 +169,17 @@ class ControlMgr:
             if self.Keyboard.isKeyDown(OIS.KC_M):
                 
                 ent = self.entityMgr.selectedEntP1
-
-                
+    
                 self.slideToggle = .5
                     
                 if ent:
                     ent.slide = True
                     ent.desiredSpeed = 0
                     
-
+            if self.Keyboard.isKeyDown(OIS.KC_N):
+                self.engine.paused = not self.engine.paused
+            
+                
 
 
 
@@ -194,7 +196,8 @@ class ControlMgr:
 
                     self.slideToggle -= dt
 
-         
+
+                
         if (not self.Keyboard.isKeyDown(OIS.KC_SPACE) and not self.JS_Pressed_A ) and self.pressed:    
   
                 #for eid, ent in self.entityMgr.entities.iteritems():

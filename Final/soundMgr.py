@@ -15,7 +15,7 @@ class SoundMgr:
     def init(self):
         pygame.init()
         pygame.mixer.init()
-        self.musicVolume = 15
+        self.musicVolume = 100.0
    
         self.musicList = ["liverpool", "bvb", "arsenal", "liverpool", "bvb"]
         self.sfxList = ["break", "bounce"]
@@ -28,6 +28,7 @@ class SoundMgr:
     def playMusic(self, music):
         pygame.mixer.music.load(SoundMgr.path + music + SoundMgr.musExt)
         pygame.mixer.music.play(-1)
+        pygame.mixer.music.set_volume(self.musicVolume / 100.0)
 
     def playSound(self, sfx):
         sound = pygame.mixer.Sound(SoundMgr.path + sfx + SoundMgr.sfxExt)
@@ -35,4 +36,14 @@ class SoundMgr:
 
     def stopMusic(self, music):
         pygame.mixer.music.stop()
+
+    def upVolume(self):
+        self.musicVolume += 1
+
+    def downVolume(self):
+        self.musicVolume -= 1
+
+    def setVolume(self, vol):
+        self.musicVolume = vol
+        pygame.mixer.music.set_volume(self.musicVolume / 100.0)
 

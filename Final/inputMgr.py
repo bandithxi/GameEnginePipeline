@@ -50,7 +50,7 @@ class InputMgr(OIS.KeyListener, OIS.MouseListener):
         self.keyPressed(dt)
         self.keyReleased(dt)
 
-        self.currMouse = self.mouse.getMouseState()
+        #self.currMouse = self.mouse.getMouseState()
 
         # Translate the camera based on time.
         if (self.usingRTSCam):
@@ -142,6 +142,7 @@ class InputMgr(OIS.KeyListener, OIS.MouseListener):
         if self.keyboard.isKeyDown(OIS.KC_ESCAPE):
             #print "escape key pressed"
             self.engine.stop()
+            
         
         return not self.keyboard.isKeyDown(OIS.KC_ESCAPE)
 
