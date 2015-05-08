@@ -42,7 +42,7 @@ class InputMgr(OIS.KeyListener, OIS.MouseListener):
         self.RTSCamNode = self.engine.gfxMgr.sceneManager.getSceneNode("RTSCamNode")
         self.camPitchNode = self.engine.gfxMgr.sceneManager.getSceneNode("RTSPitchNode")
         self.usingRTSCam = True
-        
+
     def tick(self, dt):
         self.dt = dt
         self.keyboard.capture()
@@ -53,23 +53,23 @@ class InputMgr(OIS.KeyListener, OIS.MouseListener):
         #self.currMouse = self.mouse.getMouseState()
 
         # Translate the camera based on time.
-        if (self.usingRTSCam):
+        ball = self.engine.entityMgr.ball
+#        if (ball.attachEnt):
+        pos = self.RTSCamNode.getPosition()
+        self.RTSCamNode.setPosition(ogre.Vector3(ball.pos.x, pos.y, pos.z));
+
+        #if (self.usingRTSCam):
             
          #   self.RTSCamNode.resetOrientation()
           #  self.camPitchNode.resetOrientation()
 
            # self.RTSCamNode.yaw(ogre.Radian(self.yaw))
             #self.camPitchNode.pitch(ogre.Radian(self.pitch))
-            if (self.engine.entityMgr.ball.pos.x < -1000):
-                #self.timer = 3
-                self.transVector = ogre.Vector3(self.engine.entityMgr.ball.pos.x / 2, 0, 0)
-                
-
-            self.RTSCamNode.translate(self.RTSCamNode.orientation
-                              * self.transVector
-                              * dt)
-            
+            #self.RTSCamNode.translate(self.RTSCamNode.orientation
+             #                 * self.transVector
+              #                * dt)
             #print self.RTSCamNode.orientation
+            
 
     def keyPressed(self, frameEvent):
         #print "in keypressed funtion"
@@ -140,7 +140,7 @@ class InputMgr(OIS.KeyListener, OIS.MouseListener):
             if self.engine.entityMgr.selectedEntities != []:
                 # Attach the camera to 3rd person camera
                 self.engine.gfxMgr.camera.parentSceneNode.detachObject(self.engine.gfxMgr.camera)
-                self.camPitchNode = self.engine.gfxMgr.sceneManager.getSceneNode(self.engine.entityMgr.selectedEntP1.uiname + 'camNode')
+                self.camPitchNode = self.engine.gfxMgr.sceneManager.getSceneNode(self.engine.entityMgr.selectedEntities[0].uiname + 'camNode')
             
                 self.camPitchNode.attachObject(self.engine.gfxMgr.camera)
                 self.usingRTSCam = False

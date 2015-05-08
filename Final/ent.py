@@ -413,7 +413,7 @@ class post(Entity):
         self.speed = 0
         self.heading = 0
         self.wakeSize = 'Large'
-        self.offset = ogre.Degree(0)
+        self.offset = ogre.Degree(90)
         
         #self.scale = ogre.Vector3(1, 1, 1)
 

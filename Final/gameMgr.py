@@ -162,7 +162,7 @@ class GameMgr:
         #put code to show pause menu here
         #paused binded to keyboard N for now
         pass
-     
+
     def mainMenu(self):
         self.engine.guiMgr.overlay.show()
         self.engine.guiMgr.hud2.hide()
@@ -184,6 +184,8 @@ class GameMgr:
 
         for ent in self.engine.entityMgr.team2.values():
             self.engine.entityMgr.addAction(ent, action.GoHome(ent, ent.home))
+
+             
         
 
 

@@ -19,7 +19,7 @@ class Renderer:
         self.ent.node = self.node
         
         self.node.scale(self.ent.scale)   
-        if (self.ent.mesh == "net.mesh" or self.ent.mesh == "post.mesh"):
+        if (self.ent.mesh == "post.mesh"):
             self.ent.node.showBoundingBox(True)
 
         
@@ -59,7 +59,7 @@ class Renderer:
         
         
         if (self.ent.mesh == "post.mesh"):
-            #self.ent.node.pitch(90)
+            #self.ent.node.pitch(200)
             
             #self.ent.node.roll(90)
             #self.ent.node.yaw(90)
