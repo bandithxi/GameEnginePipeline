@@ -53,10 +53,6 @@ class InputMgr(OIS.KeyListener, OIS.MouseListener):
         #self.currMouse = self.mouse.getMouseState()
 
         # Translate the camera based on time.
-        ball = self.engine.entityMgr.ball
-#        if (ball.attachEnt):
-        pos = self.RTSCamNode.getPosition()
-        self.RTSCamNode.setPosition(ogre.Vector3(ball.pos.x, pos.y, pos.z));
 
         if (self.usingRTSCam):
             
@@ -69,7 +65,12 @@ class InputMgr(OIS.KeyListener, OIS.MouseListener):
                               * self.transVector
                               * dt)
             #print self.RTSCamNode.orientation
-            
+        else:
+            ball = self.engine.entityMgr.ball
+            if (ball.attachEnt):
+                pos = self.RTSCamNode.getPosition()
+                self.RTSCamNode.setPosition(ogre.Vector3(ball.pos.x, pos.y, pos.z));
+    
 
     def keyPressed(self, frameEvent):
         #print "in keypressed funtion"

@@ -218,8 +218,8 @@ class Physics:
                         self.ent.desiredSpeed = 0
 
 
-                    if (self.ent.pos.x < -self.fieldDimenX - 1.5*self.grassOffSet): 
-                        self.ent.pos.x = self.fieldDimenX + 1.5*self.grassOffSet
+                    if (self.ent.pos.x < -self.fieldDimenX + 1.5*self.grassOffSet): 
+                        self.ent.pos.x = -self.fieldDimenX + 1.5*self.grassOffSet
                         self.ent.speed = -self.ent.speed / 2
                         self.ent.desiredSpeed = 0
   
@@ -236,7 +236,7 @@ class Physics:
 
 
             if (self.ent.pos.x < -self.fieldDimenX - 1.5*self.grassOffSet): 
-                self.ent.pos.x = self.fieldDimenX + 1.5*self.grassOffSet
+                self.ent.pos.x = -self.fieldDimenX + 1.5*self.grassOffSet
                 self.ent.speed = -self.ent.speed / 2 
                 self.ent.desiredSpeed = 0
   

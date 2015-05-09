@@ -35,6 +35,7 @@ class ControlMgr:
         self.p2UseJoystick = False
         self.JS_Pressed_A = False
         self.slideToggle = 0.0
+        
         for i in range(self.num_joysticks):
             joystick = pygame.joystick.Joystick(i)
             joystick.init()
