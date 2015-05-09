@@ -1,4 +1,5 @@
 import ogre.renderer.OGRE as ogre
+import thickCircle as tc
 
 class Renderer:
     def __init__(self, ent):
@@ -8,6 +9,17 @@ class Renderer:
         self.node = self.ent.engine.gfxMgr.sceneManager.getRootSceneNode().createChildSceneNode(self.ent.uiname +'node', self.ent.pos)
 
         self.node.attachObject(self.entOgre)
+
+
+        if (self.ent.mesh == "ninja.mesh"):
+            if (self.ent.team == 1):
+                self.ent.color = "RedCircle"
+            if (self.ent.team == 2):
+                self.ent.color = "BlueCircle"
+
+            self.ent.circle = tc.ThickCircle(self.ent.uiname + ".sc", self.ent.engine.gfxMgr.sceneManager, parentNode = self.node)
+            self.ent.circle.setup(color = self.ent.color, radius = 70, thickness = 25)
+            self.ent.circle.hide()
         
         #yuck spagetti code :(
         if (self.ent.mesh == "sphere.mesh"):
@@ -20,7 +32,7 @@ class Renderer:
         
         self.node.scale(self.ent.scale)   
         if (self.ent.mesh == "goals.mesh"):
-            self.ent.node.showBoundingBox(True)
+            self.ent.node.showBoundingBox(False)
 
         
         wakeOffsetz = self.entOgre.getBoundingBox().getSize().z / 2

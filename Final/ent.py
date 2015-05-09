@@ -95,9 +95,8 @@ class Entity:
 
 class Ball(Entity):
     id = 0
-    def __init__(self, engine, id, pos = MyVector(0,0,0), vel = MyVector(0,0,0), yaw = 0):
+    def __init__(self, engine, id, pos = MyVector(0,0,0), vel = MyVector(0,0,0), yaw = 0, team = 0):
         Entity.__init__(self, engine, id, pos = MyVector(0,25,0), vel = vel, yaw = yaw) 
-        
         self.mesh = 'sphere.mesh'
         self.uiname = 'Ball' + str(Ball.id)
         Ball.id += 1
@@ -124,7 +123,8 @@ class Arsenal(Entity):
     id = 0
     defaultMat = "Examples/RedTeam"
 
-    def __init__(self, engine, id, pos = MyVector(0, 0 ,0), vel = MyVector(0, 0, 0), yaw = 0):
+    def __init__(self, engine, id, pos = MyVector(0, 0 ,0), vel = MyVector(0, 0, 0), yaw = 0, team = 0):
+        self.team = team
         Entity.__init__(self, engine, id, pos = pos, vel = vel, yaw = yaw)
         print "player init"
         self.mesh = 'ninja.mesh'
@@ -143,6 +143,9 @@ class Arsenal(Entity):
         self.scale = ogre.Vector3(.5, .5, .5)
         #changed
         self.material = "Examples/RedTeam"
+        self.color = "RedCircle"
+        self.circle = None
+        self.team = team
 
         self.radiiNorm = 115.0
         self.radiiSlide = 200.0
@@ -152,7 +155,7 @@ class EgbertTeam(Entity):
     id = 0
     defaultMat = "Examples/EgbertTeam"
 
-    def __init__(self, engine, id, pos = MyVector(0, 0 ,0), vel = MyVector(0, 0, 0), yaw = 0):
+    def __init__(self, engine, id, pos = MyVector(0, 0 ,0), vel = MyVector(0, 0, 0), yaw = 0, team = 0):
         Entity.__init__(self, engine, id, pos = pos, vel = vel, yaw = yaw)
         print "player init"
         self.mesh = 'ninja.mesh'
@@ -171,7 +174,9 @@ class EgbertTeam(Entity):
         self.scale = ogre.Vector3(.5, .5, .5)
         #changed
         self.material = "Examples/EgbertTeam"
-        
+        self.color = "RedCircle"
+        self.circle = None
+        self.team = team
 
         self.radiiNorm = 115.0
         self.radiiSlide = 200.0
@@ -181,7 +186,7 @@ class Liverpool(Entity):
     id = 0
     defaultMat = "Examples/SushilTeam"
 
-    def __init__(self, engine, id, pos = MyVector(0, 0 ,0), vel = MyVector(0, 0, 0), yaw = 0):
+    def __init__(self, engine, id, pos = MyVector(0, 0 ,0), vel = MyVector(0, 0, 0), yaw = 0, team = 0):
         Entity.__init__(self, engine, id, pos = pos, vel = vel, yaw = yaw)
         print "player init"
         self.mesh = 'ninja.mesh'
@@ -199,8 +204,10 @@ class Liverpool(Entity):
         self.hasAnimation = True
         self.scale = ogre.Vector3(.5, .5, .5)
         #changed
-
         self.material = "Examples/SushilTeam"
+        self.color = "RedCircle"
+        self.circle = None
+        self.team = team
 
         
         self.radiiNorm = 115.0
@@ -210,7 +217,8 @@ class Chelsea(Entity):
     id = 0
     defaultMat = "Examples/BlueTeam"
 
-    def __init__(self, engine, id, pos = MyVector(0, 0 ,0), vel = MyVector(0, 0, 0), yaw = 0):
+    def __init__(self, engine, id, pos = MyVector(0, 0 ,0), vel = MyVector(0, 0, 0), yaw = 0, team = 0):
+        self.team = team
         Entity.__init__(self, engine, id, pos = pos, vel = vel, yaw = yaw)
         print "player init"
         self.mesh = 'ninja.mesh'
@@ -229,6 +237,9 @@ class Chelsea(Entity):
         self.scale = ogre.Vector3(.5, .5, .5)
         #changed
         self.material = "Examples/BlueTeam"
+        self.color = "RedCircle"
+        self.circle = None
+        self.team = team
 
 
         self.radiiNorm = 115.0
@@ -239,7 +250,8 @@ class BVB(Entity):
     id = 0
     defaultMat = "Examples/YellowTeam"
     
-    def __init__(self, engine, id, pos = MyVector(0, 0 ,0), vel = MyVector(0, 0, 0), yaw = 0):
+    def __init__(self, engine, id, pos = MyVector(0, 0 ,0), vel = MyVector(0, 0, 0), yaw = 0, team = 0):
+        self.team = team
         Entity.__init__(self, engine, id, pos = pos, vel = vel, yaw = yaw)
         print "player init"
         self.mesh = 'ninja.mesh'
@@ -257,6 +269,9 @@ class BVB(Entity):
         self.hasAnimation = True
         self.scale = ogre.Vector3(.5, .5, .5)
         self.material = "Examples/YellowTeam"
+        self.color = "RedCircle"
+        self.circle = None
+        self.team = team        
         
         
         self.radiiNorm = 115.0
@@ -265,7 +280,7 @@ class BVB(Entity):
 
 class TopStad(Entity):
     id = 0
-    def __init__(self, engine, id, pos = MyVector(0, 0 ,0), vel = MyVector(0, 0, 0), yaw = 0):
+    def __init__(self, engine, id, pos = MyVector(0, 0 ,0), vel = MyVector(0, 0, 0), yaw = 0, team = 0):
         Entity.__init__(self, engine, id, pos = pos, vel = vel, yaw = yaw)
         print "player init"
         self.mesh = 'WireFrameTopStad.mesh'
@@ -288,7 +303,7 @@ class TopStad(Entity):
 
 class Stands(Entity):
     id = 0
-    def __init__(self, engine, id, pos = MyVector(0, 0 ,0), vel = MyVector(0, 0, 0), yaw = 0):
+    def __init__(self, engine, id, pos = MyVector(0, 0 ,0), vel = MyVector(0, 0, 0), yaw = 0, team = 0):
         Entity.__init__(self, engine, id, pos = pos, vel = vel, yaw = yaw)
         print "player init"
         self.mesh = "Stands.mesh" 
@@ -310,7 +325,7 @@ class Stands(Entity):
 
 class Entrance(Entity):
     id = 0
-    def __init__(self, engine, id, pos = MyVector(0, 0 ,0), vel = MyVector(0, 0, 0), yaw = 0):
+    def __init__(self, engine, id, pos = MyVector(0, 0 ,0), vel = MyVector(0, 0, 0), yaw = 0, team = 0):
         Entity.__init__(self, engine, id, pos = pos, vel = vel, yaw = yaw)
         print "player init"
         self.mesh = "entrance.mesh" 
@@ -332,7 +347,7 @@ class Entrance(Entity):
 
 class highWall(Entity):
     id = 0
-    def __init__(self, engine, id, pos = MyVector(0, 0 ,0), vel = MyVector(0, 0, 0), yaw = 0):
+    def __init__(self, engine, id, pos = MyVector(0, 0 ,0), vel = MyVector(0, 0, 0), yaw = 0, team = 0):
         Entity.__init__(self, engine, id, pos = pos, vel = vel, yaw = yaw)
         print "player init"
         self.mesh = "highWall.mesh"
@@ -354,7 +369,7 @@ class highWall(Entity):
 
 class lowWall(Entity):
     id = 0
-    def __init__(self, engine, id, pos = MyVector(0, 0 ,0), vel = MyVector(0, 0, 0), yaw = 0):
+    def __init__(self, engine, id, pos = MyVector(0, 0 ,0), vel = MyVector(0, 0, 0), yaw = 0, team = 0):
         Entity.__init__(self, engine, id, pos = pos, vel = vel, yaw = yaw)
         print "player init"
         self.mesh = "lowWall.mesh"
@@ -376,7 +391,7 @@ class lowWall(Entity):
 
 class midWall(Entity):
     id = 0
-    def __init__(self, engine, id, pos = MyVector(0, 0 ,0), vel = MyVector(0, 0, 0), yaw = 0):
+    def __init__(self, engine, id, pos = MyVector(0, 0 ,0), vel = MyVector(0, 0, 0), yaw = 0, team = 0):
         Entity.__init__(self, engine, id, pos = pos, vel = vel, yaw = yaw)
         print "player init"
         self.mesh = "midWall.mesh"
@@ -399,7 +414,7 @@ class midWall(Entity):
 
 class postL(Entity):
     id = 0
-    def __init__(self, engine, id, pos = MyVector(0, 0 ,0), vel = MyVector(0, 0, 0), yaw = 0):
+    def __init__(self, engine, id, pos = MyVector(0, 0 ,0), vel = MyVector(0, 0, 0), yaw = 0, team = 0):
         Entity.__init__(self, engine, id, pos = MyVector(-3300, 100, 0), vel = vel, yaw = yaw)
         print "player init"
         self.mesh = "goals.mesh"
@@ -422,7 +437,7 @@ class postL(Entity):
 
 class RoofFrame(Entity):
     id = 0
-    def __init__(self, engine, id, pos = MyVector(0, 0 ,0), vel = MyVector(0, 0, 0), yaw = 0):
+    def __init__(self, engine, id, pos = MyVector(0, 0 ,0), vel = MyVector(0, 0, 0), yaw = 0, team = 0):
         Entity.__init__(self, engine, id, pos = pos, vel = vel, yaw = yaw)
         print "player init"
         self.mesh = "RoofFrame.mesh"
@@ -445,7 +460,7 @@ class RoofFrame(Entity):
 
 class stairs(Entity):
     id = 0
-    def __init__(self, engine, id, pos = MyVector(0, 0 ,0), vel = MyVector(0, 0, 0), yaw = 0):
+    def __init__(self, engine, id, pos = MyVector(0, 0 ,0), vel = MyVector(0, 0, 0), yaw = 0, team = 0):
         Entity.__init__(self, engine, id, pos = pos, vel = vel, yaw = yaw)
         print "player init"
         self.mesh = "stairs.mesh"
@@ -468,7 +483,7 @@ class stairs(Entity):
 
 class postR(Entity):
     id = 0
-    def __init__(self, engine, id, pos = MyVector(0, 0 ,0), vel = MyVector(0, 0, 0), yaw = 0):
+    def __init__(self, engine, id, pos = MyVector(0, 0 ,0), vel = MyVector(0, 0, 0), yaw = 0, team = 0):
         Entity.__init__(self, engine, id, pos = MyVector(3200, 100, 0), vel = vel, yaw = yaw)
         print "player init"
         self.mesh = "goals.mesh"

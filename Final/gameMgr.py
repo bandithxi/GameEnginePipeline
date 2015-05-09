@@ -27,7 +27,7 @@ class GameMgr:
         self.teamList = self.engine.entityMgr.entTypes
         self.chantList = self.engine.soundMgr.musicList
         self.p1Team = 0
-        self.p2Team = 0
+        self.p2Team = 4
         
         self.teamSize = 5
         self.reset = False
@@ -59,8 +59,8 @@ class GameMgr:
         x = 600
         ent = self.engine.entityMgr.createEnt(self.teamList[self.p1Team], pos = ogre.Vector3(x, 0, 0), team = 1)
         self.engine.entityMgr.selectedEntP1 = ent
-        ent.node.showBoundingBox(True)
-        
+        #ent.node.showBoundingBox(True)
+        ent.circle.show()
         x += 600
         ent = self.engine.entityMgr.createEnt(self.teamList[self.p1Team], pos = ogre.Vector3(x, 0, 600), team = 1)
         
@@ -79,7 +79,8 @@ class GameMgr:
         x = -600
         ent = self.engine.entityMgr.createEnt(self.teamList[self.p2Team], pos = ogre.Vector3(x, 0, 0), team = 2)
         self.engine.entityMgr.selectedEntP2 = ent
-        ent.node.showBoundingBox(True)
+        #ent.node.showBoundingBox(True)
+        ent.circle.show()
        
         x -= 600
         ent = self.engine.entityMgr.createEnt(self.teamList[self.p2Team], pos = ogre.Vector3(x, 0, 600), team = 2)
