@@ -57,16 +57,18 @@ class Physics:
         self.ent.heading = heading
         self.ent.deltaHeading = dHead
         
-        
-        if (self.ent.pos.y > 25.0):
-            self.ent.vel.y -= gravity
-        elif (self.ent.pos.y < 25.0):
-            if (self.ent.vel.x > 0):
-                self.ent.vel.y = -self.ent.vel.y / 2.0
-            else:
-                self.ent.vel.y = 0.0
-            self.ent.pos.y = 25.0
+        if (self.ent.mesh == "goals.mesh"):
             pass
+        else:
+            if (self.ent.pos.y > 25.0):
+                self.ent.vel.y -= gravity
+            elif (self.ent.pos.y < 25.0):
+                if (self.ent.vel.x > 0):
+                    self.ent.vel.y = -self.ent.vel.y / 2.0
+                else:
+                    self.ent.vel.y = 0.0
+                self.ent.pos.y = 25.0
+                pass
 
             
         #print self.ent.vel.y
@@ -163,7 +165,7 @@ class Physics:
                 #print "right check"
                 #print self.ent.pos.x
                 z = self.ent.pos.z
-                if (z < 2.5 * self.grassOffSet and z > -2.5 * self.grassOffSet) and self.ent.pos.y < self.grassOffSet - 50:
+                if (z < 1.7 * self.grassOffSet and z > -1.7 * self.grassOffSet) and self.ent.pos.y < self.grassOffSet - 50:
                  
                     if self.ent.engine.gameMgr.half == 1:
                         self.ent.engine.gameMgr.scoreOne+= 1
@@ -184,7 +186,7 @@ class Physics:
                         self.ent.desiredSpeed = 0
 
 
-                    if (self.ent.pos.x < -self.fieldDimenX - 1.5*self.grassOffSet): 
+                    if (self.ent.pos.x < -self.fieldDimenX + 1.5*self.grassOffSet): 
                         self.ent.pos.x = self.fieldDimenX + 1.5*self.grassOffSet
                         self.ent.speed = -self.ent.speed / 2
                         self.ent.desiredSpeed = 0
@@ -199,7 +201,7 @@ class Physics:
                 #check goal)
                 z = self.ent.pos.z
 
-                if (z < 2.5 * self.grassOffSet and z > -2.5 * self.grassOffSet) and self.ent.pos.y < self.grassOffSet - 50:
+                if (z < 1.7* self.grassOffSet and z > -1.7* self.grassOffSet) and self.ent.pos.y < self.grassOffSet - 50:
                     if self.ent.engine.gameMgr.half == 1:
                         self.ent.engine.gameMgr.scoreTwo+= 1
                     else:
@@ -229,13 +231,14 @@ class Physics:
            #         self.ent.pos.z = entity.pos.z
 
         else:
+
             if (self.ent.pos.x > self.fieldDimenX - 1.5*self.grassOffSet):
                 self.ent.pos.x = self.fieldDimenX - 1.5*self.grassOffSet
                 self.ent.speed = -self.ent.speed / 2
                 self.ent.desiredSpeed = 0
 
 
-            if (self.ent.pos.x < -self.fieldDimenX - 1.5*self.grassOffSet): 
+            if (self.ent.pos.x < -self.fieldDimenX + 1.5*self.grassOffSet): 
                 self.ent.pos.x = -self.fieldDimenX + 1.5*self.grassOffSet
                 self.ent.speed = -self.ent.speed / 2 
                 self.ent.desiredSpeed = 0

@@ -19,7 +19,7 @@ class Renderer:
         self.ent.node = self.node
         
         self.node.scale(self.ent.scale)   
-        if (self.ent.mesh == "post.mesh"):
+        if (self.ent.mesh == "goals.mesh"):
             self.ent.node.showBoundingBox(True)
 
         

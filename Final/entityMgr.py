@@ -32,7 +32,7 @@ class EntityMgr:
         self.stands = ent.Stands
         self.top = ent.TopStad
         self.lowWall = ent.lowWall
-        self.stadiumParts = [ent.Stands, ent.TopStad, ent.lowWall, ent.Entrance, ent.highWall, ent.midWall, ent.post, ent.RoofFrame, ent.stairs, ent.net]
+        self.stadiumParts = [ent.Stands, ent.TopStad, ent.lowWall, ent.Entrance, ent.highWall, ent.midWall, ent.postL, ent.RoofFrame, ent.stairs, ent.postR]
 
     def createEnt(self, entType, pos = MyVector(0,0,0), yaw = 0, team = 0):
         ent = entType(self.engine, self.nEnts, pos = pos, yaw = yaw)

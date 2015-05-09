@@ -21,7 +21,7 @@ class GameMgr:
         self.scored = False
         self.celebrating = False
 
-        self.gameTime = 600
+        self.gameTime = 0
         self.start = time.time()
        
         self.teamList = self.engine.entityMgr.entTypes
@@ -105,7 +105,7 @@ class GameMgr:
             if (self.reset):
                 self.resetPlayers()
        
-            if (self.gameTime < 1):
+            if (self.gameTime >= 5400):
                 self.gameOver()
         
         if (self.scored):
@@ -118,7 +118,7 @@ class GameMgr:
     def stop(self):
         pass
 
-    def updateTime(self):
+    def updateTimeDown(self):
         self.end = time.time()
         #print self.backCheck
         if (self.end - self.start) > 1 :
@@ -127,7 +127,17 @@ class GameMgr:
             self.gameTime-=1
             #print self.gameTime
 
+    def updateTime(self):
+        self.end = time.time()
+        #print self.backCheck
+        if (self.end - self.start) > 1 :
+            #print (self.end - self.start) 
+            self.start = self.end
+            self.gameTime += 9
+            #print self.gameTime
+
     
+
     def startGame(self):
         self.sfxMgr.stopMusic("Champions_League_theme")
 
@@ -138,7 +148,7 @@ class GameMgr:
             self.sfxMgr.playMusic(self.chantList[self.p1Team])
 
         self.sfxMgr.setVolume(5)
-        self.gameTime = 600
+        self.gameTime = 0
         self.loadTeamColors()
         self.start = time.time()
         self.engine.guiMgr.overlay.hide()
