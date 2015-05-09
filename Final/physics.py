@@ -165,7 +165,7 @@ class Physics:
                 #print "right check"
                 #print self.ent.pos.x
                 z = self.ent.pos.z
-                if (z < 1.7 * self.grassOffSet and z > -1.7 * self.grassOffSet) and self.ent.pos.y < self.grassOffSet - 50:
+                if (z < 1* self.grassOffSet and z > -1 * self.grassOffSet) and self.ent.pos.y < self.grassOffSet - 50:
                  
                     if self.ent.engine.gameMgr.half == 1:
                         self.ent.engine.gameMgr.scoreOne+= 1
@@ -201,7 +201,7 @@ class Physics:
                 #check goal)
                 z = self.ent.pos.z
 
-                if (z < 1.7* self.grassOffSet and z > -1.7* self.grassOffSet) and self.ent.pos.y < self.grassOffSet - 50:
+                if (z < 1* self.grassOffSet and z > -1* self.grassOffSet) and self.ent.pos.y < self.grassOffSet - 50:
                     if self.ent.engine.gameMgr.half == 1:
                         self.ent.engine.gameMgr.scoreTwo+= 1
                     else:
