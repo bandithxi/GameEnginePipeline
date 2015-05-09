@@ -244,8 +244,8 @@ class Physics:
                 self.ent.desiredSpeed = 0
   
 
-        if (self.ent.pos.z > self.fieldDimenZ - self.grassOffSet):
-            self.ent.pos.z = self.fieldDimenZ - self.grassOffSet
+        if (self.ent.pos.z > self.fieldDimenZ - self.grassOffSet/2):
+            self.ent.pos.z = self.fieldDimenZ - self.grassOffSet/2
             #self.ent.vel.x = 0
             self.ent.speed = -self.ent.speed / 2
             #self.ent.vel.z = -self.ent.vel.z / 2
