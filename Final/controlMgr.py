@@ -25,6 +25,8 @@ class ControlMgr:
         self.pressed = False 
         self.heldTime = 0
         self.timer = .1
+        #for select
+        self.toggle = 0.1
             
     def init(self):
         pygame.joystick.init()
@@ -102,23 +104,47 @@ class ControlMgr:
 
             #button: b
             if (self.js[i].get_button(2)):
-                #print "YOU TACKLED SUSHIL"
+                #ent = self.entityMgr.selectedEntP1
+                self.slideToggle = .5
+                if ent:
+                    ent.slide = True
+                    ent.desiredSpeed = 0
                 pass
 
+            if (not self.js[i].get_button(2)):
+                #ent = self.entityMgr.selectedEntP1
+                if ent:
+                    ent.slide = False 
+
+                if (self.slideToggle < 0.0):
+                    self.slideToggle = 0.0
+                else:
+                    self.slideToggle -= dt
+
             #button: select
-            if (self.js[i].get_button(8)):
-                #print "select"
-                pass
+            if self.toggle >=0:
+                self.toggle -= dt
+            #selectedEntIndex = self.engine.entityMgr.selectedEntIndex
+            #print "selected: ", str(selectedEntIndex)
+            if self.toggle < 0 and self.js[i].get_button(8):
+                self.toggle = 0.4
+                #print "tab test"
+                if (i==1):
+                    self.engine.selectionMgr.selectNextEnt(2)
+                else:
+                    self.engine.selectionMgr.selectNextEnt(1)                
+                    #pass
 
             #button: start
             if (self.js[i].get_button(9)):
-                #print "start"
-                pass
+                if (self.timer < 0.0):
 
+                    self.engine.paused = not self.engine.paused
 
-            #for button_index in range(buttons):
-            #    button = self.js[i].get_button(button_index)
-            #    print button_index, button
+                    self.timer = .5
+                else:
+                    self.timer -= dt
+                    pass
 
         if not self.p1UseJoystick:
             if self.Keyboard.isKeyDown(OIS.KC_NUMPAD8) or self.Keyboard.isKeyDown(OIS.KC_I):
@@ -169,28 +195,18 @@ class ControlMgr:
                 pass
 
             if self.Keyboard.isKeyDown(OIS.KC_M):
-                
                 ent = self.entityMgr.selectedEntP1
-    
                 self.slideToggle = .5
-                    
                 if ent:
                     ent.slide = True
                     ent.desiredSpeed = 0
                     
             if self.Keyboard.isKeyDown(OIS.KC_N):
-
                 if (self.timer < 0.0):
-
                     self.engine.paused = not self.engine.paused
-
                     self.timer = .5
                 else:
                     self.timer -= dt
-            
-                
-
-
 
 
             if not self.Keyboard.isKeyDown(OIS.KC_M):
@@ -202,7 +218,6 @@ class ControlMgr:
                 if (self.slideToggle < 0.0):
                     self.slideToggle = 0.0
                 else:
-
                     self.slideToggle -= dt
 
 
