@@ -3,6 +3,7 @@
 import ogre.renderer.OGRE as ogre
 import math
 import utils
+import random as rand
 class Action:
     def __init__(self, ent, targetLoc = ogre.Vector3( 0.0, 0.0, 0.0 )):
         self.ent = ent
@@ -26,17 +27,35 @@ class GoHome(Action):
         if self.ent.aspects[2].ActionList:
             self.ent.aspects[2].ActionList.pop(0)
 
+class TrackBall(Action):
+    def __init__(self, ent, targetEnt):
+
+        Action.__init__(self, ent)
+        self.targetEnt = targetEnt
+        pass
+
+    def tick(self, dt):
+        self.ent.pos.z = self.targetEnt.pos.z + rand.randint(-25, 25)
+        #print "here"
+
+        if self.ent.aspects[2].ActionList:
+            self.ent.aspects[2].ActionList.pop(0)
+
+
     
 class Move( Action ):
     def __init__(self, ent, targetLoc):
         Action.__init__(self, ent, targetLoc)
 
     def tick(self, dt):
-        if not targetLoc:
+        if not self.targetLoc:
             return 
         diffZ = self.targetLoc.z - self.ent.pos.z
         diffX = self.targetLoc.x - self.ent.pos.x
-        
+        print "z", diffZ
+        print "x", diffX
+
+
         self.distance = math.sqrt(diffZ**2 + diffX**2)
         if self.distance > 5:
             self.ent.desiredHeading = -math.atan2(diffZ, diffX)

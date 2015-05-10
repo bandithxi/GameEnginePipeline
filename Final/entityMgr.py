@@ -14,6 +14,8 @@ class EntityMgr:
 
         self.selectedEntP1 = None
         self.selectedEntP2 = None
+        self.GKP1 = None
+        self.GKP2 = None
 
         self.selectedEnt = None
         

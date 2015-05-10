@@ -69,6 +69,8 @@ class GameMgr:
         ent = self.engine.entityMgr.createEnt(self.teamList[self.p1Team], pos = ogre.Vector3(x, 0, 0), team = 1)
         x += 600
         ent = self.engine.entityMgr.createEnt(self.teamList[self.p1Team], pos = ogre.Vector3(x, 0, 0), team = 1)
+
+        self.engine.entityMgr.GKP1 = ent
         
         for en in self.engine.entityMgr.team1.values():
             en.desiredHeading = 180
@@ -90,7 +92,9 @@ class GameMgr:
         ent = self.engine.entityMgr.createEnt(self.teamList[self.p2Team], pos = ogre.Vector3(x, 0, 0), team = 2)
         x -= 600
         ent = self.engine.entityMgr.createEnt(self.teamList[self.p2Team], pos = ogre.Vector3(x, 0, 0), team = 2)
-        
+       
+
+        self.engine.entityMgr.GKP2 = ent        
 
     def loadStad(self):
         self.engine.entityMgr.createStad()
@@ -106,7 +110,7 @@ class GameMgr:
             if (self.reset):
                 self.resetPlayers()
        
-            if (self.gameTime >= 5400):
+            if (self.gameTime >= 54):
                 self.gameOver()
         
         if (self.scored):
