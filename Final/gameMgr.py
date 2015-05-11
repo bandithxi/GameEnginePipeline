@@ -110,7 +110,7 @@ class GameMgr:
             if (self.reset):
                 self.resetPlayers()
        
-            if (self.gameTime >= 40):
+            if (self.gameTime >= 5400):
                 self.gameOver()
         
         if (self.scored):
@@ -188,7 +188,7 @@ class GameMgr:
         #show pause menu
 
         #go to main menu if exit game
-        if (self.gameTime >= 65):
+        if (self.gameTime >= 5415):
             self.engine.guiMgr.playerTwoWin.hide()
             self.engine.guiMgr.playerOneWin.hide()
             self.engine.guiMgr.tieGame.hide()
