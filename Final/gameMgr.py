@@ -27,7 +27,7 @@ class GameMgr:
         self.teamList = self.engine.entityMgr.entTypes
         self.chantList = self.engine.soundMgr.musicList
         self.p1Team = 0
-        self.p2Team = 4
+        self.p2Team = 0
         
         self.teamSize = 5
         self.reset = False
@@ -110,7 +110,7 @@ class GameMgr:
             if (self.reset):
                 self.resetPlayers()
        
-            if (self.gameTime >= 54):
+            if (self.gameTime >= 40):
                 self.gameOver()
         
         if (self.scored):
@@ -148,11 +148,11 @@ class GameMgr:
 
         if (self.engine.aiMgr.simpleAI):
              self.sfxMgr.playMusic("Benny_Hill")
-             self.sfxMgr.setVolume(50)
+             self.sfxMgr.setVolume(100)
         else:
             self.sfxMgr.playMusic(self.chantList[self.p1Team])
 
-        self.sfxMgr.setVolume(5)
+        #self.sfxMgr.setVolume(5)
         self.gameTime = 0
         self.loadTeamColors()
         self.start = time.time()
@@ -176,12 +176,27 @@ class GameMgr:
 
         #declare winner 
 
+        if ( self.scoreOne > self.scoreTwo):
+                self.engine.guiMgr.playerOneWin.show()
+        elif ( self.scoreTwo > self.scoreOne ):
+                self.engine.guiMgr.playerTwoWin.show()
+        else:
+                self.engine.guiMgr.tieGame.show()
+
         #pause game 
 
         #show pause menu
 
         #go to main menu if exit game
-        self.mainMenu()
+        if (self.gameTime >= 65):
+            self.engine.guiMgr.playerTwoWin.hide()
+            self.engine.guiMgr.playerOneWin.hide()
+            self.engine.guiMgr.tieGame.hide()
+            
+            self.engine.soundMgr.stopMusic("Benny_Hill")
+            self.startCheck = False
+            self.mainMenu()
+            
 
         #restart if restart
         #self.startCheck = True
@@ -208,6 +223,8 @@ class GameMgr:
     def mainMenu(self):
         self.engine.guiMgr.overlay.show()
         self.engine.guiMgr.hud2.hide()
+        self.sfxMgr.playMusic("Champions_League_theme")
+        self.sfxMgr.setVolume(100)
         pass
         ## Code to load sound here
 

@@ -203,6 +203,79 @@ material Examples/Hud
 	}
 }
 
+material p1Win
+{
+	technique
+	{
+		pass
+		{
+		        lighting off
+		        scene_blend alpha_blend
+			depth_check off
+
+			texture_unit
+			{
+				texture player1.png
+			}
+		}
+	}
+}
+
+material pausePanel
+{
+	technique
+	{
+		pass
+		{
+		        lighting off
+		        scene_blend alpha_blend
+			depth_check off
+
+			texture_unit
+			{
+				texture Pause.png
+			}
+		}
+	}
+}
+
+material p2Win
+{
+	technique
+	{
+		pass
+		{
+		        lighting off
+		        scene_blend alpha_blend
+			depth_check off
+
+			texture_unit
+			{
+				texture player2.png
+			}
+		}
+	}
+}
+
+material tie
+{
+	technique
+	{
+		pass
+		{
+		        lighting off
+		        scene_blend alpha_blend
+			depth_check off
+
+			texture_unit
+			{
+				texture tie.png
+			}
+		}
+	}
+}
+
+
 material Ball
 {
     receive_shadows on 

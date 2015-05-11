@@ -117,6 +117,11 @@ class InputMgr(OIS.KeyListener, OIS.MouseListener):
         if self.keyboard.isKeyDown(OIS.KC_PGDOWN):
             self.transVector.y -= self.move
 
+        if self.keyboard.isKeyDown(OIS.KC_7):
+            #print "yeyo"
+            self.engine.aiMgr.simpleAI = False
+        
+
 
         self.shiftKeyDown = self.keyboard.isKeyDown(OIS.KC_LSHIFT)
 

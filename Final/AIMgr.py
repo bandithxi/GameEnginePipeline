@@ -20,6 +20,7 @@ class AIMgr:
         if (self.simpleAI):
             self.BennyHillAI()
         else :
+            self.BennyHillAI()
             pass
         pass
 

@@ -524,6 +524,37 @@ class GuiMgr:
         self.hudPanel.setMaterialName( "Examples/Hud" )
 
 
+        # Player 1 Win Message
+        self.p1Win = self.overlayMgr.createOverlayElement( "Panel", "P1-Win" )
+        self.p1Win.setPosition( 0, 0 )
+        self.p1Win.setDimensions( 1, 1)
+        self.p1Win.setMaterialName( "p1Win" )
+        self.hud2.add2D( self.p1Win )
+
+        self.playerOneWin = self.overlayMgr.getOverlayElement( "P1-Win" )
+        self.playerOneWin.hide()
+
+        # PlayerTie Message
+        self.tie = self.overlayMgr.createOverlayElement( "Panel", "Tie" )
+        self.tie.setPosition( 0, 0 )
+        self.tie.setDimensions( 1, 1)
+        self.tie.setMaterialName( "tie" )
+        self.hud2.add2D( self.tie )
+
+        self.tieGame = self.overlayMgr.getOverlayElement( "Tie" )
+        self.tieGame.hide()
+
+        # Player 2 Win Message
+        self.p2Win = self.overlayMgr.createOverlayElement( "Panel", "P2-Win" )
+        self.p2Win.setPosition( 0, 0 )
+        self.p2Win.setDimensions( 1, 1)
+        self.p2Win.setMaterialName( "p2Win" )
+        self.hud2.add2D( self.p2Win )
+
+        self.playerTwoWin = self.overlayMgr.getOverlayElement( "P2-Win" )
+        self.playerTwoWin.hide()
+
+
         # Team One
         self.text = self.hudMgr.createOverlayElement( "TextArea", "Team Name One" )
         self.text.setPosition( .125, .07 )
@@ -590,6 +621,7 @@ class GuiMgr:
     def tick(self, dt): 
         self.updateTime()
         self.updateScore()
+	self.updateTeam()
 
         if self.engine.gameMgr.teamCheck == True and self.engine.gameMgr.startCheck == False:
             #self.teamSelect = True
@@ -698,12 +730,12 @@ class GuiMgr:
         
     def updateScore(self):
         score = str(self.engine.gameMgr.scoreOne)
-        self.text = self.hudMgr.getOverlayElement("Score - Team Two")
+        self.text = self.hudMgr.getOverlayElement("Score - Team One")
         self.text.setCaption(score)
 
         
         score = str(self.engine.gameMgr.scoreTwo)
-        self.text = self.hudMgr.getOverlayElement("Score - Team One")
+        self.text = self.hudMgr.getOverlayElement("Score - Team Two")
         self.text.setCaption(score)
    
     def updateTime(self): 
@@ -715,3 +747,37 @@ class GuiMgr:
         time = str(self.engine.gameMgr.gameTime / 60) + ":" + str (tempTime) 
         self.text = self.hudMgr.getOverlayElement("Time")
         self.text.setCaption(time)
+
+    def updateTeam(self):
+
+        if  self.engine.gameMgr.p1Team == 0:
+                name = "Sushil"
+        elif  self.engine.gameMgr.p1Team == 1: 
+                name = "BVB"
+        elif  self.engine.gameMgr.p1Team == 2: 
+                name = "Arsenal"
+        elif  self.engine.gameMgr.p1Team == 3: 
+                name = "Chelsea"
+        elif  self.engine.gameMgr.p1Team == 4:
+                name = "Egbert"
+        else:
+                name = "ERROR"
+
+        self.text = self.hudMgr.getOverlayElement("Team Name One")
+        self.text.setCaption(name)
+
+        if  self.engine.gameMgr.p2Team == 0:
+                name = "Sushil"
+        elif  self.engine.gameMgr.p2Team == 1: 
+                name = "BVB"
+        elif  self.engine.gameMgr.p2Team == 2: 
+                name = "Arsenal"
+        elif  self.engine.gameMgr.p2Team == 3: 
+                name = "Chelsea"
+        elif  self.engine.gameMgr.p2Team == 4:
+                name = "Egbert"
+        else:
+                name = "ERROR"
+
+        self.text = self.hudMgr.getOverlayElement("Team Name Two")
+        self.text.setCaption(name)

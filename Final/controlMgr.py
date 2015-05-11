@@ -174,8 +174,7 @@ class ControlMgr:
             else:
             #print "Here5"
                 pass
-          
-        
+       
     def handleJoystickController(self, dt, ent, js):
         buttons = js.get_numbuttons()
         axis = js.get_numaxes()

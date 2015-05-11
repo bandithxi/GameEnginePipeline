@@ -39,6 +39,7 @@ class SoundMgr:
     def playACelebration(self):
         songNum = rand.randint(0, self.celebrationNum)
         self.playMusic(self.celebrationList[songNum], 0)
+        self.musicVolume = 100
 
     def soundBusy(self):
         return pygame.mixer.get_busy()

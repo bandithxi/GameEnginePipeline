@@ -27,14 +27,11 @@ class SelectionMgr:
         selectedEntIndex = self.engine.entityMgr.selectedEntIndex
         #print "selected: ", str(selectedEntIndex)
 
+
         if self.toggle < 0 and self.keyboard.isKeyDown(OIS.KC_TAB):
             self.toggle = 0.4
             #print "tab test"
-
-            if self.keyboard.isKeyDown(OIS.KC_LSHIFT):
-                self.selectNextEnt(2)
-            else:
-                self.selectNextEnt(1)
+            self.selectNextEnt(2)
 
             # ent = self.engine.entityMgr.selectedEnt
             # ent.node.showBoundingBox(False)
